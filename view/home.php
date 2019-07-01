@@ -1,8 +1,9 @@
-<?php $title = 'Mon joli coccon'; ?>
+<?php $title = 'Mon joli cocon'; ?>
     
 <?php ob_start(); ?>
 
-    
+<?php require("menu.php"); ?>
+   
 <section>
     <div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
         <ol class="carousel-indicators" id="carousel-indicators">
@@ -39,7 +40,7 @@
                 <p class="card-text"></p>
                 <a class="dropdown-item" href="#">Découvrir</a>
             </div>
-            <img src="public/images/caisses/caisse1.jpg" class="card-img-top" alt="...">
+            <img src="public/images/crates/crates1.jpg" class="card-img-top" alt="...">
         </div>
         <div class="card">
             <div class="card-body">
@@ -60,7 +61,9 @@
     </div>
 </section>
 
+
 <?php $content = ob_get_clean(); ?>
 
 <?php require('template.php') ?>
 
+<?php require("footer.php"); ?>

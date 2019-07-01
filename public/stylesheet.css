@@ -1,7 +1,12 @@
-                                /*HEADER*/
+                                                     /*HEADER*/
  
 .logoHeader{
     text-align: center;
+}
+.titleLogo{
+    text-align: center;
+    margin-top:30px;
+    margin-bottom: 50px;
 }
 .imageHeader{
     width: 20%;
@@ -17,7 +22,10 @@
     padding-right: 50px;
     padding-left: 50px;
 }
-                                /*SLIDER*/
+                                                   
+
+
+                                                     /*SLIDER*/
 .carousel{
     text-align: center;
     top:50px;
@@ -38,10 +46,6 @@
 
                                                     /* CONTACT */
 
-
-#imageHeaderContact{
-    width: 15%;
-}
 #contact{
     text-align: center;
 }
@@ -57,14 +61,56 @@
 #submitContact{
     margin-top: 64px;
 }
+#submitHome {
+    margin-top: 64px;
+    margin-left: 100px;
+}
+#imgConcept{
+    width:20%;
+}
                                                     /* ABOUT */
-
-#cardImage2{
-    width: 35%;
+#imgAbout{
+    position: absolute;
+    width: 7%;
+    top: -21px;
+    left: 20px;
+}
+#aboutImage1{
+    width: 40%;
+    border-radius: 50%;
+    margin-top: 50px;
+}
+#submitHomeAbout{
+    right: 200px;
+    position: absolute;
 }
                                                     /*CONCEPT*/
-#imageHeaderConcept {
-    width: 15%;
+#titleConcept{
+    text-align: center;
+}
+#imgConcept{
+    position: absolute;
+    width: 7%;
+    top: -21px;
+    left: 20px;
+}
+#conceptImage1 {
+    width: 20%;
+    border-radius: 50%;
+    margin-top: 50px;
+}
+#submitConcept{
+    position: absolute;
+    right: 400px;
+}
+                                                    /*PAINTING*/
+.logo{
+       position: relative;
+    float: left;
+}
+#imgPainting{
+   
+     width: 7%;
 }
                                                     /*FOOTER*/
 footer {
