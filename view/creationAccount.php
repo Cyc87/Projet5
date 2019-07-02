@@ -9,25 +9,25 @@
         <form action="index.php?action=creationAccount" method="post" id="formAccount">
 
             <div class="form-group">
-                <label for="inputNom" id="labelAccountName">Nom</label>
+                <label for="inputNom">Nom</label>
                 <input type="text" class="form-control" placeholder="Nom" name="nom" value="<?php if (isset($name) and !empty($name)) {
                                                                                                 echo $name;
                                                                                             } ?>">
             </div>
             <div class="form-group">
-                <label for="inputPassword" id="labelAccountMdp">Mot de passe</label>
+                <label for="inputPassword">Mot de passe</label>
                 <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="password1" value="<?php if (isset($password1)) {
                                                                                                                                     echo $password1;
                                                                                                                                 } ?>">
             </div>
             <div class="form-group">
-                <label for="inputPassword1" id="labelAccountMdp2">Confirmation mot de passe</label>
+                <label for="inputPassword1">Confirmation mot de passe</label>
                 <input type="password" class="form-control" id="inputPassword1" placeholder="Password" name="password2" value="<?php if (isset($password2)) {
                                                                                                                                     echo $password2;
                                                                                                                                 } ?>">
             </div>
             <div class="form-group">
-                <label for="inputEmail1" id="labelAccountMail">Adresse mail</label>
+                <label for="inputEmail1">Adresse mail</label>
                 <input type="email" class="form-control" id="inputEmail1" aria-describedby="emailHelp" placeholder="Entrez email" name="mail" value="<?php if (isset($mail)) {
                                                                                                                                                             echo $mail;
                                                                                                                                                         } ?>">

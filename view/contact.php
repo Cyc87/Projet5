@@ -40,16 +40,17 @@
             <button name="sendMail" style="color:black;text-decoration:none;">ENVOYER</button>
         </div>
     </form>
-</section>
     <?php
         if(isset($_SESSION['message'])){
     ?>
-    <div class="alert alert-<?=$_SESSION['msg_type'] ?>">
+    <div class="alert alert-<?=$_SESSION['msg_type'] ?>" style="height:50px;top:30px;left:50px;">
     <?php
         echo $_SESSION['message'];
         unset($_SESSION['message']);
         }
     ?>
+</section>
+    
 <?php $content = ob_get_clean(); ?>
 
 <?php require('template.php') ?>
