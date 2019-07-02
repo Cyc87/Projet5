@@ -3,9 +3,7 @@
 <?php ob_start(); ?>
 
 <?php require("menu.php"); ?>        
-<section>
-    
-</section>
+
 
     
 <?php $content = ob_get_clean(); ?>

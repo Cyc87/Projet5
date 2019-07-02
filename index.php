@@ -2,13 +2,23 @@
     
     session_start();
 
+    require "model/entities/Account.php";
+    require "model/managers/AccountManager.php";
+
     require "controller/backEndController.php";
 
         if(isset($_GET['action'])){
             if($_GET['action'] == "home"){
                 home();
-            }
-            else if($_GET['action'] == "contact"){
+            }else if($_GET['action'] == "login"){
+                login();
+            }else if($_GET['action'] == "admin"){
+                admin();
+            }else if($_GET['action'] == "deconnexion"){
+                deconnexion();
+            }else if($_GET['action'] == "creationAccount"){
+                creationAccount();
+            }else if($_GET['action'] == "contact"){
                 contact();  
             }else if($_GET['action'] == "about"){
                 about();

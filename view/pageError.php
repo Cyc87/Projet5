@@ -4,7 +4,7 @@
 
     <section>
         <picture>
-            <a href="index.php?action=home"><img src="public/images/2.jpg" class="img-fluid2" alt="Responsive image"></a>
+            <a href="index.php?action=home"><img src="public/images/2.jpg" class="img-fluid2" alt="Responsive image" style="width:100%"></a>
         </picture>  
     </section>
 

@@ -23,7 +23,7 @@
             <p class="card-text">monjolicocon@hotmail.com</p>
         </div>
     </div>
-    <form method="post" action="contact.php">
+    <form method="post" action="index.php?action=contact">
         <div class="form-group">
             <label>Votre nom</label>
             <input name="name" type="text" class="form-control"value="<?php if(isset($_POST['name'])) { echo $_POST['name']; } ?>" >
@@ -36,15 +36,22 @@
             <label>Votre message</label>
             <textarea name="message" class="form-control" rows="3" ><?php if(isset($_POST['message'])) { echo $_POST['message']; } ?></textarea>
         </div>
-        <div class="form-check">
-            <input name="checkInput"class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-            J'ai lu et accepté la <a href="#">Politique de confidentialité</a>
-            </label>
+        <div class="send" style="margin-top:50px">
+            <button name="sendMail" style="color:black;text-decoration:none;">ENVOYER</button>
         </div>
-        <a id="submitContact" type="submit" href="index.php?action=home" class="btn btn-info">ENVOYER</a>
-        <a id="submitHome" type="submit" href="index.php?action=home" class="btn btn-info">Retour à l'accueil</a>
     </form>
-
+</section>
+    <?php
+        if(isset($_SESSION['message'])){
+    ?>
+    <div class="alert alert-<?=$_SESSION['msg_type'] ?>">
+    <?php
+        echo $_SESSION['message'];
+        unset($_SESSION['message']);
+        }
+    ?>
 <?php $content = ob_get_clean(); ?>
 
-<?php require('template.php') ?>                   
+<?php require('template.php') ?>
+
+<?php require("footer.php"); ?>

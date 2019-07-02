@@ -1,4 +1,8 @@
-                                                     /*HEADER*/
+html{
+        font-family: Impact, "Arial Black", Arial, Verdana, sans-serif;
+}
+
+                                            /*HEADER*/
  
 .logoHeader{
     text-align: center;
@@ -43,7 +47,6 @@
 #nextSlider {
     right: 305px;
 }
-
                                                     /* CONTACT */
 
 #contact{

@@ -1,3 +1,5 @@
+
+
 <?php $title = 'Mon joli cocon'; ?>
     
 <?php ob_start(); ?>
@@ -34,33 +36,33 @@
 </section>   
 <section>
     <div class="card-deck" style="width: 75%; margin: auto; margin-top:200px; text-align: center;">
-        <div class="card">   
-            <div class="card-body">
-                <h5 class="card-title">Mes jolies caisses</h5>
-                <p class="card-text"></p>
-                <a class="dropdown-item" href="#">Découvrir</a>
-            </div>
-            <img src="public/images/crates/crates1.jpg" class="card-img-top" alt="...">
+        <div class="card">
+            <a href="" style="text-decoration:none">   
+                <div class="card-body">
+                    <h5 class="card-title" style="color:black">Mes jolies caisses</h5>
+                </div>
+                <img src="public/images/crates/crates1.jpg" class="card-img-top" alt="..." style="height:556px">
+            </a>
+        </div>
+
+        <div class="card">
+            <a href=""style="text-decoration:none" >
+                <div class="card-body">
+                    <h5 class="card-title" style="color:black">Mes jolies meubles</h5>
+                </div>
+                <img src="public/images/meubles/meuble1.jpg" class="card-img-top" alt="..." style="height:556px">
+            </a>
         </div>
         <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Mes jolies meubles</h5>
-                <p class="card-text"></p>
-                <a class="dropdown-item" href="#">Découvrir</a>
-            </div>
-            <img src="public/images/meubles/meuble1.jpg" class="card-img-top" alt="...">
-        </div>
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Mes jolies décos</h5>
-                <p class="card-text"></p>
-                <a class="dropdown-item" href="#">Découvrir</a>
-            </div>
-            <img src="public/images/deco/deco1.jpg" class="card-img-top" alt="...">
+            <a href="" style="text-decoration:none"  >
+                <div class="card-body">
+                    <h5 class="card-title" style="color:black">Mes jolies décos</h5>
+                </div>
+                <img src="public/images/deco/deco1.jpg" class="card-img-top" alt="..." style="height:556px" >
+            </a>
         </div>
     </div>
 </section>
-
 
 <?php $content = ob_get_clean(); ?>
 
