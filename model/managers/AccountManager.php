@@ -25,6 +25,7 @@
             ));
             $data = $req ->fetch(PDO::FETCH_ASSOC);
             return $data;
+            
         }
         public function addAccountCreation(AccountCreation $users){
             $req = $this->_db->prepare("INSERT INTO users(username, password1, mail, dateCreation) VALUES (?,?,?,NOW())");

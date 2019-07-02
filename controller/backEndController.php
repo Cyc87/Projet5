@@ -11,7 +11,9 @@ function login(){
         exit();
     }
     if (!empty($_POST)) {
+
             $name="";
+
             $accountManager = new AccountManager();       
             $data = $accountManager->getByUserName($name);
          

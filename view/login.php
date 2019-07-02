@@ -14,7 +14,7 @@
                     </div>
                     <div class="form-group">
                         <label for="label"></label>
-                        <input type="password" class="form-control" name="usernameAdmin" placeholder="Password" required="">
+                        <input type="password" class="form-control" name="password" placeholder="Password" required="">
                     </div>
                 </ul>
                 <div class="card-body">
