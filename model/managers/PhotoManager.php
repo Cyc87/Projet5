@@ -11,13 +11,28 @@
             }
         }
         public function addPhotoCreation(PhotoCreation $images){
-            $req = $this->_db->prepare("INSERT IGNORE INTO images(namePhoto,dateCreationPhoto) VALUES (?,NOW())");
+            $req = $this->_db->prepare("INSERT  INTO images(namePhoto,dateCreationPhoto) VALUES (?,NOW())");
             $req->execute(array(
                 $images->namePhoto(),
             ));
             $data = $req ->fetch(PDO::FETCH_ASSOC);
             return $data;
-            
+        }
+        public function readAllImage(){
+            $req = $this->_db->query('SELECT * FROM images ORDER BY dateCreationPhoto');
+            $readImages = [];
+            while ($data = $req->fetch(PDO::FETCH_ASSOC))
+            {
+                $readImages[] = new PhotoCreation($data);
+            }
+            return $readImages;
+        }
+        public function deleteImage(){
+
+            $req = $this->_db->prepare("DELETE FROM  WHERE id = ?");
+            $req->execute(array(
+                $id,
+            ));
         }
     }
 ?>
