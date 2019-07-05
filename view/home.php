@@ -15,14 +15,14 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="public/images/slider/slider1.jpg" class=" w-50 " alt="">
+                <img src="public/images/slider/slider1.jpg" class="w-50" alt="">
             </div>
             <div class="carousel-item">
-                <img src="public/images/slider/slider2.jpg" class=" w-50" alt="">   
+                <img src="public/images/slider/slider2.jpg" class="w-50" alt="">   
             </div>
             <div class="carousel-item">
-                <img src="public/images/slider/slider3.jpg" class=" w-50" alt="">   
-            </div>
+                <img src="public/images/slider/slider3.jpg" class="w-50" alt="">   
+            </div> 
         </div>
         <a class="carousel-control-prev" id="prevSlider" href="#carousel" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>

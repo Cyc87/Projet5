@@ -5,6 +5,10 @@
     require "model/entities/Account.php";
     require "model/managers/AccountManager.php";
 
+    require "model/entities/Photo.php";
+    require "model/managers/PhotoManager.php";
+
+
     require "controller/backEndController.php";
 
         if(isset($_GET['action'])){
@@ -14,6 +18,8 @@
                 login();
             }else if($_GET['action'] == "admin"){
                 admin();
+            }else if($_GET['action'] == "photoManagement"){
+                photoManagement();
             }else if($_GET['action'] == "deconnexion"){
                 deconnexion();
             }else if($_GET['action'] == "creationAccount"){

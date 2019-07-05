@@ -53,6 +53,52 @@ function deconnexion(){
     exit();  
     include("view/deconnexion.php");
 }
+function photoManagement(){
+    
+        if(!empty($_FILES['userfile'])){
+            
+            $phpFileUploadErrors = array(
+                0 => 'There is no error, the file uploaded with success',
+                1 => 'The uploaded file exceeds the upload_max_filesize directive in php.ini',
+                2 => 'The uploaded file exceeds the the MAX_FILE_SIZE directive that was specified in the html form',
+                3 => 'The uploaded file exceeds was only partially upload',
+                4 => 'No file was uploaded',
+                5 => 'Missing a tempory folder',
+                6 => 'Failed to write file to disk',
+                7 => 'A PHP extension stopped the file upload',
+            );
+
+            $ext_error = false;
+            
+            $extension = array('jpg', 'jepg', 'png', 'gif');
+            $file_ext = explode('.',$_FILES['userfile']['name']);
+            $file_ext[0];
+            $file_ext = end($file_ext);
+            
+            if(!in_array($file_ext, $extension)){
+                $ext_error = true;
+            }
+            if($_FILES['userfile']['error']){
+                $_SESSION['message'] = $phpFileUploadErrors[$_FILES['userfile']['error']];
+                $_SESSION['msg_type'] = "danger";
+            }
+            $img_dir = 'uploads/'.$_FILES['userfile']['name'];
+            
+            move_uploaded_file($_FILES['userfile']['tmp_name'],$img_dir);
+            
+            $images = new PhotoCreation([
+                "namePhoto" => $img_dir,
+            ]);
+            $photoManager = new PhotoManager();
+            $photoManager->addPhotoCreation($images);
+            $_SESSION['message'] = "Votre image est enregistrée !";
+            $_SESSION['msg_type'] = "success";
+            header('Location: index.php?action=photoManagement');
+            exit();
+        }
+   
+    include("view/photoManagement.php");
+}
 function creationAccount(){
 
     if(!isset($_SESSION['user'])){

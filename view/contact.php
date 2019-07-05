@@ -23,7 +23,7 @@
             <p class="card-text">monjolicocon@hotmail.com</p>
         </div>
     </div>
-    <form method="post" action="index.php?action=contact">
+    <form method="post" action="index.php?action=contact" style="margin-left: -120px;">
         <div class="form-group">
             <label>Votre nom</label>
             <input name="name" type="text" class="form-control"value="<?php if(isset($_POST['name'])) { echo $_POST['name']; } ?>" >
