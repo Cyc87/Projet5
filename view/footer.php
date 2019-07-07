@@ -1,6 +1,6 @@
-<footer class="page-footer font-small cyan darken-3">
+<footer class="page-footer font-small cyan darken-3" style=" margin-top: 50px;">
     <div class="card-body text-center">
-        <h5 class="card-title" >Liens utiles</h5>
+        <h5 class="card-title">Liens utiles</h5>
         <a href="#" style="padding: 0 10px;color:#025a55;">Mentions légales</a>
         <a href="index.php?action=contact" style="padding: 0 10px;color:#025a55;">Me contacter</a>
         <a href="index.php?action=login" style="padding: 0 10px;color:#025a55;">Admin</a>
@@ -22,7 +22,7 @@
             </div>
         </div>
     </div>
-    <div class="footer-copyright text-center py-3" >© 2019 Copyright:
+    <div class="footer-copyright text-center py-3">© 2019 Copyright:
         <a href="#" style="color:#025a55"> cyc-developpement.fr</a>
     </div>
 </footer>

@@ -115,7 +115,13 @@ html{
    
      width: 7%;
 }
-                                      /*FOOTER*/
+                                                     /*FOOTER*/
 footer {
     margin-top: 120px;
+}
+                                                    /*INSTAGRAM*/
+
+.cardInstagram{
+    position: relative;
+    text-align: center;
 }

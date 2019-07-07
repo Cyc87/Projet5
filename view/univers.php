@@ -18,11 +18,10 @@
             </div>
         </div>    
         <div class=" text-center">
-            <img src="public/images/meubles/meuble1.jpg" class="card-img-top" id="conceptImage1"alt="">
+            <img src="public/images/meubles/meuble1.jpg" class="card-img-top" id="conceptImage1" alt="">
         </div>
     </section>
 <?php $content = ob_get_clean(); ?>
 
 <?php require('template.php') ?>
-
-<?php require('footer.php') ?>
+<?php require("footer.php"); ?>

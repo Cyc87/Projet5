@@ -17,9 +17,10 @@
             ));
             $data = $req ->fetch(PDO::FETCH_ASSOC);
             return $data;
+            
         }
         public function readAllImage(){
-            $req = $this->_db->query('SELECT * FROM images ORDER BY dateCreationPhoto');
+            $req = $this->_db->query('SELECT * FROM images ORDER BY dateCreationPhoto DESC ');
             $readImages = [];
             while ($data = $req->fetch(PDO::FETCH_ASSOC))
             {
@@ -27,11 +28,30 @@
             }
             return $readImages;
         }
-        public function deleteImage(){
-
-            $req = $this->_db->prepare("DELETE FROM  WHERE id = ?");
+        public function deletePhoto($id){
+            $req = $this->_db->prepare("DELETE FROM images WHERE id = ?");
             $req->execute(array(
                 $id,
+            ));
+        }
+        public function editPhoto($id){
+            $req = $this->_db->prepare('SELECT * FROM images WHERE id = ?');
+            $req->execute(array(
+                $id
+            ));
+            $photoEdit = [];
+            while ($data = $req->fetch(PDO::FETCH_ASSOC))
+            {
+                $photoEdit[] = new PhotoCreation($data);
+            }
+            return $photoEdit;
+        }
+        public function updatePhoto(PhotoCreation $updatePhoto){
+            
+            $req = $this->_db->prepare("UPDATE images SET namePhoto = :namePhoto  WHERE id = :id");
+            $req->execute(array(
+                "namePhoto" => $updatePhoto->namePhoto(),
+                "id" => $updatePhoto->id()
             ));
         }
     }

@@ -46,7 +46,7 @@
         </div>
 
         <div class="card">
-            <a href=""style="text-decoration:none" >
+            <a href="" style="text-decoration:none" >
                 <div class="card-body">
                     <h5 class="card-title" style="color:black">Mes jolies meubles</h5>
                 </div>
@@ -63,10 +63,14 @@
         </div>
     </div>
 </section>
-
+<section>    
+    <div class="cardInstagram">
+        <h3 class="card-title " style="color:black ;text-align:center; margin-top:50px;margin-bottom:50px">Suivez-moi sur Instagram</h3>
+    
+    </div>   
+</section>
 <?php $content = ob_get_clean(); ?>
 
 <?php require('template.php') ?>
-
 <?php require("footer.php"); ?>
 

@@ -1,7 +1,7 @@
 <header>
     <section class="logoHeader">
         <div>
-            <img class="imageHeader" src="public/images/Mon joli cocon.png" alt="">   
+            <img class="imageHeader" src="public/images/logo.png" alt="">   
         </div>
     </section>
     <section>
@@ -19,7 +19,7 @@
                 <a class="navbar-brand mx-auto" href="index.php?action=home">Home</a>
                 <ul class="navbar-nav mr-auto"> 
                     <li class="nav-item dropdown">
-                        <a class="nav-link mx-auto" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link mx-auto" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             MES JOLIES CAISSES
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -30,7 +30,7 @@
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link mx-auto" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link mx-auto" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             MES JOLIS MEUBLES
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -44,7 +44,7 @@
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link mx-auto" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link mx-auto" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             MES JOLIES PRESTATIONS
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -55,7 +55,7 @@
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link mx-auto" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link mx-auto" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             MA JOLIE HISTOIRE
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -66,9 +66,8 @@
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0 mx-auto ">
-                    <input class="search_query form-control" type="search" aria-label="Search" placeholder="Recherche">
+                    <input  name="search" class="search_query form-control" type="search" aria-label="Search" placeholder="Recherche">
                 </form>
-                
             </div>
         </nav>
     </section>

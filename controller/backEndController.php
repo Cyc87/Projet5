@@ -51,47 +51,129 @@ function deconnexion(){
     
     header('Location: index.php?action=home');
     exit();  
+
     include("view/deconnexion.php");
 }
 function photoManagement(){
 
-    if(!empty($_FILES['userfile'])){
- 
-    $extension = array('jpg', 'JPG','jepg', 'png', 'gif');
-    $file_ext = explode('.',$_FILES['userfile']['name']);
-    $file_ext[0];
-    $file_ext = end($file_ext);
-    
-    if(!in_array($file_ext, $extension)){
-
-        $ext_error = true;
-        $_SESSION['message'] = "Votre image n'est pas valide !";
-        $_SESSION['msg_type'] = "danger";
+    if(!isset($_SESSION['user']))
+    {
+        header('Location: index.php?action=login');
+        exit();
     }
-    $img_dir = 'uploads/'.$_FILES['userfile']['name'];
-    
-    move_uploaded_file($_FILES['userfile']['tmp_name'],$img_dir);
-    
-    $images = new PhotoCreation([
-        "namePhoto" => $img_dir,
-    ]);
-    $photoManager = new PhotoManager();
-    $photoManager->addPhotoCreation($images);
-    $_SESSION['message'] = "Votre image est enregistrée !";
-    $_SESSION['msg_type'] = "success";
-    header('Location: index.php?action=photoManagement');
-    exit(); 
-} 
+    if(isset($_POST['submit'])){
+        
+        if(!empty($_FILES['userfile']['name'])){
+
+            $img_dir = 'uploads/'.$_FILES['userfile']['name'];
+            
+            move_uploaded_file($_FILES['userfile']['tmp_name'],$img_dir);
+            
+            $images = new PhotoCreation([
+                "namePhoto" => $img_dir,
+            ]);
+
+            $photoManager = new PhotoManager();
+            $photoManager->addPhotoCreation($images);
+
+            $_SESSION['message'] = "Votre image est enregistrée !";
+            $_SESSION['msg_type'] = "success";
+            header('Location: index.php?action=photoManagement');
+            exit();  
+        }    
+    }
     $readManager = new PhotoManager();       
     $readImages = $readManager->readAllImage();
 
-    include("view/photoManagement.php");
-}
-function deleteImage(){
-    
-    
+    if(isset($_GET['id'])){
+
+        $deleteId = htmlspecialchars($_GET['id']);
+        
+        $deletePhoto = new PhotoManager();
+        $deletePhoto->deletePhoto($deleteId);
+
+        header('Location: index.php?action=photoManagement');
+        exit();
+    }
+    include("view/photoManagement.php");   
 }
 
+function editPhoto(){
+
+   if (!isset($_SESSION['user'])) {
+            header('Location: index.php?action=admin');
+            exit();
+    }
+
+    $editPhoto = $_GET['id'];
+ 
+    $edit_photo = $_GET['id'];
+
+    if($edit_photo != ""){
+            
+        $photoManager = new PhotoManager;
+        $ReadPhoto = $photoManager->editPhoto($edit_photo);
+        
+        if($ReadPhoto != true){
+                header('Location: index.php?action=pageError');
+        }
+    }else{
+        header('Location: index.php?action=pageError');
+    }
+    if(isset($_POST['editPhoto'])){
+        die();
+        if(!empty($_FILES['userfile']['name'])){
+
+            $img_dir = 'uploads/'.$_FILES['userfile']['name'];
+            
+            move_uploaded_file($_FILES['userfile']['tmp_name'],$img_dir);
+            
+            $images = new PhotoCreation([
+                "namePhoto" => $img_dir,
+            ]);
+
+            $photoManager = new PhotoManager();
+            $photoManager->addPhotoCreation($images);
+
+            $_SESSION['message'] = "Votre image est enregistrée !";
+            $_SESSION['msg_type'] = "success";
+            header('Location: index.php?action=photoManagement');
+            exit();  
+        }    
+    }
+    include("view/editPhoto.php");   
+}
+function updatePhoto(){
+   
+        // if (!isset($_SESSION['user'])) {
+        //         header('Location: index.php?action=admin');
+        //         exit();
+        // }
+
+
+            
+            if (isset($_POST['submit'])) {
+            die();
+                $modif_id = htmlspecialchars($_GET['id']);
+            
+                $photoManager = new photoManager();
+                
+                $photoUpdate = new PhotoCreation([
+                    'namePhoto' => $namePhoto,
+                    'id' => $modif_id,  
+                    ]);
+            
+                $photoManager->updatePhoto($photoUpdate);
+
+                $_SESSION['message'] = "L'image à été modifié !";
+                $_SESSION['msg_type'] = "success";
+                header('location: index.php?action=photoManagement');
+                exit();
+            }
+        
+    
+    include("view/editPhoto.php");
+}
 function creationAccount(){
 
     if(!isset($_SESSION['user'])){
@@ -176,19 +258,8 @@ function contact(){
 
             $to      = 'chenalcyril87@gmail.com';
             $subject = 'the subject';
-            $message =
-                '<html>
-                    <body>
-                        <div align="center">
-                            <u>Nom de l\'expéditeur :</u>'.$name.'<br />
-                            <u>Mail de l\'expéditeur :</u>'.$mail.'<br />
-                            <br />
-                            '.nl2br($content).'
-                            <br />
-                        </div>
-                    </body>
-                </html>';
-
+            $message = $_POST['message'];
+                
             $headers = array(
                 'From' => 'chenalcyril87@gmail.com',
                 'Reply-To' => 'chenalcyril87@gmail.com',

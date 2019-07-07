@@ -14,7 +14,7 @@
 <p class="text-center">Appelez-moi ou envoyez moi un joli message, nous échangerons sur votre projet.</p>
 </section>
 <section>
-<div class="container">
+<div class="container" style="margin-bottom: 50px;">
     <div id="cardContact" class="card" style="width: 18rem;">
         <img src="public/images/Mon Joli cocon.png" class="card-img-top" alt="">
         <div class="card-body">
@@ -54,5 +54,4 @@
 <?php $content = ob_get_clean(); ?>
 
 <?php require('template.php') ?>
-
 <?php require("footer.php"); ?>
