@@ -1,7 +1,7 @@
 <header>
     <section class="logoHeader">
         <div>
-            <img class="imageHeader" src="public/images/Mon joli cocon.png" alt="">   
+            <img class="imageHeader" src="public/images/logo.png" alt="">   
         </div>
     </section>
     <section>

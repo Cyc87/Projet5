@@ -61,27 +61,50 @@ function photoManagement(){
         header('Location: index.php?action=login');
         exit();
     }
-    if(isset($_POST['submit'])){
+    if(isset($_POST) && !empty($_POST)){
         
         if(!empty($_FILES['userfile']['name'])){
-
-            $img_dir = 'uploads/'.$_FILES['userfile']['name'];
             
-            move_uploaded_file($_FILES['userfile']['tmp_name'],$img_dir);
+            if($_FILES['userfile']['error'] == 0){
+
+                if($_FILES['userfile']['size'] > 5000000){
+                    $_SESSION['message'] = "Image trop volumineuse!";
+                    $_SESSION['msg_type'] = "danger";
+                }
+                $extension = strrchr($_FILES['userfile']['name'],'.');
+                var_dump( $extension);
+                $tabExt = array('.jpg','.gif','.png','.jpeg','.PNG','.JPG');
+                var_dump($tabExt);
+
+                if (in_array($extension,$tabExt)){
+
+                    $img_dir = 'uploads/'.$_FILES['userfile']['name'];
             
-            $images = new PhotoCreation([
-                "namePhoto" => $img_dir,
-            ]);
+                    move_uploaded_file($_FILES['userfile']['tmp_name'],$img_dir);
+                    
+                    $images = new PhotoCreation([
+                        "namePhoto" => $img_dir,
+                    ]);
 
-            $photoManager = new PhotoManager();
-            $photoManager->addPhotoCreation($images);
+                    $photoManager = new PhotoManager();
+                    $photoManager->addPhotoCreation($images);
 
-            $_SESSION['message'] = "Votre image est enregistrée !";
-            $_SESSION['msg_type'] = "success";
-            header('Location: index.php?action=photoManagement');
-            exit();  
-        }    
+                    $_SESSION['message'] = "Votre image est enregistrée !";
+                    $_SESSION['msg_type'] = "success";
+                    header('Location: index.php?action=photoManagement');
+                    exit();  
+                    
+                }else{
+                    $_SESSION['message'] = "Extension de l'image incorrecte !";
+                    $_SESSION['msg_type'] = "danger";
+                }
+            }else{
+                $_SESSION['message'] = "Problème de formulaire!";
+                $_SESSION['msg_type'] = "danger";
+            }
+        }
     }
+
     $readManager = new PhotoManager();       
     $readImages = $readManager->readAllImage();
 
@@ -92,88 +115,16 @@ function photoManagement(){
         $deletePhoto = new PhotoManager();
         $deletePhoto->deletePhoto($deleteId);
 
+        $_SESSION['message'] = "Image supprimée !";
+        $_SESSION['msg_type'] = "success";
         header('Location: index.php?action=photoManagement');
         exit();
     }
     include("view/photoManagement.php");   
 }
 
-function editPhoto(){
-
-   if (!isset($_SESSION['user'])) {
-            header('Location: index.php?action=admin');
-            exit();
-    }
-
-    $editPhoto = $_GET['id'];
- 
-    $edit_photo = $_GET['id'];
-
-    if($edit_photo != ""){
-            
-        $photoManager = new PhotoManager;
-        $ReadPhoto = $photoManager->editPhoto($edit_photo);
-        
-        if($ReadPhoto != true){
-                header('Location: index.php?action=pageError');
-        }
-    }else{
-        header('Location: index.php?action=pageError');
-    }
-    if(isset($_POST['editPhoto'])){
-        die();
-        if(!empty($_FILES['userfile']['name'])){
-
-            $img_dir = 'uploads/'.$_FILES['userfile']['name'];
-            
-            move_uploaded_file($_FILES['userfile']['tmp_name'],$img_dir);
-            
-            $images = new PhotoCreation([
-                "namePhoto" => $img_dir,
-            ]);
-
-            $photoManager = new PhotoManager();
-            $photoManager->addPhotoCreation($images);
-
-            $_SESSION['message'] = "Votre image est enregistrée !";
-            $_SESSION['msg_type'] = "success";
-            header('Location: index.php?action=photoManagement');
-            exit();  
-        }    
-    }
-    include("view/editPhoto.php");   
-}
-function updatePhoto(){
-   
-        // if (!isset($_SESSION['user'])) {
-        //         header('Location: index.php?action=admin');
-        //         exit();
-        // }
 
 
-            
-            if (isset($_POST['submit'])) {
-            die();
-                $modif_id = htmlspecialchars($_GET['id']);
-            
-                $photoManager = new photoManager();
-                
-                $photoUpdate = new PhotoCreation([
-                    'namePhoto' => $namePhoto,
-                    'id' => $modif_id,  
-                    ]);
-            
-                $photoManager->updatePhoto($photoUpdate);
-
-                $_SESSION['message'] = "L'image à été modifié !";
-                $_SESSION['msg_type'] = "success";
-                header('location: index.php?action=photoManagement');
-                exit();
-            }
-        
-    
-    include("view/editPhoto.php");
-}
 function creationAccount(){
 
     if(!isset($_SESSION['user'])){

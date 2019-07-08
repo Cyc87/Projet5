@@ -16,7 +16,7 @@
 <section>
 <div class="container" style="margin-bottom: 50px;">
     <div id="cardContact" class="card" style="width: 18rem;">
-        <img src="public/images/Mon Joli cocon.png" class="card-img-top" alt="">
+        <img src="public/images/logo.png" class="card-img-top" alt="">
         <div class="card-body">
             <h5 class="card-title">Dorothée</h5>
             <p class="card-text">06.62.21.82.97</p>

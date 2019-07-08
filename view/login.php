@@ -6,7 +6,7 @@
     <div class="container" style="margin-top:150px;">
         <form action="index.php?action=login" method="post">
             <div class="card text-center" style="width: 18rem;">
-                <img src="public/images/Mon Joli cocon.png" class="card-img-top" alt="...">
+                <img src="public/images/logo.png" class="card-img-top" alt="...">
                 <ul class="list-group list-group-flush">
                     <div class="form-group">
                         <label for="label"></label>

@@ -3,7 +3,7 @@
 <?php ob_start(); ?>
 
 <?php require("menuAdmin.php"); ?>
-
+<section>
 <?php
     if(isset($_SESSION['message'])){
 ?>
@@ -13,8 +13,9 @@
     unset($_SESSION['message']);
     }
 ?>
+</section>
 <section>
-    <div class="container">
+    <div class="container" style="margin-top: 50px; margin-bottom: 50px;">
         <form method="post" action="index.php?action=photoManagement" enctype="multipart/form-data" runat="server">
             <input type="file" name="userfile">
             <input type="submit" name="submit" value="Ajouter Photo">
