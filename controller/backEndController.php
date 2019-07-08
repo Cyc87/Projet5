@@ -76,23 +76,23 @@ function photoManagement(){
                         $_SESSION['msg_type'] = "danger";
                     }
                     $extension = strrchr($_FILES['userfile']['name'],'.');
-                    var_dump( $extension);
+                    
                     $tabExt = array('.jpg','.gif','.png','.jpeg','.PNG','.JPG');
                     
                     if (in_array($extension,$tabExt)){
-                        
+                        $title = $_POST['descriptionPhoto'];
                         $img_dir = 'uploads/'.$_FILES['userfile']['name'];
-                
-                        move_uploaded_file($_FILES['userfile']['tmp_name'],$img_dir);
+                    
+                        move_uploaded_file($_FILES['userfile']['tmp_name'] ,$img_dir);
                         
                         $images = new PhotoCreation([
                             "namePhoto" => $img_dir,
-                            "descriptionPhoto" => $img_dir,
+                            "descriptionPhoto" =>  $title,
                         ]);
 
                         $photoManager = new PhotoManager();
                         $photoManager->addPhotoCreation($images);
-
+                      
                         $_SESSION['message'] = "Votre image est enregistrée !";
                         $_SESSION['msg_type'] = "success";
                         header('Location: index.php?action=photoManagement');
@@ -107,10 +107,10 @@ function photoManagement(){
                     $_SESSION['msg_type'] = "danger";
                 }
             }
-          }else{
-                $_SESSION['message'] = "Description Vide!";
-                $_SESSION['msg_type'] = "danger";
-          } 
+        }else{
+            $_SESSION['message'] = "Description Vide!";
+            $_SESSION['msg_type'] = "danger";
+        } 
     }
  
     $readManager = new PhotoManager();       

@@ -13,15 +13,6 @@
     unset($_SESSION['message']);
     }
 ?>
-<!-- </section>
-<section>
-    <div class="container" style="margin-top: 50px; margin-bottom: 50px;">
-        <form method="post" action="index.php?action=photoManagement" enctype="multipart/form-data" runat="server">
-            <input type="file" name="userfile">
-            <input type="submit" name="submit" value="Ajouter Photo">
-        </form>
-    </div>
-</section> -->
 <section>
     <div class="container">
         <form method="post" action="index.php?action=photoManagement" enctype="multipart/form-data" runat="server">
@@ -29,7 +20,7 @@
                 <button class="btn btn-secondary dropdown-toggle" style="margin-top:50px;margin-bottom:50px" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Ajouter une image
                 </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <div class="dropdown-menu" id="dropdown-menu" aria-labelledby="dropdownMenu2">
                     <button class="dropdown-item" type="button">
                         <input type="file" name="userfile"><br />
                         <input id="nomLabel" name="descriptionPhoto" type="text">
