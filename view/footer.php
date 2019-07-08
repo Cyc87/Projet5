@@ -5,6 +5,7 @@
         <a href="index.php?action=contact" style="padding: 0 10px;color:#025a55;">Me contacter</a>
         <a href="index.php?action=login" style="padding: 0 10px;color:#025a55;">Admin</a>
     </div>
+    
     <div class="container">
         <div class="row">
             <div class="col-md-12 ">

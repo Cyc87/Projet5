@@ -13,7 +13,7 @@
     unset($_SESSION['message']);
     }
 ?>
-</section>
+<!-- </section>
 <section>
     <div class="container" style="margin-top: 50px; margin-bottom: 50px;">
         <form method="post" action="index.php?action=photoManagement" enctype="multipart/form-data" runat="server">
@@ -21,13 +21,32 @@
             <input type="submit" name="submit" value="Ajouter Photo">
         </form>
     </div>
+</section> -->
+<section>
+    <div class="container">
+        <form method="post" action="index.php?action=photoManagement" enctype="multipart/form-data" runat="server">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" style="margin-top:50px;margin-bottom:50px" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Ajouter une image
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <button class="dropdown-item" type="button">
+                        <input type="file" name="userfile"><br />
+                        <input id="nomLabel" name="descriptionPhoto" type="text">
+                        <input type="submit" name="submit" value="Ajouter Photo">
+                    </button>
+                </div>
+            </div>
+        </div>   
+    </div>  
 </section>
 <section>
     <div class="container">
         <table class="table table-bordered table-striped">  
             <tr>
                 <th width="5%">Numéro</th>
-                <th width="40%">Image</th>
+                <th width="35%">Description</th>
+                <th width="20%">Image</th>
                 <th width="20%">Modifier</th>
                 <th width="20%">Supprimer</th>
             </tr>
@@ -42,6 +61,9 @@
             <tr>
                 <td>
                     <?= $readImages->id() ?>
+                </td>
+                <td>
+                    <?= $readImages->descriptionPhoto() ?>
                 </td>
                 <td>
                     <img src="<?= $readImages->namePhoto() ?>" height="10" width="50" class="img-thumbnail" />

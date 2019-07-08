@@ -37,7 +37,7 @@
 <section>
     <div class="card-deck" style="width: 75%; margin: auto; margin-top:200px; text-align: center;">
         <div class="card">
-            <a href="" style="text-decoration:none">   
+            <a href="index.php?action=beautifulCrates" style="text-decoration:none">   
                 <div class="card-body">
                     <h5 class="card-title" style="color:black">Mes jolies caisses</h5>
                 </div>

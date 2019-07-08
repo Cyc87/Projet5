@@ -3,6 +3,7 @@
     class PhotoCreation{
 
         private $_id;
+        private $_descriptionPhoto;
         private $_namePhoto;
         private $_dateCreationPhoto;
         
@@ -13,6 +14,9 @@
         public function hydrate(Array $data){
             if(isset($data['id'])){
             $this->setId($data['id']);
+            }
+            if(isset($data['descriptionPhoto'])){
+            $this->setDescriptionPhoto($data['descriptionPhoto']);
             }
             if(isset($data['namePhoto'])){
             $this->setNamePhoto($data['namePhoto']);
@@ -25,6 +29,9 @@
         public function id(){
             return $this->_id;
         }
+        public function descriptionPhoto(){
+            return $this->_descriptionPhoto;
+        }
         public function namePhoto(){
             return $this->_namePhoto;
         }
@@ -35,6 +42,9 @@
         // SETTERS
         public function setId($id){
             $this->_id = $id;
+        }
+        public function setDescriptionPhoto($descriptionPhoto){
+            $this->_descriptionPhoto = $descriptionPhoto;
         }
         public function setNamePhoto($namePhoto){
             $this->_namePhoto = $namePhoto;

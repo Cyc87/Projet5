@@ -11,9 +11,10 @@
             }
         }
         public function addPhotoCreation(PhotoCreation $images){
-            $req = $this->_db->prepare("INSERT  INTO images(namePhoto,dateCreationPhoto) VALUES (?,NOW())");
+            $req = $this->_db->prepare("INSERT  INTO images(namePhoto,descriptionPhoto,dateCreationPhoto) VALUES (?,?,NOW())");
             $req->execute(array(
                 $images->namePhoto(),
+                $images->descriptionPhoto(),
             ));
             $data = $req ->fetch(PDO::FETCH_ASSOC);
             return $data;

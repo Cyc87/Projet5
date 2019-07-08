@@ -20,8 +20,8 @@
                 admin();
             }else if($_GET['action'] == "photoManagement"){
                 photoManagement();
-            }else if($_GET['action'] == "editPhoto"){
-                editPhoto();
+            }else if($_GET['action'] == "beautifulCrates"){
+                beautifulCrates();
             }else if($_GET['action'] == "deconnexion"){
                 deconnexion();
             }else if($_GET['action'] == "creationAccount"){

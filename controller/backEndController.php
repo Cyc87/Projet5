@@ -56,6 +56,8 @@ function deconnexion(){
 }
 function photoManagement(){
 
+    
+
     if(!isset($_SESSION['user']))
     {
         header('Location: index.php?action=login');
@@ -63,48 +65,54 @@ function photoManagement(){
     }
     if(isset($_POST) && !empty($_POST)){
         
-        if(!empty($_FILES['userfile']['name'])){
-            
-            if($_FILES['userfile']['error'] == 0){
+        if(!empty($_POST['descriptionPhoto'])){
 
-                if($_FILES['userfile']['size'] > 5000000){
-                    $_SESSION['message'] = "Image trop volumineuse!";
-                    $_SESSION['msg_type'] = "danger";
-                }
-                $extension = strrchr($_FILES['userfile']['name'],'.');
-                var_dump( $extension);
-                $tabExt = array('.jpg','.gif','.png','.jpeg','.PNG','.JPG');
-                var_dump($tabExt);
+            if(!empty($_FILES['userfile']['name'])){
+                
+                if($_FILES['userfile']['error'] == 0){
 
-                if (in_array($extension,$tabExt)){
-
-                    $img_dir = 'uploads/'.$_FILES['userfile']['name'];
-            
-                    move_uploaded_file($_FILES['userfile']['tmp_name'],$img_dir);
+                    if($_FILES['userfile']['size'] > 5000000){
+                        $_SESSION['message'] = "Image trop volumineuse!";
+                        $_SESSION['msg_type'] = "danger";
+                    }
+                    $extension = strrchr($_FILES['userfile']['name'],'.');
+                    var_dump( $extension);
+                    $tabExt = array('.jpg','.gif','.png','.jpeg','.PNG','.JPG');
                     
-                    $images = new PhotoCreation([
-                        "namePhoto" => $img_dir,
-                    ]);
+                    if (in_array($extension,$tabExt)){
+                        
+                        $img_dir = 'uploads/'.$_FILES['userfile']['name'];
+                
+                        move_uploaded_file($_FILES['userfile']['tmp_name'],$img_dir);
+                        
+                        $images = new PhotoCreation([
+                            "namePhoto" => $img_dir,
+                            "descriptionPhoto" => $img_dir,
+                        ]);
 
-                    $photoManager = new PhotoManager();
-                    $photoManager->addPhotoCreation($images);
+                        $photoManager = new PhotoManager();
+                        $photoManager->addPhotoCreation($images);
 
-                    $_SESSION['message'] = "Votre image est enregistrée !";
-                    $_SESSION['msg_type'] = "success";
-                    header('Location: index.php?action=photoManagement');
-                    exit();  
-                    
+                        $_SESSION['message'] = "Votre image est enregistrée !";
+                        $_SESSION['msg_type'] = "success";
+                        header('Location: index.php?action=photoManagement');
+                        exit();  
+                        
+                    }else{
+                        $_SESSION['message'] = "Extension de l'image incorrecte !";
+                        $_SESSION['msg_type'] = "danger";
+                    }
                 }else{
-                    $_SESSION['message'] = "Extension de l'image incorrecte !";
+                    $_SESSION['message'] = "Problème de formulaire!";
                     $_SESSION['msg_type'] = "danger";
                 }
-            }else{
-                $_SESSION['message'] = "Problème de formulaire!";
-                $_SESSION['msg_type'] = "danger";
             }
-        }
+          }else{
+                $_SESSION['message'] = "Description Vide!";
+                $_SESSION['msg_type'] = "danger";
+          } 
     }
-
+ 
     $readManager = new PhotoManager();       
     $readImages = $readManager->readAllImage();
 
@@ -122,8 +130,20 @@ function photoManagement(){
     }
     include("view/photoManagement.php");   
 }
+function crates(){
 
+    $readManager = new PhotoManager();       
+    $readImages = $readManager->readAllImage();
 
+    include("view/crates.php");
+}
+function castor(){
+    
+    $readManager = new PhotoManager();       
+    $readImages = $readManager->readAllImage();
+
+    include("view/crates.php");
+}
 
 function creationAccount(){
 
@@ -242,14 +262,7 @@ function pageError(){
     
    include("view/pageError.php");
 }
-function crates(){
-    
-   include("view/crates.php");
-}
-function castor(){
-    
-   include("view/castor.php");
-}
+
 function chair(){
 
     include("view/chair.php");
@@ -271,8 +284,15 @@ function cabinet(){
     include("view/cabinet.php");
 }
 function etageres(){
+    $readManager = new PhotoManager();       
+    $readImages = $readManager->readAllImage();
 
     include("view/etageres.php");
+}
+function beautifulCrates(){
+   
+
+    include("view/beautifulCrates.php");
 }
 function makeoverFurniture(){
 
