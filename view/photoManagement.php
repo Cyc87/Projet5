@@ -22,8 +22,8 @@
                 </button>
                 <div class="dropdown-menu" id="dropdown-menu" aria-labelledby="dropdownMenu2">
                     <button class="dropdown-item" type="button">
-                        <input type="file" name="userfile"><br />
-                        <input id="nomLabel" name="descriptionPhoto" type="text">
+                        <input style="margin-top:10px;margin-bottom:10px" type="file" name="userfile"><br />
+                        <input id="nomLabel" name="descriptionPhoto" type="text" placeholder="Description">
                         <input type="submit" name="submit" value="Ajouter Photo">
                     </button>
                 </div>
@@ -61,7 +61,7 @@
                 </td>
                 
                 <td>
-                    <a name="editPhoto" href="index.php?action=editPhoto&id=<?= $readImages->id() ?>" class='btn btn-warning' style="color:white">Modifier</a> 
+                    <a name="editPhoto" href="index.php?action=updatePhoto&id=<?= $readImages->id() ?>" class='btn btn-warning' style="color:white">Modifier</a> 
                 </td>
                 
                 <td>

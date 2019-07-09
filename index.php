@@ -1,14 +1,14 @@
 <?php
     
     session_start();
-
+    
     require "model/entities/Account.php";
     require "model/managers/AccountManager.php";
 
     require "model/entities/Photo.php";
     require "model/managers/PhotoManager.php";
 
-
+    require "controller/FrontEndController.php";
     require "controller/backEndController.php";
 
         if(isset($_GET['action'])){
@@ -20,6 +20,8 @@
                 admin();
             }else if($_GET['action'] == "photoManagement"){
                 photoManagement();
+            }else if($_GET['action'] == "updatePhoto"){
+                updatePhoto();
             }else if($_GET['action'] == "beautifulCrates"){
                 beautifulCrates();
             }else if($_GET['action'] == "deconnexion"){

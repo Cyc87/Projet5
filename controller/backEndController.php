@@ -1,9 +1,5 @@
 <?php
 
-function home(){
-
-    include("view/home.php");
-}
 function login(){
 
     if (isset($_SESSION['user'])) {
@@ -46,7 +42,7 @@ function admin(){
     include("view/admin.php");   
 }
 function deconnexion(){
-
+    
     session_destroy();
     
     header('Location: index.php?action=home');
@@ -55,8 +51,6 @@ function deconnexion(){
     include("view/deconnexion.php");
 }
 function photoManagement(){
-
-    
 
     if(!isset($_SESSION['user']))
     {
@@ -112,7 +106,6 @@ function photoManagement(){
             $_SESSION['msg_type'] = "danger";
         } 
     }
- 
     $readManager = new PhotoManager();       
     $readImages = $readManager->readAllImage();
 
@@ -130,19 +123,39 @@ function photoManagement(){
     }
     include("view/photoManagement.php");   
 }
-function crates(){
-
-    $readManager = new PhotoManager();       
-    $readImages = $readManager->readAllImage();
-
-    include("view/crates.php");
-}
-function castor(){
+function updatePhoto(){
+    if (!isset($_SESSION['user'])) {
+        header('Location: index.php?action=admin');
+        exit();
+    }
+    $updateId = htmlspecialchars($_GET['id']);
     
-    $readManager = new PhotoManager();       
-    $readImages = $readManager->readAllImage();
 
-    include("view/crates.php");
+    $updateManager = new PhotoManager();       
+    $updateImages = $updateManager->editPhoto($updateId);
+    
+        if (isset($_POST['update'])) {
+            
+            $descriptionPhoto = htmlspecialchars($_POST['descriptionPhoto']);
+            $modifId = htmlspecialchars($_GET['id']);
+           
+            $photoManager = new PhotoManager();
+            
+            $photoUpdate = new PhotoCreation([
+               
+                'descriptionPhoto' => $descriptionPhoto,
+                'id' => $modifId,  
+                ]);
+               
+            $photoManager->updatePhoto($photoUpdate);
+
+            $_SESSION['message'] = "La fiche a été modifié avec succés !";
+            $_SESSION['msg_type'] = "success";
+            header('location: index.php?action=photoManagement');
+            exit();
+        
+}
+    include("view/updatePhoto.php"); 
 }
 
 function creationAccount(){
@@ -214,100 +227,5 @@ function creationAccount(){
     }  
     include("view/creationAccount.php");
 }
-function about(){
 
-    include("view/about.php");
-}
-function contact(){
-    if(isset($_POST['sendMail'])){
-
-        $name = htmlspecialchars($_POST['name']);
-        $mail = htmlspecialchars($_POST['mail']);
-        $content = htmlspecialchars($_POST['message']);
-
-        if(!empty($_POST['name']) AND !empty($_POST['mail']) AND !empty($_POST['message'])){
-
-            $to      = 'chenalcyril87@gmail.com';
-            $subject = 'the subject';
-            $message = $_POST['message'];
-                
-            $headers = array(
-                'From' => 'chenalcyril87@gmail.com',
-                'Reply-To' => 'chenalcyril87@gmail.com',
-                'X-Mailer' => 'PHP/' . phpversion()
-            );
-
-            mail($to, $subject, $message, $headers); 
-            
-            
-            $_SESSION['message'] = "Le message est bien envoyé ! ";
-            $_SESSION['msg_type'] = "success";
-            header('Location:index.php?action=contact');
-            exit();
-            
-        }else{
-            $_SESSION['message'] = "Tous les champs sont obligatoires ! ";
-            $_SESSION['msg_type'] = "danger";
-            header('Location:index.php?action=contact');
-            exit();
-        }
-    }
-    include("view/contact.php");
-}
-function univers(){
-
-    include("view/univers.php");
-}
-function pageError(){
-    
-   include("view/pageError.php");
-}
-
-function chair(){
-
-    include("view/chair.php");
-}
-function table(){
-
-    include("view/table.php");
-}
-function furniture(){
-
-    include("view/furniture.php");
-}
-function buffet(){
-
-    include("view/buffet.php");
-}
-function cabinet(){
-
-    include("view/cabinet.php");
-}
-function etageres(){
-    $readManager = new PhotoManager();       
-    $readImages = $readManager->readAllImage();
-
-    include("view/etageres.php");
-}
-function beautifulCrates(){
-   
-
-    include("view/beautifulCrates.php");
-}
-function makeoverFurniture(){
-
-    include("view/makeoverFurniture.php");
-}
-function decorationBoard(){
-
-    include("view/decorationBoard.php");
-}
-function salePainting(){
-
-     include("view/salePainting.php");
-}
-function creativeAisles(){
-
-     include("view/creativeAisles.php");
-}
 

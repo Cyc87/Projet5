@@ -47,6 +47,13 @@
             }
             return $photoEdit;
         }
+        public function updatePhoto(PhotoCreation $updateId){
+            $req = $this->_db->prepare("UPDATE images SET  descriptionPhoto = :descriptionPhoto WHERE id = :id");
+            $req->execute(array(
+                "descriptionPhoto" =>  $updateId->descriptionPhoto(),
+                "id" => $updateId->id()
+            ));
+        }
         
     }
 ?>
