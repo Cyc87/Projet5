@@ -9,7 +9,7 @@
                 $this->_db = new PDO('mysql:host=localhost;dbname=projet5;charset=utf8', 'root', '');
             } catch (Exception $e) {
                 die('Erreur : ' . $e->getMessage());
-            }
+           }
         }
         public function getByMail($mail){
             $req = $this->_db->prepare("SELECT * FROM `users` WHERE mail = :mail");
@@ -25,7 +25,8 @@
                 "username" => $_POST['usernameAdmin']
             ));
             $data = $req ->fetch(PDO::FETCH_ASSOC);
-            return $data; 
+            return $data;
+ 
         }
         public function addAccountCreation(AccountCreation $users){
             $req = $this->_db->prepare("INSERT INTO users(username, password1, mail, dateCreation) VALUES (?,?,?,NOW())");

@@ -1,23 +1,22 @@
 <?php
-
     function home(){
-
+        
         include("view/home.php");
     }
 
      function crates(){
 
-        $readManager = new PhotoManager();       
-        $readImages = $readManager->readAllImage();
+        $readManager = new ProductManager();       
+        $readCratesProduct = $readManager->readCratesProduct();
 
     include("view/crates.php");
 }
 function castor(){
     
-    $readManager = new PhotoManager();       
-    $readImages = $readManager->readAllImage();
+    $readManager = new ProductManager();
+    $readCastorProduct = $readManager->readCastorProduct();
 
-    include("view/crates.php");
+    include("view/castor.php");
 }
 function about(){
 
@@ -70,35 +69,68 @@ function pageError(){
 
 function chair(){
 
+    $readManager = new ProductManager();
+    $readChairProduct = $readManager->readChairProduct();
+
     include("view/chair.php");
 }
 function table(){
+    $readManager = new ProductManager();
+    $readTableProduct = $readManager->readTableProduct();
 
     include("view/table.php");
 }
-function furniture(){
+function chest(){
+    $readManager = new ProductManager();
+    $readChestProduct = $readManager->readChestProduct();
 
-    include("view/furniture.php");
+    include("view/chest.php");
 }
 function buffet(){
+    $readManager = new ProductManager();
+    $readBuffetProduct = $readManager->readBuffetProduct();
 
     include("view/buffet.php");
 }
+function wall(){
+    $readManager = new ProductManager();
+    $readWallProduct = $readManager->readWallProduct();
+
+    include("view/wall.php");
+}
+function prettyDecoration()
+{
+    $readManager = new ProductManager();
+    $readPrettyDecorationProduct = $readManager->readPrettyDecorationProduct();
+
+    include("view/prettyDecoration.php");
+}
 function cabinet(){
+    $readManager = new ProductManager();
+    $readCabinetProduct = $readManager->readCabinetProduct();
 
     include("view/cabinet.php");
 }
 function etageres(){
 
-    $readManager = new PhotoManager();       
-    $readImages = $readManager->readAllImage();
+    $readManager = new ProductManager();       
+    $readEtagereProduct = $readManager->readEtagereProduct();
 
     include("view/etageres.php");
 }
-function beautifulCrates(){
-   
+function beautifulCrates()
+{
+    $readManager = new ProductManager();
+    $readAllBeautifulCratesProduct = $readManager->readAllBeautifulCratesProduct();
 
     include("view/beautifulCrates.php");
+}
+function fineFurnishing()
+{
+    $readManager = new ProductManager();
+    $readAllFineFurnishingProduct = $readManager->readAllFineFurnishingProduct();
+
+    include("view/fineFurnishing.php");
 }
 function makeoverFurniture(){
 

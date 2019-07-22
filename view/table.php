@@ -1,17 +1,29 @@
-<?php $title="Ma jolie table"; ?>
+<?php $title = 'Les jolies tables'; ?>
 
 <?php ob_start(); ?>
-        
-    <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-    </div>   
-        
+
+<?php require("menu.php"); ?>
+
+<section>
+    <h2 style="text-align:center; margin-top:50px; margin-bottom:50px">Toutes les tables sont utiles</h2>
+    <div class="container">
+
+        <form action="index.php?action=table" method="get">
+            <?php
+            foreach ($readTableProduct as $readTableProduct) {
+                ?>
+
+                <img src="<?= $readTableProduct->nameProduct() ?>" height="300" width="500" class="img-thumbnail" />
+
+            <?php
+            }
+            ?>
+        </form>
+    </div>
+</section>
+
 <?php $content = ob_get_clean(); ?>
 
 <?php require('template.php') ?>
+
 <?php require("footer.php"); ?>

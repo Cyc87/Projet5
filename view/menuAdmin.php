@@ -20,7 +20,7 @@
 
             <ul class="navbar-nav mr-auto"> 
                 <li class="nav-item dropdown">
-                    <a class="nav-link mx-auto" id="nav-link" href="index.php?action=photoManagement">Gestions des photos</a>
+                    <a class="nav-link mx-auto" id="nav-link" href="index.php?action=productManagement">Gestions des photos</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link mx-auto" id="nav-link" href="index.php?action=creationAccount">Créer un compte admin</a>

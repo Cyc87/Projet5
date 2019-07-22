@@ -35,12 +35,12 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" style="color:#025a55">Chinés, bichonnés, relookés...<br/> prêts pour une nouvelle vie</a>    
-                            <a class="dropdown-item" href="index.php?action=chair">Ma jolie chaise</a>
-                            <a class="dropdown-item" href="index.php?action=table">Ma jolie table</a>
-                            <a class="dropdown-item" href="index.php?action=furniture">Ma jolie commode</a>
-                            <a class="dropdown-item" href="index.php?action=buffet">Mon joli buffet</a>
-                            <a class="dropdown-item" href="index.php?action=cabinet">Ma jolie armoire</a>
-                            <a class="dropdown-item" href="index.php?action=bed">Mon joli lit</a>
+                            <a class="dropdown-item" href="index.php?action=chair">Les jolies chaises</a>
+                            <a class="dropdown-item" href="index.php?action=table">Les jolies tables</a>
+                            <a class="dropdown-item" href="index.php?action=chest">Les jolies commodes</a>
+                            <a class="dropdown-item" href="index.php?action=buffet">Les jolis buffets</a>
+                            <a class="dropdown-item" href="index.php?action=cabinet">Les jolies armoires</a>
+                            <a class="dropdown-item" href="index.php?action=wall">Les jolis murs</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">

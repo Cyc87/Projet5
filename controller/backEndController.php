@@ -35,7 +35,7 @@ function admin(){
             header('Location: index.php?action=login');
             exit();
     }
-
+    
     $accountManager = new AccountManager();       
     $data = $accountManager->sessionUser($_SESSION['user']);
     
@@ -50,7 +50,7 @@ function deconnexion(){
 
     include("view/deconnexion.php");
 }
-function photoManagement(){
+function productManagement(){
 
     if(!isset($_SESSION['user']))
     {
@@ -59,7 +59,7 @@ function photoManagement(){
     }
     if(isset($_POST) && !empty($_POST)){
         
-        if(!empty($_POST['descriptionPhoto'])){
+        if(!empty($_POST['descriptionProduct'])){
 
             if(!empty($_FILES['userfile']['name'])){
                 
@@ -74,22 +74,22 @@ function photoManagement(){
                     $tabExt = array('.jpg','.gif','.png','.jpeg','.PNG','.JPG');
                     
                     if (in_array($extension,$tabExt)){
-                        $title = $_POST['descriptionPhoto'];
+                        $title = $_POST['descriptionProduct'];
                         $img_dir = 'uploads/'.$_FILES['userfile']['name'];
-                    
+                   
                         move_uploaded_file($_FILES['userfile']['tmp_name'] ,$img_dir);
                         
-                        $images = new PhotoCreation([
-                            "namePhoto" => $img_dir,
-                            "descriptionPhoto" =>  $title,
+                        $product = new ProductCreation([
+                            "nameProduct" => $img_dir,
+                            "descriptionProduct" =>  $title,
                         ]);
-
-                        $photoManager = new PhotoManager();
-                        $photoManager->addPhotoCreation($images);
+ 
+                        $productManager = new ProductManager();
+                        $productManager->addProductCreation($product);
                       
                         $_SESSION['message'] = "Votre image est enregistrée !";
                         $_SESSION['msg_type'] = "success";
-                        header('Location: index.php?action=photoManagement');
+                        header('Location: index.php?action=productManagement');
                         exit();  
                         
                     }else{
@@ -106,24 +106,25 @@ function photoManagement(){
             $_SESSION['msg_type'] = "danger";
         } 
     }
-    $readManager = new PhotoManager();       
-    $readImages = $readManager->readAllImage();
+    
+    $readManager = new ProductManager();       
+    $readProduct = $readManager->readAllProduct();
 
     if(isset($_GET['id'])){
 
         $deleteId = htmlspecialchars($_GET['id']);
         
-        $deletePhoto = new PhotoManager();
-        $deletePhoto->deletePhoto($deleteId);
+        $deleteProduct = new ProductManager();
+        $deleteProduct->deleteProduct($deleteId);
 
         $_SESSION['message'] = "Image supprimée !";
         $_SESSION['msg_type'] = "success";
-        header('Location: index.php?action=photoManagement');
+        header('Location: index.php?action=productManagement');
         exit();
     }
-    include("view/photoManagement.php");   
+    include("view/productManagement.php");   
 }
-function updatePhoto(){
+function updateProduct(){
     if (!isset($_SESSION['user'])) {
         header('Location: index.php?action=admin');
         exit();
@@ -131,31 +132,30 @@ function updatePhoto(){
     $updateId = htmlspecialchars($_GET['id']);
     
 
-    $updateManager = new PhotoManager();       
-    $updateImages = $updateManager->editPhoto($updateId);
+    $updateManager = new ProductManager();       
+    $updateProduct = $updateManager->editProduct($updateId);
     
         if (isset($_POST['update'])) {
             
-            $descriptionPhoto = htmlspecialchars($_POST['descriptionPhoto']);
+            $descriptionProduct = htmlspecialchars($_POST['descriptionProduct']);
             $modifId = htmlspecialchars($_GET['id']);
            
-            $photoManager = new PhotoManager();
+            $productManager = new ProductManager();
             
-            $photoUpdate = new PhotoCreation([
+            $productUpdate = new ProductCreation([
                
-                'descriptionPhoto' => $descriptionPhoto,
+                'descriptionProduct' => $descriptionProduct,
                 'id' => $modifId,  
                 ]);
                
-            $photoManager->updatePhoto($photoUpdate);
+            $productManager->updateProduct($productUpdate);
 
             $_SESSION['message'] = "La fiche a été modifié avec succés !";
             $_SESSION['msg_type'] = "success";
-            header('location: index.php?action=photoManagement');
+            header('location: index.php?action=productManagement');
             exit();
-        
 }
-    include("view/updatePhoto.php"); 
+    include("view/updateProduct.php"); 
 }
 
 function creationAccount(){

@@ -5,15 +5,15 @@
 <?php require("menu.php"); ?>        
 
 <section>
-<h2 style ="text-align:center; margin-top:50px; margin-bottom:50px">Toutes les jolies boites sont utiles</h2>
+<h2 style ="text-align:center; margin-top:50px; margin-bottom:50px">Toutes les étagères sont utiles</h2>
     <div class="container">
    
-        <form action="index.php?action=crates" method="get">
+        <form action="index.php?action=etageres" method="get">
             <?php
-                foreach ($readImages as $readImages) {
+                foreach ($readEtagereProduct as $readEtagereProduct) {
             ?>
             
-                <img src="<?= $readImages->namePhoto() ?>" height="300" width="500" class="img-thumbnail" />
+                <img src="<?= $readEtagereProduct->nameProduct() ?>" height="300" width="500" class="img-thumbnail" />
             
             <?php 
                 }

@@ -1,7 +1,7 @@
 <?php
 
     class AccountCreation{
-
+        
         private $_id;
         private $_userName;
         private $_password1;

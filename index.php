@@ -1,16 +1,17 @@
 <?php
     
     session_start();
-    
+
     require "model/entities/Account.php";
     require "model/managers/AccountManager.php";
 
-    require "model/entities/Photo.php";
-    require "model/managers/PhotoManager.php";
+    require "model/entities/Product.php";
+    require "model/managers/ProductManager.php";
 
     require "controller/FrontEndController.php";
     require "controller/backEndController.php";
 
+    
         if(isset($_GET['action'])){
             if($_GET['action'] == "home"){
                 home();
@@ -18,12 +19,14 @@
                 login();
             }else if($_GET['action'] == "admin"){
                 admin();
-            }else if($_GET['action'] == "photoManagement"){
-                photoManagement();
-            }else if($_GET['action'] == "updatePhoto"){
-                updatePhoto();
+            }else if($_GET['action'] == "productManagement"){
+                productManagement();
+            }else if($_GET['action'] == "updateProduct"){
+                updateProduct();
             }else if($_GET['action'] == "beautifulCrates"){
                 beautifulCrates();
+            } else if ($_GET['action'] == "fineFurnishing") {
+                fineFurnishing();
             }else if($_GET['action'] == "deconnexion"){
                 deconnexion();
             }else if($_GET['action'] == "creationAccount"){
@@ -42,8 +45,8 @@
                 chair();
             }else if($_GET['action'] == "table"){
                 table();
-            }else if($_GET['action'] == "furniture"){
-                furniture();
+            }else if($_GET['action'] == "chest"){
+                chest();
             }else if($_GET['action'] == "buffet"){
                 buffet();
             }else if($_GET['action'] == "cabinet"){
@@ -58,6 +61,11 @@
                 salePainting();
             }else if($_GET['action'] == "creativeAisles"){
                 creativeAisles();
+            } else if ($_GET['action'] == "prettyDecoration") {
+                prettyDecoration();
+            }
+            else if ($_GET['action'] == "wall") {
+                wall();
             }else{
                 pageError();
             }
