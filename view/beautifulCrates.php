@@ -1,6 +1,6 @@
 <?php $title = 'Mes jolies caisses'; ?>
 
-<?php require('menu.php'); ?>
+<?php require('menu/menu.php'); ?>
 
 <?php ob_start(); ?>
 
@@ -21,25 +21,21 @@
         </form>
     </div>
 </section>
-
-
-
-
-
-<div class="container">
-    <nav aria-label="Page navigation">
-        <ul class="pagination">
-            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">Next</a></li>
-        </ul>
-    </nav>
-</div>
-
+<section>
+    <div class="container">
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+        </nav>
+    </div>
+</section>
 <?php $content = ob_get_clean(); ?>
 
-<?php require('template.php'); ?>
+<?php require('template/template.php'); ?>
 
-<?php require("footer.php"); ?>
+<?php require("footer/footer.php"); ?>

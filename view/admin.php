@@ -1,6 +1,6 @@
 <?php $title = 'Administration'; ?>
 
-<?php require('menuAdmin.php'); ?>
+<?php require('menu/menuAdmin.php'); ?>
 
 <?php ob_start(); ?>
 
@@ -10,5 +10,5 @@
      
 <?php $content = ob_get_clean(); ?>
 
-<?php require('template.php'); ?>
+<?php require('template/template.php'); ?>
 

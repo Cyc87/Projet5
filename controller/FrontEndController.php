@@ -129,7 +129,7 @@ function fineFurnishing()
 {
     $readManager = new ProductManager();
     $readAllFineFurnishingProduct = $readManager->readAllFineFurnishingProduct();
-
+    
     include("view/fineFurnishing.php");
 }
 function makeoverFurniture(){

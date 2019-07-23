@@ -2,7 +2,7 @@
 
 <?php ob_start(); ?>
 
-<?php require("menu.php"); ?>     
+<?php require("menu/menu.php"); ?>     
 
 <section>
     <div class="container">
@@ -18,5 +18,5 @@
         
 <?php $content = ob_get_clean(); ?>
 
-<?php require('template.php') ?>
-<?php require("footer.php"); ?>
+<?php require('template/template.php') ?>
+<?php require("footer/footer.php"); ?>

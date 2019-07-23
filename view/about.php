@@ -2,7 +2,7 @@
 
 <?php ob_start(); ?>
 
-<?php require("menu.php"); ?>        
+<?php require("menu/menu.php"); ?>        
         
     <div>
         <div id="titleConcept" class="shadow-lg p-3 mb-5 bg-white rounded"><h1>Qui suis-je</h1></div>
@@ -20,6 +20,6 @@
 
 <?php $content = ob_get_clean(); ?>
 
-<?php require('template.php') ?>
+<?php require('template/template.php') ?>
 
-<?php require("footer.php"); ?>
+<?php require("footer/footer.php"); ?>

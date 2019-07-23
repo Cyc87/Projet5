@@ -63,8 +63,7 @@
                 creativeAisles();
             } else if ($_GET['action'] == "prettyDecoration") {
                 prettyDecoration();
-            }
-            else if ($_GET['action'] == "wall") {
+            }else if ($_GET['action'] == "wall") {
                 wall();
             }else{
                 pageError();

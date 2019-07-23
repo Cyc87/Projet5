@@ -2,7 +2,7 @@
 
 <?php ob_start(); ?>
 
-<?php require("menuAdmin.php"); ?>     
+<?php require("menu/menuAdmin.php"); ?>     
         
 
 <section>
@@ -32,5 +32,5 @@
 
 <?php $content = ob_get_clean(); ?>
 
-<?php require('template.php') ?>
+<?php require('template/template.php') ?>
 

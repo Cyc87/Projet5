@@ -1,6 +1,6 @@
 <?php $title = 'Mes jolies meubles'; ?>
 
-<?php require('menu.php'); ?>
+<?php require('menu/menu.php'); ?>
 
 <?php ob_start(); ?>
 
@@ -40,6 +40,6 @@
 
 <?php $content = ob_get_clean(); ?>
 
-<?php require('template.php'); ?>
+<?php require('template/template.php'); ?>
 
-<?php require("footer.php"); ?>
+<?php require("footer/footer.php"); ?>

@@ -2,7 +2,7 @@
 
 <?php ob_start(); ?>
 
-<?php require("menu.php"); ?>
+<?php require("menu/menu.php"); ?>
 
 <section>
     <div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
@@ -69,7 +69,9 @@
 </section>
 <?php $content = ob_get_clean(); ?>
 
-<?php require('template.php') ?>
+<?php require('template/template.php') ?>
+
 <!-- LightWidget WIDGET -->
 <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="//lightwidget.com/widgets/68fcc57301515cb78f33cab37d885cb8.html" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
-<?php require("footer.php"); ?>
+
+<?php require("footer/footer.php"); ?>

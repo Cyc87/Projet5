@@ -2,7 +2,7 @@
 
 <?php ob_start(); ?>
 
-<?php require("menu.php"); ?>  
+<?php require("menu/menu.php"); ?>  
 
     <div id="contact">
         <div class="shadow-lg p-3 mb-5 bg-white rounded"><h1>Me contacter</h1></div> 
@@ -53,5 +53,5 @@
     
 <?php $content = ob_get_clean(); ?>
 
-<?php require('template.php') ?>
-<?php require("footer.php"); ?>
+<?php require('template/template.php') ?>
+<?php require("footer/footer.php"); ?>
