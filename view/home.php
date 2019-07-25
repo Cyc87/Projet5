@@ -33,30 +33,31 @@
     </div>
 </section>
 <section>
-    <div class="card-deck" style="width: 75%; margin: auto; margin-top:200px; text-align: center;">
+    <div class="card-deck" style="width:75%; margin: auto; margin-top:200px; text-align: center;">
+
+
         <div class="card">
             <a href="index.php?action=beautifulCrates" style="text-decoration:none">
                 <div class="card-body">
                     <h5 class="card-title" style="color:black">Mes jolies caisses</h5>
+                    <img src="public/images/crates/crates1.jpg" class="card-img-top" alt="image caisse">
                 </div>
-                <img src="public/images/crates/crates1.jpg" class="card-img-top" alt="..." style="height:556px">
             </a>
         </div>
-
         <div class="card">
             <a href="index.php?action=fineFurnishing" style="text-decoration:none">
                 <div class="card-body">
                     <h5 class="card-title" style="color:black">Mes jolies meubles</h5>
+                    <img src="public/images/meubles/meuble1.jpg" class="card-img-top" alt="image meuble">
                 </div>
-                <img src="public/images/meubles/meuble1.jpg" class="card-img-top" alt="..." style="height:556px">
             </a>
         </div>
         <div class="card">
             <a href="index.php?action=prettyDecoration" style="text-decoration:none">
                 <div class="card-body">
                     <h5 class="card-title" style="color:black">Mes jolies décos</h5>
+                    <img src="public/images/deco/deco1.jpg" class="card-img-top" alt="image déco">
                 </div>
-                <img src="public/images/deco/deco1.jpg" class="card-img-top" alt="..." style="height:556px">
             </a>
         </div>
     </div>

@@ -4,23 +4,23 @@
 
 <?php require("menu/menu.php"); ?>
 
-    <section>
-        <h2 style="text-align:center; margin-top:50px; margin-bottom:50px">Toutes les jolies commodes</h2>
-        <div class="container">
+<section>
+    <h2 style="text-align:center; margin-top:50px; margin-bottom:50px">Toutes les jolies commodes</h2>
+    <div class="container" style="text-align:center">
 
-            <form action="index.php?action=chest" method="get">
-                <?php
-                foreach ($readChestProduct as $readChestProduct) {
-                    ?>
-
-                    <img src="<?= $readChestProduct->nameProduct() ?>" height="300" width="500" class="img-thumbnail" />
-
-                <?php
-                }
+        <form action="index.php?action=chest" method="get">
+            <?php
+            foreach ($readChestProduct as $readChestProduct) {
                 ?>
-            </form>
-        </div>
-    </section>
+
+                <img src="<?= $readChestProduct->nameProduct() ?>" height="300" width="500" class="img-thumbnail" />
+
+            <?php
+            }
+            ?>
+        </form>
+    </div>
+</section>
 
 <?php $content = ob_get_clean(); ?>
 

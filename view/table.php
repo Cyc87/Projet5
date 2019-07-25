@@ -6,7 +6,7 @@
 
 <section>
     <h2 style="text-align:center; margin-top:50px; margin-bottom:50px">Toutes les tables sont utiles</h2>
-    <div class="container">
+    <div class="container" style="text-align:center">
 
         <form action="index.php?action=table" method="get">
             <?php

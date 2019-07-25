@@ -18,7 +18,7 @@
             ));
             $data = $req ->fetch(PDO::FETCH_ASSOC);
             return $data;
-             
+            $data->closeCursor();
         }
         public function readAllproduct(){
             $req = $this->_db->query('SELECT * FROM products ORDER BY dateCreationProduct DESC ');
@@ -28,6 +28,7 @@
                 $readProduct[] = new ProductCreation($data);
             }
             return $readProduct;
+            $readProduct->closeCursor();
         }
         public function readAllBeautifulCratesProduct()
         {
@@ -37,6 +38,7 @@
             $readAllBeautifulCratesProduct[] = new ProductCreation($data);
             }
             return $readAllBeautifulCratesProduct;
+            $readAllBeautifulCratesProduct->closeCursor();
         }
         public function readAllFineFurnishingProduct()
         {
@@ -46,6 +48,7 @@
             $readAllFineFurnishingProduct[] = new ProductCreation($data);
             }
             return $readAllFineFurnishingProduct;
+            $readAllFineFurnishingProduct->closeCursor();
         }
         public function readPrettyDecorationProduct()
         {
@@ -55,6 +58,7 @@
                 $readPrettyDecorationProduct[] = new ProductCreation($data);
             }
             return $readPrettyDecorationProduct;
+            $readPrettyDecorationProduct->closeCursor();
         }
         public function readCastorProduct()
         {
@@ -64,6 +68,7 @@
                 $readCastorProduct[] = new ProductCreation($data);
             }
             return $readCastorProduct;
+            $readCastorProduct->closeCursor();
         }
         public function readCratesProduct()
         {
@@ -73,6 +78,7 @@
                 $readCratesProduct[] = new ProductCreation($data);
             }
             return $readCratesProduct;
+            $readCratesProduct->closeCursor();
         }
         public function readEtagereProduct()
         {
@@ -82,6 +88,7 @@
                 $readEtagereProduct[] = new ProductCreation($data);
             }
             return $readEtagereProduct;
+            $readEtagereProduct->closeCursor();
         }
         public function readChairProduct()
         {
@@ -91,6 +98,7 @@
                 $readChairProduct[] = new ProductCreation($data);
             }
             return $readChairProduct;
+            $readChairProduct->closeCursor();
         }
         public function readTableProduct()
         {
@@ -100,6 +108,7 @@
                 $readTableProduct[] = new ProductCreation($data);
             }
             return $readTableProduct;
+            $readTableProduct->closeCursor();
         }
         public function readChestProduct()
         {
@@ -109,6 +118,7 @@
                 $readChestProduct[] = new ProductCreation($data);
             }
             return $readChestProduct;
+            $readChestProduct->closeCursor();
         }
         public function readBuffetProduct()
         {
@@ -118,6 +128,7 @@
                 $readBuffetProduct[] = new ProductCreation($data);
             }
             return $readBuffetProduct;
+            $readBuffetProduct->closeCursor();
         }
         public function readCabinetProduct()
         {
@@ -127,6 +138,7 @@
                 $readCabinetProduct[] = new ProductCreation($data);
             }
             return $readCabinetProduct;
+            $readCabinetProduct->closeCursor();
         }
         public function readWallProduct()
         {
@@ -136,6 +148,7 @@
                 $readWallProduct[] = new ProductCreation($data);
             }
             return $readWallProduct;
+            $readWallProduct->closeCursor();
         }
         public function deleteProduct($id){
             $req = $this->_db->prepare("DELETE FROM products WHERE id = ?");
@@ -154,11 +167,12 @@
                 $productEdit[] = new ProductCreation($data);
             }
             return $productEdit;
+            $productEdit->closeCursor();
         }
         public function updateProduct(ProductCreation $updateId){
             $req = $this->_db->prepare("UPDATE products SET  descriptionProduct = :descriptionProduct WHERE id = :id");
             $req->execute(array(
-                
+
                 "descriptionProduct" =>  $updateId->descriptionProduct(),
                 "id" => $updateId->id()
             ));

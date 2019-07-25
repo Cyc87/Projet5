@@ -18,6 +18,7 @@
             ));
             $data = $req ->fetch(PDO::FETCH_ASSOC);
             return $data;
+            $data->closeCursor();
         }
         public function getByUsername($name){
             $req = $this->_db->prepare("SELECT * FROM `users` WHERE username = :username");
@@ -26,7 +27,7 @@
             ));
             $data = $req ->fetch(PDO::FETCH_ASSOC);
             return $data;
- 
+            $data->closeCursor();
         }
         public function addAccountCreation(AccountCreation $users){
             $req = $this->_db->prepare("INSERT INTO users(username, password1, mail, dateCreation) VALUES (?,?,?,NOW())");
@@ -38,6 +39,7 @@
             ));
             $data = $req ->fetch(PDO::FETCH_ASSOC);
             return $data;
+            $data->closeCursor();
             
         }
         public function sessionUser($id){
@@ -47,6 +49,7 @@
             ));
             $data = $req ->fetch(PDO::FETCH_ASSOC);
             return $data;
+            $data->closeCursor();
         }
     }
 ?>

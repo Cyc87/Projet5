@@ -5,7 +5,7 @@
 <?php require("menu/menu.php"); ?>
 <section>
     <h2 style="text-align:center; margin-top:50px; margin-bottom:50px">Toutes les jolies décorations</h2>
-    <div class="container">
+    <div class="container" style="text-align:center">
 
         <form action="index.php?action=prettyDecoration" method="get">
             <?php

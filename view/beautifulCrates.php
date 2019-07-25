@@ -6,18 +6,16 @@
 
 <section>
     <h2 style="text-align:center; margin-top:50px; margin-bottom:50px">Vous trouverez ici toutes les caisses</h2>
-    <div class="container">
+    <div class="container" style="text-align:center">
 
-        <form action="index.php?action=beautifullCrates" method="get">
-            <?php
+        <form action=" index.php?action=beautifullCrates" method="get">
+        <?php
             foreach ($readAllBeautifulCratesProduct as $readAllBeautifulCratesProduct) {
-                ?>
-
-                <img src="<?= $readAllBeautifulCratesProduct->nameProduct() ?>" height="300" width="500" class="img-thumbnail" />
-
-            <?php
+        ?>
+            <img src="<?= $readAllBeautifulCratesProduct->nameProduct() ?>" height="300" width="500" class="img-thumbnail" />
+        <?php
             }
-            ?>
+        ?>
         </form>
     </div>
 </section>

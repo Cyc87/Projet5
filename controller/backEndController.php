@@ -71,12 +71,12 @@ function productManagement(){
                     }
                     $extension = strrchr($_FILES['userfile']['name'],'.');
                     
-                    $tabExt = array('.jpg','.gif','.png','.jpeg','.PNG','.JPG');
+                    $tabExt = array('.jpg','.gif','.png','.jpeg','JPEG','.PNG','GIF','.JPG');
                     
                     if (in_array($extension,$tabExt)){
                         $title = $_POST['descriptionProduct'];
-                        $img_dir = 'uploads/'.$_FILES['userfile']['name'];
-                   
+                        $img_dir = 'uploads/'.date("G-i-s") .$_FILES['userfile']['name'];
+                        
                         move_uploaded_file($_FILES['userfile']['tmp_name'] ,$img_dir);
                         
                         $product = new ProductCreation([
