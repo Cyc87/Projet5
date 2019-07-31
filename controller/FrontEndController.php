@@ -66,9 +66,7 @@ function pageError(){
     
    include("view/pageError.php");
 }
-
 function chair(){
-
     $readManager = new ProductManager();
     $readChairProduct = $readManager->readChairProduct();
 
@@ -121,8 +119,11 @@ function etageres(){
 function beautifulCrates()
 {
     $readManager = new ProductManager();
+    $readCount = $readManager->countProduct();
+   
+    $readManager = new ProductManager();
     $readAllBeautifulCratesProduct = $readManager->readAllBeautifulCratesProduct();
-
+    
     include("view/beautifulCrates.php");
 }
 function fineFurnishing()

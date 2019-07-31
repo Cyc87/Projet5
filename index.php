@@ -10,7 +10,6 @@
 
     require "controller/FrontEndController.php";
     require "controller/backEndController.php";
-
     
         if(isset($_GET['action'])){
             if($_GET['action'] == "home"){

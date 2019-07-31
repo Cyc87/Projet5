@@ -10,6 +10,28 @@
                 die('Erreur : ' . $e->getMessage());
             }
         }
+        public function countProduct(){
+            $perPage = 4;
+
+            $req = $this->_db->query('SELECT COUNT(*) AS total FROM products WHERE descriptionProduct IN ("étagère","roulette","caisse")');
+            $result = $req->fetch();
+            $total = $result['total'];
+
+            $numberPage = ceil($total/$perPage);
+       
+            if(isset($_GET['page']) && !empty($_GET['page']) && ctype_digit($_GET['page']) == 1){
+                if($_GET['page'] > $numberPage){
+                    $current = $numberPage;
+                }else{
+                    $current = $_GET['page'];
+                }
+            }else{
+                $current = 1;
+            }
+            
+            $firstOfPage = ($current-1)*$perPage;
+          
+        }
         public function addProductCreation(ProductCreation $product){
             $req = $this->_db->prepare("INSERT  INTO products(nameProduct,descriptionProduct,dateCreationProduct) VALUES (?,?,NOW())");
             $req->execute(array(
@@ -32,10 +54,11 @@
         }
         public function readAllBeautifulCratesProduct()
         {
-            $req = $this->_db->query('SELECT * FROM `products` WHERE descriptionProduct IN ("étagère","roulette","caisse") LIMIT 0,6');
+            $req = $this->_db->prepare('SELECT * FROM `products` WHERE descriptionProduct IN ("étagère","roulette","caisse") LIMIT 0,20');
+            $req->execute();
             $readAllBeautifulCratesProduct = [];
             while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
-            $readAllBeautifulCratesProduct[] = new ProductCreation($data);
+                $readAllBeautifulCratesProduct[] = new ProductCreation($data);
             }
             return $readAllBeautifulCratesProduct;
             $readAllBeautifulCratesProduct->closeCursor();
@@ -45,7 +68,7 @@
             $req = $this->_db->query('SELECT * FROM `products` WHERE descriptionProduct IN ("chaise","table","commode","buffet","armoire","mur") LIMIT 0,6');
             $readAllFineFurnishingProduct = [];
             while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
-            $readAllFineFurnishingProduct[] = new ProductCreation($data);
+                $readAllFineFurnishingProduct[] = new ProductCreation($data);
             }
             return $readAllFineFurnishingProduct;
             $readAllFineFurnishingProduct->closeCursor();

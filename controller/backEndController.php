@@ -13,20 +13,20 @@ function login(){
             $accountManager = new AccountManager();       
             $data = $accountManager->getByUserName($name);
          
-        if ($data) {  
-            if (password_verify($_POST['password'], $data['password1'])){
-                $_SESSION['user'] = $data['id'];
-                header('Location: index.php?action=admin');
-                exit();
+            if ($data) {  
+                if (password_verify($_POST['password'], $data['password1'])){
+                    $_SESSION['user'] = $data['id'];
+                    header('Location: index.php?action=admin');
+                    exit();
+                } else {
+                    $_SESSION['message'] = "Votre mot de passe est invalide";
+                    $_SESSION['msg_type'] = "danger";
+                }
             } else {
-                $_SESSION['message'] = "Votre mot de passe est invalide";
+                $_SESSION['message'] = "Votre login est invalide";
                 $_SESSION['msg_type'] = "danger";
             }
-        } else {
-            $_SESSION['message'] = "Votre login est invalide";
-            $_SESSION['msg_type'] = "danger";
         }
-    }
     include("view/login.php");  
 }
 function admin(){
@@ -75,7 +75,7 @@ function productManagement(){
                     
                     if (in_array($extension,$tabExt)){
                         $title = $_POST['descriptionProduct'];
-                        $img_dir = 'uploads/'.date("G-i-s") .$_FILES['userfile']['name'];
+                        $img_dir = 'uploads/'.date("H-i-s") .$_FILES['userfile']['name'];
                         
                         move_uploaded_file($_FILES['userfile']['tmp_name'] ,$img_dir);
                         

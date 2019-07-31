@@ -66,7 +66,7 @@
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0 mx-auto ">
-                    <input  name="search" class="search_query form-control" type="search" aria-label="Search" placeholder="Recherche">
+                    <input  name="search" class="search_query form-control" type="text" aria-label="Search" placeholder="Recherche" autocomplete="off">
                 </form>
             </div>
         </nav>

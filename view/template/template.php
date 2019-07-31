@@ -13,7 +13,7 @@
     <title><?= $title ?></title>
 </head>
 
-<body style="font-family:Snell Roundhand, cursive">
+<body>
 
     <?= $content ?>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
