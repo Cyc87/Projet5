@@ -2,7 +2,7 @@
 
 <?php ob_start(); ?>
 
-<?php require("menu/menu.php"); ?>
+<?php require("view/home/menu/menuHome/menu.php"); ?>
 <section>
     <h2 style="text-align:center; margin-top:50px; margin-bottom:50px">Toutes les jolies boites à roulettes sont utiles</h2>
     <div class="container" style="text-align:center">
@@ -22,5 +22,5 @@
 </section>
 <?php $content = ob_get_clean(); ?>
 
-<?php require('template/template.php') ?>
-<?php require("footer/footer.php"); ?>
+<?php require('view/template/template.php') ?>
+<?php require("view/footer/footer.php"); ?>

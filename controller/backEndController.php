@@ -27,7 +27,7 @@ function login(){
                 $_SESSION['msg_type'] = "danger";
             }
         }
-    include("view/login.php");  
+    include("view/admin/login.php");  
 }
 function admin(){
 
@@ -39,7 +39,7 @@ function admin(){
     $accountManager = new AccountManager();       
     $data = $accountManager->sessionUser($_SESSION['user']);
     
-    include("view/admin.php");   
+    include("view/admin/admin.php");   
 }
 function deconnexion(){
     
@@ -122,7 +122,7 @@ function productManagement(){
         header('Location: index.php?action=productManagement');
         exit();
     }
-    include("view/productManagement.php");   
+    include("view/admin/menuAdmin/productManagement.php");   
 }
 function updateProduct(){
     if (!isset($_SESSION['user'])) {
@@ -155,7 +155,7 @@ function updateProduct(){
             header('location: index.php?action=productManagement');
             exit();
 }
-    include("view/updateProduct.php"); 
+    include("view/admin/menuAdmin/updateProduct.php"); 
 }
 
 function creationAccount(){
@@ -225,7 +225,7 @@ function creationAccount(){
             exit();
         }
     }  
-    include("view/creationAccount.php");
+    include("view/admin/menuAdmin/creationAccount.php");
 }
 
 

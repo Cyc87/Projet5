@@ -2,7 +2,7 @@
 
 <?php ob_start(); ?>
 
-<?php require("menu/menuAdmin.php"); ?>
+<?php require("view/admin/menuAdmin/menuAdmin.php"); ?>
 <section>
 <?php
     if(isset($_SESSION['message'])){
@@ -79,4 +79,4 @@
 
 <?php $content = ob_get_clean(); ?>
 
-<?php require('template/template.php') ?>
+<?php require('view/template/template.php') ?>
