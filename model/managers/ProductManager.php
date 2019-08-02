@@ -34,8 +34,9 @@
           
         }
         public function addProductCreation(ProductCreation $product){
-            $req = $this->_db->prepare("INSERT  INTO products(nameProduct,descriptionProduct,dateCreationProduct) VALUES (?,?,NOW())");
+            $req = $this->_db->prepare("INSERT INTO products(category,nameProduct,descriptionProduct,dateCreationProduct) VALUES (?,?,?,NOW())");
             $req->execute(array(
+                $product->category(),
                 $product->nameProduct(),
                 $product->descriptionProduct(),
             ));
@@ -55,7 +56,7 @@
         }
         public function readAllBeautifulCratesProduct()
         {
-            $req = $this->_db->prepare('SELECT * FROM `products` WHERE descriptionProduct IN ("étagère","roulette","caisse") LIMIT 0,20');
+            $req = $this->_db->prepare('SELECT * FROM `products` WHERE category IN ("étagère","roulette","caisse") LIMIT 0,20');
             $req->execute();
             $readAllBeautifulCratesProduct = [];
             while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
@@ -66,7 +67,7 @@
         }
         public function readAllFineFurnishingProduct()
         {
-            $req = $this->_db->query('SELECT * FROM `products` WHERE descriptionProduct IN ("chaise","table","commode","buffet","armoire","mur") LIMIT 0,6');
+            $req = $this->_db->query('SELECT * FROM `products` WHERE category IN ("chaise","table","commode","buffet","armoire","mur") LIMIT 0,6');
             $readAllFineFurnishingProduct = [];
             while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
                 $readAllFineFurnishingProduct[] = new ProductCreation($data);
@@ -76,7 +77,7 @@
         }
         public function readPrettyDecorationProduct()
         {
-            $req = $this->_db->query('SELECT * FROM products WHERE descriptionProduct = "divers" LIMIT 0,6');
+            $req = $this->_db->query('SELECT * FROM products WHERE category = "divers" LIMIT 0,6');
             $readPrettyDecorationProduct = [];
             while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
                 $readPrettyDecorationProduct[] = new ProductCreation($data);
@@ -86,7 +87,7 @@
         }
         public function readCastorProduct()
         {
-            $req = $this->_db->query('SELECT * FROM `products` WHERE descriptionProduct = "roulette" ');
+            $req = $this->_db->query('SELECT * FROM `products` WHERE category = "roulette" ');
             $readCastorProduct = [];
             while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
                 $readCastorProduct[] = new ProductCreation($data);
@@ -96,7 +97,7 @@
         }
         public function readCratesProduct()
         {
-            $req = $this->_db->query('SELECT * FROM `products` WHERE descriptionProduct = "caisse" ');
+            $req = $this->_db->query('SELECT * FROM `products` WHERE category = "caisse" ');
             $readCratesProduct = [];
             while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
                 $readCratesProduct[] = new ProductCreation($data);
@@ -106,7 +107,7 @@
         }
         public function readEtagereProduct()
         {
-            $req = $this->_db->query('SELECT * FROM `products` WHERE descriptionProduct = "étagère" ');
+            $req = $this->_db->query('SELECT * FROM `products` WHERE category = "étagère" ');
             $readEtagereProduct = [];
             while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
                 $readEtagereProduct[] = new ProductCreation($data);
@@ -116,7 +117,7 @@
         }
         public function readChairProduct()
         {
-            $req = $this->_db->query('SELECT * FROM `products` WHERE descriptionProduct = "chaise" ');
+            $req = $this->_db->query('SELECT * FROM `products` WHERE category = "chaise" ');
             $readChairProduct = [];
             while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
                 $readChairProduct[] = new ProductCreation($data);
@@ -126,7 +127,7 @@
         }
         public function readTableProduct()
         {
-            $req = $this->_db->query('SELECT * FROM `products` WHERE descriptionProduct = "table" ');
+            $req = $this->_db->query('SELECT * FROM `products` WHERE category = "table" ');
             $readTableProduct = [];
             while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
                 $readTableProduct[] = new ProductCreation($data);
@@ -136,7 +137,7 @@
         }
         public function readChestProduct()
         {
-            $req = $this->_db->query('SELECT * FROM `products` WHERE descriptionProduct = "commode" ');
+            $req = $this->_db->query('SELECT * FROM `products` WHERE category = "commode" ');
             $readChestProduct = [];
             while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
                 $readChestProduct[] = new ProductCreation($data);
@@ -146,7 +147,7 @@
         }
         public function readBuffetProduct()
         {
-            $req = $this->_db->query('SELECT * FROM `products` WHERE descriptionProduct = "buffet" ');
+            $req = $this->_db->query('SELECT * FROM `products` WHERE category = "buffet" ');
             $readBuffetProduct = [];
             while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
                 $readBuffetProduct[] = new ProductCreation($data);
@@ -156,7 +157,7 @@
         }
         public function readCabinetProduct()
         {
-            $req = $this->_db->query('SELECT * FROM `products` WHERE descriptionProduct = "armoire" ');
+            $req = $this->_db->query('SELECT * FROM `products` WHERE category = "armoire" ');
             $readCabinetProduct = [];
             while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
                 $readCabinetProduct[] = new ProductCreation($data);
@@ -166,7 +167,7 @@
         }
         public function readWallProduct()
         {
-            $req = $this->_db->query('SELECT * FROM `products` WHERE descriptionProduct = "mur" ');
+            $req = $this->_db->query('SELECT * FROM `products` WHERE category = "mur" ');
             $readWallProduct = [];
             while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
                 $readWallProduct[] = new ProductCreation($data);
@@ -194,9 +195,9 @@
             $productEdit->closeCursor();
         }
         public function updateProduct(ProductCreation $updateId){
-            $req = $this->_db->prepare("UPDATE products SET  descriptionProduct = :descriptionProduct WHERE id = :id");
+            $req = $this->_db->prepare("UPDATE products SET  descriptionProduct = :descriptionProduct, category = :category WHERE id = :id");
             $req->execute(array(
-
+                "category"=> $updateId->category(),
                 "descriptionProduct" =>  $updateId->descriptionProduct(),
                 "id" => $updateId->id()
             ));

@@ -1,9 +1,9 @@
 <?php
 
-
     class ProductCreation{
 
         private $_id;
+        private $_category;
         private $_descriptionProduct;
         private $_nameProduct;
         private $_dateCreationProduct;
@@ -15,6 +15,9 @@
         public function hydrate(Array $data){
             if(isset($data['id'])){
             $this->setId($data['id']);
+            }
+            if(isset($data['category'])){
+            $this->setCategory($data['category']);
             }
             if(isset($data['descriptionProduct'])){
             $this->setDescriptionProduct($data['descriptionProduct']);
@@ -30,6 +33,9 @@
         public function id(){
             return $this->_id;
         }
+        public function category(){
+            return $this->_category;
+        }
         public function descriptionProduct(){
             return $this->_descriptionProduct;
         }
@@ -43,6 +49,9 @@
         // SETTERS
         public function setId($id){
             $this->_id = $id;
+        }
+        public function setCategory($category){
+            $this->_category = $category;
         }
         public function setDescriptionProduct($descriptionProduct){
             $this->_descriptionProduct = $descriptionProduct;

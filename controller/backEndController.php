@@ -58,51 +58,59 @@ function productManagement(){
         exit();
     }
     if(isset($_POST) && !empty($_POST)){
+
+        if(!empty($_POST['category'])){
         
-        if(!empty($_POST['descriptionProduct'])){
+            if(!empty($_POST['descriptionProduct'])){
 
-            if(!empty($_FILES['userfile']['name'])){
-                
-                if($_FILES['userfile']['error'] == 0){
+                if(!empty($_FILES['userfile']['name'])){
+                    
+                    if($_FILES['userfile']['error'] == 0){
 
-                    if($_FILES['userfile']['size'] > 5000000){
-                        $_SESSION['message'] = "Image trop volumineuse!";
-                        $_SESSION['msg_type'] = "danger";
-                    }
-                    $extension = strrchr($_FILES['userfile']['name'],'.');
-                    
-                    $tabExt = array('.jpg','.gif','.png','.jpeg','JPEG','.PNG','GIF','.JPG');
-                    
-                    if (in_array($extension,$tabExt)){
-                        $title = $_POST['descriptionProduct'];
-                        $img_dir = 'uploads/'.date("H-i-s") .$_FILES['userfile']['name'];
+                        if($_FILES['userfile']['size'] > 5000000){
+                            $_SESSION['message'] = "Image trop volumineuse!";
+                            $_SESSION['msg_type'] = "danger";
+                        }
+                        $extension = strrchr($_FILES['userfile']['name'],'.');
                         
-                        move_uploaded_file($_FILES['userfile']['tmp_name'] ,$img_dir);
+                        $tabExt = array('.jpg','.gif','.png','.jpeg','JPEG','.PNG','GIF','.JPG');
                         
-                        $product = new ProductCreation([
-                            "nameProduct" => $img_dir,
-                            "descriptionProduct" =>  $title,
-                        ]);
- 
-                        $productManager = new ProductManager();
-                        $productManager->addProductCreation($product);
-                      
-                        $_SESSION['message'] = "Votre image est enregistrée !";
-                        $_SESSION['msg_type'] = "success";
-                        header('Location: index.php?action=productManagement');
-                        exit();  
+                        if (in_array($extension,$tabExt)){
+                            $title = $_POST['category'];
+                            $description = $_POST['descriptionProduct'];
+                            $img_dir = 'uploads/'.date("H-i-s") .$_FILES['userfile']['name'];
+                            
+                            move_uploaded_file($_FILES['userfile']['tmp_name'] ,$img_dir);
+                            
+                            $product = new ProductCreation([
+                                "nameProduct" => $img_dir,
+                                "category" =>  $title,
+                                "descriptionProduct" => $description
+                            ]);
+    
+                            $productManager = new ProductManager();
+                            $productManager->addProductCreation($product);
                         
+                            $_SESSION['message'] = "Votre image est enregistrée !";
+                            $_SESSION['msg_type'] = "success";
+                            header('Location: index.php?action=productManagement');
+                            exit();  
+                            
+                        }else{
+                            $_SESSION['message'] = "Extension de l'image incorrecte !";
+                            $_SESSION['msg_type'] = "danger";
+                        }
                     }else{
-                        $_SESSION['message'] = "Extension de l'image incorrecte !";
+                        $_SESSION['message'] = "Problème de formulaire!";
                         $_SESSION['msg_type'] = "danger";
                     }
-                }else{
-                    $_SESSION['message'] = "Problème de formulaire!";
-                    $_SESSION['msg_type'] = "danger";
                 }
+            }else{
+                $_SESSION['message'] = "Description Vide!";
+                $_SESSION['msg_type'] = "danger";
             }
         }else{
-            $_SESSION['message'] = "Description Vide!";
+            $_SESSION['message'] = "Categorie Vide!";
             $_SESSION['msg_type'] = "danger";
         } 
     }
@@ -138,12 +146,13 @@ function updateProduct(){
         if (isset($_POST['update'])) {
             
             $descriptionProduct = htmlspecialchars($_POST['descriptionProduct']);
+            $title = htmlspecialchars($_POST['category']);
             $modifId = htmlspecialchars($_GET['id']);
            
             $productManager = new ProductManager();
             
             $productUpdate = new ProductCreation([
-               
+                'category'=> $title,
                 'descriptionProduct' => $descriptionProduct,
                 'id' => $modifId,  
                 ]);
