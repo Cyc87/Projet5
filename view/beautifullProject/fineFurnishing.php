@@ -1,6 +1,6 @@
 <?php $title = 'Mes jolies meubles'; ?>
 
-<?php require('view/menu/menu.php'); ?>
+<?php require('view/home/menu/menuHome/menu.php'); ?>
 
 <?php ob_start(); ?>
 

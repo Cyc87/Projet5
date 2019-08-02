@@ -2,7 +2,7 @@
 
 <?php ob_start(); ?>
 
-<?php require("view/menu/menu.php"); ?>
+<?php require("view/home/menu/menuHome/menu.php"); ?>
 <section>
     <h2 style="text-align:center; margin-top:50px; margin-bottom:50px">Toutes les jolies décorations</h2>
     <div class="container" style="text-align:center">

@@ -1,4 +1,5 @@
 <?php
+
     function home(){
         
         include("view/home/home.php");
@@ -13,6 +14,7 @@
     }
     function castor()
     {
+        
         $readManager = new ProductManager();
         $readCastorProduct = $readManager->readCastorProduct();
 

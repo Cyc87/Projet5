@@ -1,4 +1,5 @@
 <?php
+    
     class ProductManager{
 
         private $_db;
@@ -16,7 +17,7 @@
             $req = $this->_db->query('SELECT COUNT(*) AS total FROM products WHERE descriptionProduct IN ("étagère","roulette","caisse")');
             $result = $req->fetch();
             $total = $result['total'];
-
+        
             $numberPage = ceil($total/$perPage);
        
             if(isset($_GET['page']) && !empty($_GET['page']) && ctype_digit($_GET['page']) == 1){

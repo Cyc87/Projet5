@@ -1,7 +1,7 @@
 <header>
     <section class="logoHeader">
         <div>
-            <img class="imageHeader" src="public/images/logo.png" alt="">   
+            <img class="imageHeader" src="public/images/logo.png" alt="">
         </div>
     </section>
     <section>
@@ -17,13 +17,13 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <a class="navbar-brand mx-auto" href="index.php?action=home">Home</a>
-                <ul class="navbar-nav mr-auto"> 
+                <ul class="navbar-nav mr-auto">
                     <li class="nav-item dropdown">
-                        <a class="nav-link mx-auto" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link mx-auto" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             MES JOLIES CAISSES
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" style="color:#025a55" >Pour ranger, trier, organiser <br/>tous les joyeux bazars</a>
+                            <a class="dropdown-item" style="color:#025a55">Pour ranger, trier, organiser <br />tous les joyeux bazars</a>
                             <a class="dropdown-item" href="index.php?action=castor">Les jolies roulettes</a>
                             <a class="dropdown-item" href="index.php?action=crates">Les jolies boites</a>
                             <a class="dropdown-item" href="index.php?action=etageres">Les jolies étagères</a>
@@ -34,7 +34,7 @@
                             MES JOLIS MEUBLES
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" style="color:#025a55">Chinés, bichonnés, relookés...<br/> prêts pour une nouvelle vie</a>    
+                            <a class="dropdown-item" style="color:#025a55">Chinés, bichonnés, relookés...<br /> prêts pour une nouvelle vie</a>
                             <a class="dropdown-item" href="index.php?action=chair">Les jolies chaises</a>
                             <a class="dropdown-item" href="index.php?action=table">Les jolies tables</a>
                             <a class="dropdown-item" href="index.php?action=chest">Les jolies commodes</a>
@@ -65,8 +65,9 @@
                         </div>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0 mx-auto ">
-                    <input  name="search" class="search_query form-control" type="text" aria-label="Search" placeholder="Recherche" autocomplete="off">
+                <form class="form-inline my-2 my-lg-0 mx-auto " method="get">
+                    <!-- <input  name="search" class="search_query form-control" type="search" aria-label="Search" placeholder="Recherche" autocomplete="off"> -->
+                    <input type="search" name="search" class="search_query form-control" autocomplete="off" placeholder="Recherche..." />
                 </form>
             </div>
         </nav>
