@@ -11,9 +11,10 @@
             <?php
             foreach ($readPrettyDecorationProduct as $readPrettyDecorationProduct) {
                 ?>
-
-                <img src="<?= $readPrettyDecorationProduct->nameProduct() ?>" height="300" width="500" class="img-thumbnail" />
-
+                <div class="image">
+                    <img src="<?= $readPrettyDecorationProduct->nameProduct() ?>" height="300" width="500" class="img-thumbnail" />
+                    <h4><?= $readPrettyDecorationProduct->descriptionProduct() ?></h4>
+                </div>
             <?php
             }
             ?>

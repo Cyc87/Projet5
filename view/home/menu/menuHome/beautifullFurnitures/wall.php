@@ -12,9 +12,10 @@
             <?php
             foreach ($readWallProduct as $readWallProduct) {
                 ?>
-
-                <img src="<?= $readWallProduct->nameProduct() ?>" height="300" width="500" class="img-thumbnail" />
-
+                <div class="image">
+                    <img src="<?= $readWallProduct->nameProduct() ?>" height="300" width="500" class="img-thumbnail" />
+                    <h4><?= $readTableProduct->descriptionProduct() ?></h4>
+                </div>
             <?php
             }
             ?>

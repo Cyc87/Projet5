@@ -12,9 +12,10 @@
             <?php
             foreach ($readBuffetProduct as $readBuffetProduct) {
                 ?>
-
-                <img src="<?= $readBuffetProduct->nameProduct() ?>" height="300" width="500" class="img-thumbnail" />
-
+                <div class="image">
+                    <img src="<?= $readBuffetProduct->nameProduct() ?>" height="300" width="500" class="img-thumbnail" />
+                    <h4><?= $readBuffetProduct->descriptionProduct() ?></h4>
+                </div>
             <?php
             }
             ?>

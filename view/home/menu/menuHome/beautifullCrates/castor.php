@@ -11,15 +11,19 @@
             <?php
             foreach ($readCastorProduct as $readCastorProduct) {
                 ?>
-
-                <img src="<?= $readCastorProduct->nameProduct() ?>" height="300" width="500" class="img-thumbnail" />
-
+                <div class="image">
+                    <img src="<?= $readCastorProduct->nameProduct() ?>" height="300" width="500" class="img-thumbnail" />
+                   
+                        <h4><?= $readCastorProduct->descriptionProduct() ?></h4>
+                    
+                </div>
             <?php
             }
             ?>
         </form>
     </div>
 </section>
+
 <?php $content = ob_get_clean(); ?>
 
 <?php require('view/template/template.php') ?>

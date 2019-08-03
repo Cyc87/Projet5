@@ -12,7 +12,10 @@
             <?php
             foreach ($readAllBeautifulCratesProduct as $readAllBeautifulCratesProduct) {
                 ?>
-                <img src="<?= $readAllBeautifulCratesProduct->nameProduct() ?>" height="300" width="500" class="img-thumbnail" />
+                <div class="image">
+                    <img src="<?= $readAllBeautifulCratesProduct->nameProduct() ?>" height="300" width="500" class="img-thumbnail" />
+                    <h4><?= $readAllBeautifulCratesProduct->descriptionProduct() ?></h4>
+                </div>
             <?php
             }
             ?>

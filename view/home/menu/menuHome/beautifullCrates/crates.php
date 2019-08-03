@@ -11,12 +11,13 @@
             <?php
             foreach ($readCratesProduct as $readCratesProduct) {
                 ?>
-
-                <img src="<?= $readCratesProduct->nameProduct() ?>" height="300" width="500" class="img-thumbnail" />
-
-            <?php
-            }
-            ?>
+                <div class="image">
+                    <img src="<?= $readCratesProduct->nameProduct() ?>" height="300" width="500" class="img-thumbnail" />
+                    <h4><?= $readCratesProduct->descriptionProduct() ?></h4>
+                </div>
+                <?php
+                    }
+                ?>
         </form>
     </div>
 </section>

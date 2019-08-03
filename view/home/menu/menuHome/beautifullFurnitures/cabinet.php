@@ -10,13 +10,14 @@
 
         <form action="index.php?action=cabinet" method="get">
             <?php
-            foreach ($readCabinetProduct as $readCabinetProduct) {
-                ?>
-
-                <img src="<?= $readCabinetProduct->nameProduct() ?>" height="300" width="500" class="img-thumbnail" />
-
+                foreach ($readCabinetProduct as $readCabinetProduct) {
+            ?>
+                <div class="image">
+                    <img src="<?= $readCabinetProduct->nameProduct() ?>" height="300" width="500" class="img-thumbnail" />
+                    <h4><?= $readCabinetProduct->descriptionProduct() ?></h4>
+                </div>
             <?php
-            }
+                }
             ?>
         </form>
     </div>
