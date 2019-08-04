@@ -14,7 +14,7 @@
                 ?>
                 <div class="image">
                     <img src="<?= $readWallProduct->nameProduct() ?>" height="300" width="500" class="img-thumbnail" />
-                    <h4><?= $readTableProduct->descriptionProduct() ?></h4>
+                    <h4><?= $readWallProduct->descriptionProduct() ?></h4>
                 </div>
             <?php
             }
