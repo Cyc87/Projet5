@@ -65,10 +65,11 @@
                         </div>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0 mx-auto " method="get">
-                    <!-- <input  name="search" class="search_query form-control" type="search" aria-label="Search" placeholder="Recherche" autocomplete="off"> -->
-                    <input type="search" name="search" class="search_query form-control" autocomplete="off" placeholder="Recherche..." />
-                </form>
+                <div class="form-inline my-2 my-lg-0 mx-auto ">
+                    <a href="index.php?action=search" style="padding: 0 10px;color:#025a55; text-decoration:none">
+                        <i class=" fas fa-search"></i>
+                    </a>
+                </div>
             </div>
         </nav>
     </section>

@@ -56,7 +56,8 @@
             <a href="index.php?action=prettyDecoration" style="text-decoration:none">
                 <div class="card-body">
                     <h5 class="card-title" style="color:black">Mes jolies décos</h5>
-                    <img src="public/images/deco/deco1.jpg" class="card-img-top" alt="image déco">
+                    <img src="public/images/deco/deco1.jpg" class="card-img-top" alt="image déco"><br><br>
+                    <img src="public/images/deco/deco2.jpg" class="card-img-top" alt="image déco">
                 </div>
             </a>
         </div>

@@ -64,6 +64,8 @@
                 prettyDecoration();
             }else if ($_GET['action'] == "wall") {
                 wall();
+            }else if ($_GET['action'] == "search") {
+                search();
             }else{
                 pageError();
             }
