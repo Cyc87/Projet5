@@ -6,11 +6,11 @@ var category = {
     },
 
     categoryOpen: function () {
-
-           document.getElementById("category").addEventListener("click", function () {
-               document.getElementById("resumeCategory").style.display = 'block';
-           });
+        document.getElementById("category").addEventListener("click", function () {
+            document.getElementById("resumeCategory").style.display = 'block';
+        });
     },
+
     categoryClosed: function () {
        
         document.getElementById("croix").addEventListener("click", function () {

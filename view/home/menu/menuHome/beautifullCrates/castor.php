@@ -10,11 +10,11 @@
         <form action="index.php?action=castor" method="get">
             <?php
             foreach ($readCastorProduct as $readCastorProduct) {
+                
                 ?>
                 <div class="image">
                     <img src="<?= $readCastorProduct->nameProduct() ?>" height="300" width="500" class="img-thumbnail" />
-                   
-                        <h4><?= $readCastorProduct->descriptionProduct() ?></h4>
+                    <h4><?= $readCastorProduct->descriptionProduct() ?></h4>
                     
                 </div>
             <?php

@@ -137,8 +137,10 @@
     }
     function beautifulCrates()
     {
+   
         $readCountManager = new ProductManager();
         $readCount = $readCountManager->countProduct();
+       
     
         $readManager = new ProductManager();
         $readAllBeautifulCratesProduct = $readManager->readAllBeautifulCratesProduct();
@@ -163,23 +165,26 @@
         
         include("view/pageError/pageError.php");
     }
-function search(){
-    $readSearchProduct="";
+function search($readSearchProduct){
+    
     if(isset($_POST['submitSearch'])){
-        if(isset($_POST['search']) && !empty($_POST['search'])){
-            $search = htmlspecialchars($_POST['search']);
-            
+    
+        $search = htmlspecialchars($_POST['search']);
+
+        if(isset($search) && !empty($search)){
+
             $readManager = new ProductManager();
-            $readSearchProduct = $readManager->readSearchProduct($search);
-            // var_dump($readSearchProduct);
-            // die();
+            $readSearchProduct = $readManager->readSearchProduct($search,$readSearchProduct);
+           
         }else{
             $_SESSION['message'] = "Tous les champs sont obligatoires ! ";
             $_SESSION['msg_type'] = "danger";
         }
-        header('Location:index.php?action=search');
-        exit();
-        }
-        include("view/home/menu/menuHome/search.php"); 
     }
+    include("view/home/menu/menuHome/search.php"); 
+
+      
+}
+    
+
 ?>

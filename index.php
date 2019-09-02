@@ -10,7 +10,9 @@
 
     require "controller/FrontEndController.php";
     require "controller/backEndController.php";
-    
+
+    $readSearchProduct="";
+  
         if(isset($_GET['action'])){
             if($_GET['action'] == "home"){
                 home();
@@ -65,7 +67,7 @@
             }else if ($_GET['action'] == "wall") {
                 wall();
             }else if ($_GET['action'] == "search") {
-                search();
+                search($readSearchProduct);
             }else{
                 pageError();
             }

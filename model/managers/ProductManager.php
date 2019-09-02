@@ -16,10 +16,11 @@
 
             $req = $this->_db->query('SELECT COUNT(*) AS total FROM products WHERE category IN ("étagère","roulette","caisse")');
             $result = $req->fetch();
+            
             $total = $result['total'];
             
             $numberPage = ceil($total/$perPage);
-            
+       
             if(isset($_GET['page']) && !empty($_GET['page']) && ctype_digit($_GET['page']) == 1){
                 if($_GET['page'] > $numberPage){
                     $current = $numberPage;
@@ -30,7 +31,7 @@
                 $current = 1;
             }
             $firstOfPage = ($current-1)*$perPage;
-        
+       
         }
         public function addProductCreation(ProductCreation $product){
             $req = $this->_db->prepare("INSERT INTO products(category,nameProduct,descriptionProduct,dateCreationProduct) VALUES (?,?,?,NOW())");
@@ -55,7 +56,7 @@
         }
         public function readAllBeautifulCratesProduct()
         {
-            $req = $this->_db->prepare('SELECT * FROM `products`  WHERE category  IN ("étagère","roulette","caisse") ORDER BY id DESC LIMIT 0,20');
+            $req = $this->_db->prepare('SELECT * FROM `products`  WHERE category  IN ("étagère","roulette","caisse") ORDER BY id DESC LIMIT 0,4');
             $req->execute();
             $readAllBeautifulCratesProduct = [];
             while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
@@ -201,24 +202,33 @@
                 "id" => $updateId->id()
             ));
         }
-    public function readSearchProduct($search)
-    {
-        $req = $this->_db->prepare('SELECT * FROM `products` WHERE category LIKE ? OR descriptionProduct LIKE ? ORDER BY id DESC LIMIT 0,20');
-        $req->execute(array('%' . $search . '%', '%' . $search . '%'));
-        $readSearchProduct = [];
+    public function readSearchProduct($search,$readSearchProduct){
+        
+        $req = $this->_db->prepare('SELECT * FROM products WHERE category LIKE ? OR descriptionProduct LIKE ? ORDER BY id DESC LIMIT 0,20');
+        $req->execute(array('%' .$search. '%', '%' .$search. '%'));
+        
         $count = $req->rowcount();
-        if ($count >= 1) {
+        
+        if ($count >= 1) { 
+
             $_SESSION['message'] = "$count résultat(s) trouvé(s) pour $search";
             $_SESSION['msg_type'] = "success";
+
+            $readSearchProduct = [];
             while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
-                $readSearchProduct = new ProductCreation($data);
-            }
-            return $readSearchProduct;
-            $readSearchProduct->closeCursor();
+                $readSearchProduct[] = new ProductCreation($data);
+                
+            }  
+            
         } else {
             $_SESSION['message'] = "0 résultat trouvé pour $search";
             $_SESSION['msg_type'] = "danger";
         }
+
+        return $readSearchProduct;
+        $readSearchProduct->closeCursor();
+        
     }
-    }
+}
+
 ?>
