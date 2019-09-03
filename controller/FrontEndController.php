@@ -181,9 +181,7 @@ function search($readSearchProduct){
             $_SESSION['msg_type'] = "danger";
         }
     }
-    include("view/home/menu/menuHome/search.php"); 
-
-      
+    include("view/home/menu/menuHome/search.php");    
 }
     
 

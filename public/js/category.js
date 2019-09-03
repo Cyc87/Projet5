@@ -17,7 +17,6 @@ var category = {
             document.getElementById("resumeCategory").style.display = 'none';
         });
     },
-
 }
 category1 = Object.create(category);
 category1.init();

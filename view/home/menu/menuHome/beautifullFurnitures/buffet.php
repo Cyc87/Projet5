@@ -5,7 +5,7 @@
 <?php require("view//home/menu/menuHome/menu.php"); ?>
 
 <section>
-    <h2 style="text-align:center; margin-top:50px; margin-bottom:50px">Tous les jolis buffets sont utiles</h2>
+    <h2 style="text-align:center; margin-top:50px; margin-bottom:50px">Les jolis buffets</h2>
     <div class="container" style="text-align:center">
 
         <form action="index.php?action=buffet" method="get">

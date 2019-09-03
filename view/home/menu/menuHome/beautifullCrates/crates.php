@@ -4,9 +4,12 @@
 
 <?php require("view/home/menu/menuHome/menu.php"); ?>
 <section>
-    <h2 style="text-align:center; margin-top:50px; margin-bottom:50px">Toutes les jolies boites sont utiles</h2>
+    <h2 style="text-align:center; margin-top:50px; margin-bottom:50px">Les jolies boites</h2>
+    <p style="text-align:center">Les caisses prennent vie pour sublimer votre intérieur...<br />Pour tout ranger dans la maison !</p>
+    <p style="text-align:center">En pin des Landes non traité et issu de forêts gérées durablement ou récupérées chez les cavistes, <br />les caisses sont personnalisées avec des peintures françaises de qualité, naturelles et respectueuses de notre santé et notre environnement.</p>
+    <p style="text-align:center">Dimensions : 33x26x17 cm</p>
+    <p style="text-align:center">Réalisation sur commande aux couleurs et inscriptions de votre choix.</p>
     <div class="container" style="text-align:center">
-
         <form action="index.php?action=crates" method="get">
             <?php
             foreach ($readCratesProduct as $readCratesProduct) {
@@ -15,9 +18,9 @@
                     <img src="<?= $readCratesProduct->nameProduct() ?>" height="300" width="500" class="img-thumbnail" />
                     <h4><?= $readCratesProduct->descriptionProduct() ?></h4>
                 </div>
-                <?php
-                    }
-                ?>
+            <?php
+            }
+            ?>
         </form>
     </div>
 </section>

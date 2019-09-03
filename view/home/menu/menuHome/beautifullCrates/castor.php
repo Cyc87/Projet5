@@ -4,18 +4,22 @@
 
 <?php require("view/home/menu/menuHome/menu.php"); ?>
 <section>
-    <h2 style="text-align:center; margin-top:50px; margin-bottom:50px">Toutes les jolies boites à roulettes sont utiles</h2>
+    <h2 style="text-align:center; margin-top:50px; margin-bottom:50px">Les jolies roulettes</h2>
+    <p style="text-align:center">Avec une caisse sur roulettes, ranger devient aussi pratique que ludique !</p>
+    <p style="text-align:center">Caisse à jouets ou bac à livres, offrez un cadeau unique et personnalisé !</p>
+    <p style="text-align:center">Les caisses sont en pin des Landes non traité et issu de forêts gérées durablement.<br />Elles sont personnalisées avec des peintures françaises de qualité, naturelles et respectueuses de notre santé et notre environnement.</p>
+    <p style="text-align:center">Dimensions : 49x33x17 cm</p>
+    <p style="text-align:center">Réalisation sur commande aux couleurs et inscriptions de votre choix.</p>
     <div class="container" style="text-align:center">
-
         <form action="index.php?action=castor" method="get">
             <?php
             foreach ($readCastorProduct as $readCastorProduct) {
-                
+
                 ?>
                 <div class="image">
                     <img src="<?= $readCastorProduct->nameProduct() ?>" height="300" width="500" class="img-thumbnail" />
                     <h4><?= $readCastorProduct->descriptionProduct() ?></h4>
-                    
+
                 </div>
             <?php
             }

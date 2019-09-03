@@ -41,7 +41,25 @@
 #nextSlider {
     right: 305px;
 }
-                                                    /* CONTACT */
+.container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.container .barre1 {
+    width: 82px;
+    height: 2px;
+    background: grey;
+    margin-top: 44px;
+}
+.container .barre2 {
+    width: 82px;
+    height: 2px;
+    background: grey;
+    margin-top: 44px;
+}
+
+                                            /* CONTACT */
 
 #contact{
     text-align: center;
@@ -160,6 +178,30 @@
 footer {
     margin-top: 120px;
 }
+.container-style {
+    margin-top:50px;
+    text-align: center;
+    position: relative;
+}
+
+.container-style:before {
+    content: "";
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: black;
+    position: absolute;
+    top: calc(50% - 1px);
+}
+
+.container-style span {
+    display: inline-block;
+    padding: 0 40px;
+    background: white;
+    position: relative;
+    z-index: 1;
+}
+
                                                     /*INSTAGRAM*/
 
 .cardInstagram{

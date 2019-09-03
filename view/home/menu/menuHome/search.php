@@ -7,7 +7,7 @@
 <section>
     <div class="container">
         <form method="post" action="index.php?action=search">
-            <input name="search" class="form-control" type="text" placeholder="Recherche" aria-label="Search"><br>
+            <input name="search" class="form-control" type="text" placeholder="Recherche" aria-label="Search" autocomplete="off"><br>
             <input name="submitSearch" type="submit" value="Rechercher"><br><br>
         </form>
     </div>
@@ -24,7 +24,7 @@ if (isset($_SESSION['message'])) {
     <br><br>
     <section>
         <div class="container" style="text-align:center">
-            <form action="index.php?action=search" method="post">
+            <form action="index.php?action=search" method="get">
                 <?php
                 if ($readSearchProduct) {
                     foreach ($readSearchProduct as $readSearchProduct) {
@@ -43,3 +43,4 @@ if (isset($_SESSION['message'])) {
     <?php $content = ob_get_clean(); ?>
 
     <?php require('view/template/template.php') ?>
+    <?php require("view/footer/footer.php"); ?>

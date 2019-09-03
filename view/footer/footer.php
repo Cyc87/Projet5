@@ -1,11 +1,16 @@
+
+<section>
+    <h5 class="container-style">
+        <span>Mon Joli cocon</span>
+    </h5>
+</section>
 <footer class="page-footer font-small cyan darken-3" style=" margin-top: 50px;">
     <div class="card-body text-center">
-        <h5 class="card-title">Liens utiles</h5>
         <a href="#" style="padding: 0 10px;color:#025a55;">Mentions légales</a>
         <a href="index.php?action=contact" style="padding: 0 10px;color:#025a55;">Me contacter</a>
         <a href="index.php?action=login" style="padding: 0 10px;color:#025a55;">Admin</a>
     </div>
-    
+
     <div class="container">
         <div class="row">
             <div class="col-md-12 ">

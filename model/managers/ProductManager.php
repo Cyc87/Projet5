@@ -18,7 +18,7 @@
             $result = $req->fetch();
             
             $total = $result['total'];
-            
+       
             $numberPage = ceil($total/$perPage);
        
             if(isset($_GET['page']) && !empty($_GET['page']) && ctype_digit($_GET['page']) == 1){
@@ -31,6 +31,7 @@
                 $current = 1;
             }
             $firstOfPage = ($current-1)*$perPage;
+            
        
         }
         public function addProductCreation(ProductCreation $product){
