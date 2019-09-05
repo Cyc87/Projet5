@@ -5,7 +5,7 @@
 <?php ob_start(); ?>
 
 <section>
-    <h2 style="text-align:center; margin-top:50px; margin-bottom:50px">Vous trouverez ici toutes les caisses</h2>
+    <h2 style="text-align:center; margin-top:50px; margin-bottom:50px">Les jolies caisses</h2>
     <div class="container" style="text-align:center">
 
         <form action="index.php?action=beautifullCrates&page=<? $_GET['page'] ?>" method="get">

@@ -137,22 +137,21 @@
     }
     function beautifulCrates()
     {
-   
         $readCountManager = new ProductManager();
         $readCount = $readCountManager->countProduct();
-       
+      
     
         $readManager = new ProductManager();
         $readAllBeautifulCratesProduct = $readManager->readAllBeautifulCratesProduct();
-    
+
         include("view/beautifullProject/beautifulCrates.php");
     }
-    function prettyDecoration()
+    function beautifullWall()
     {
         $readManager = new ProductManager();
-        $readPrettyDecorationProduct = $readManager->readPrettyDecorationProduct();
+        $readBeautifullWallProduct = $readManager->readBeautifullWallProduct();
 
-        include("view/beautifullProject/prettyDecoration.php");
+        include("view/beautifullProject/beautifullWall.php");
     }
     function fineFurnishing()
     {

@@ -3,6 +3,7 @@
     class ProductManager{
 
         private $_db;
+        
 
         public function __construct(){
             try {
@@ -18,7 +19,7 @@
             $result = $req->fetch();
             
             $total = $result['total'];
-       
+            
             $numberPage = ceil($total/$perPage);
        
             if(isset($_GET['page']) && !empty($_GET['page']) && ctype_digit($_GET['page']) == 1){
@@ -29,10 +30,9 @@
                 }
             }else{
                 $current = 1;
-            }
+        }
             $firstOfPage = ($current-1)*$perPage;
-            
-       
+      
         }
         public function addProductCreation(ProductCreation $product){
             $req = $this->_db->prepare("INSERT INTO products(category,nameProduct,descriptionProduct,dateCreationProduct) VALUES (?,?,?,NOW())");
@@ -76,15 +76,15 @@
             return $readAllFineFurnishingProduct;
             $readAllFineFurnishingProduct->closeCursor();
         }
-        public function readPrettyDecorationProduct()
+        public function readBeautifullWallProduct()
         {
-            $req = $this->_db->query('SELECT * FROM products WHERE category = "divers" ORDER BY id DESC LIMIT 0,6');
-            $readPrettyDecorationProduct = [];
+            $req = $this->_db->query('SELECT * FROM products WHERE category = "mur" ORDER BY id DESC LIMIT 0,6');
+            $readBeautifullWallProduct = [];
             while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
-                $readPrettyDecorationProduct[] = new ProductCreation($data);
+            $readBeautifullWallProduct[] = new ProductCreation($data);
             }
-            return $readPrettyDecorationProduct;
-            $readPrettyDecorationProduct->closeCursor();
+            return $readBeautifullWallProduct;
+            $readBeautifullWallProduct->closeCursor();
         }
         public function readCastorProduct()
         {

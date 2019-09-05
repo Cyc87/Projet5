@@ -9,6 +9,13 @@
     <p style="text-align:center">En pin des Landes non traité et issu de forêts gérées durablement ou récupérées chez les cavistes, <br />les caisses sont personnalisées avec des peintures françaises de qualité, naturelles et respectueuses de notre santé et notre environnement.</p>
     <p style="text-align:center">Dimensions : 33x26x17 cm</p>
     <p style="text-align:center">Réalisation sur commande aux couleurs et inscriptions de votre choix.</p>
+    <div class="container">
+        <div class="card" style="width: 15rem; text-align :center">
+            <div class="card-body">
+                <h5><a href="index.php?action=contact" style="color:#025a55" class="card-link">Commander une jolie boite</a></h5>
+            </div>
+        </div>
+    </div>
     <div class="container" style="text-align:center">
         <form action="index.php?action=crates" method="get">
             <?php

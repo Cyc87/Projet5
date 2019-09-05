@@ -8,7 +8,7 @@
     if (isset($_SESSION['message'])) {
         ?>
         <div class="alert alert-<?= $_SESSION['msg_type'] ?>">
-            <?php
+        <?php
             echo $_SESSION['message'];
             unset($_SESSION['message']);
         }
@@ -47,7 +47,6 @@
                         <p>- Commode : commode</p>
                         <p>- Buffet: buffet</p>
                         <p>- Mur : mur</p>
-                        <p>- Tout le reste : divers</p>
                     </div>
                 </div>
             </div>

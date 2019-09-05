@@ -12,9 +12,7 @@
     require "controller/backEndController.php";
 
     $readSearchProduct="";
-    $perPage ="";
-    $firstOfPage="";
-    
+
         if(isset($_GET['action'])){
             if($_GET['action'] == "home"){
                 home();
@@ -27,7 +25,7 @@
             }else if($_GET['action'] == "updateProduct"){
                 updateProduct();
             }else if($_GET['action'] == "beautifulCrates"){
-                beautifulCrates($perPage, $firstOfPage);
+                beautifulCrates();
             } else if ($_GET['action'] == "fineFurnishing") {
                 fineFurnishing();
             }else if($_GET['action'] == "deconnexion"){
@@ -64,8 +62,8 @@
                 salePainting();
             }else if($_GET['action'] == "creativeAisles"){
                 creativeAisles();
-            } else if ($_GET['action'] == "prettyDecoration") {
-                prettyDecoration();
+            } else if ($_GET['action'] == "beautifullWall") {
+                beautifullWall();
             }else if ($_GET['action'] == "wall") {
                 wall();
             }else if ($_GET['action'] == "search") {

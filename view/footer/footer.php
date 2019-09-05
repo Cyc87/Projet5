@@ -1,7 +1,7 @@
 
 <section>
     <h5 class="container-style">
-        <span>Mon Joli cocon</span>
+        <span>Mon Joli Cocon</span>
     </h5>
 </section>
 <footer class="page-footer font-small cyan darken-3" style=" margin-top: 50px;">

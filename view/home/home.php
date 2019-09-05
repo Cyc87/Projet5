@@ -53,11 +53,10 @@
             </a>
         </div>
         <div class="card">
-            <a href="index.php?action=prettyDecoration" style="text-decoration:none">
+            <a href="index.php?action=beautifullWall" style="text-decoration:none">
                 <div class="card-body">
-                    <h5 class="card-title" style="color:black">Mes jolies décos</h5>
-                    <img src="public/images/deco/deco1.jpg" class="card-img-top" alt="image déco"><br><br>
-                    <img src="public/images/deco/deco2.jpg" class="card-img-top" alt="image déco">
+                    <h5 class="card-title" style="color:black">Mes jolis murs</h5>
+                    <img src="public/images/deco/mur.jpg" class="card-img-top" alt="image déco"><br><br>
                 </div>
             </a>
         </div>

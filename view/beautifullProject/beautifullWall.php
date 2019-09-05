@@ -1,19 +1,18 @@
-<?php $title = 'Les jolies déco'; ?>
+<?php $title = 'Les jolis murs'; ?>
 
 <?php ob_start(); ?>
 
 <?php require("view/home/menu/menuHome/menu.php"); ?>
 <section>
-    <h2 style="text-align:center; margin-top:50px; margin-bottom:50px">Toutes les jolies décorations</h2>
+    <h2 style="text-align:center; margin-top:50px; margin-bottom:50px">Mes jolis murs</h2>
     <div class="container" style="text-align:center">
-
         <form action="index.php?action=prettyDecoration" method="get">
             <?php
-            foreach ($readPrettyDecorationProduct as $readPrettyDecorationProduct) {
+            foreach ($readBeautifullWallProduct as $readBeautifullWallProduct) {
                 ?>
                 <div class="image">
-                    <img src="<?= $readPrettyDecorationProduct->nameProduct() ?>" height="300" width="500" class="img-thumbnail" />
-                    <h4><?= $readPrettyDecorationProduct->descriptionProduct() ?></h4>
+                    <img src="<?= $readBeautifullWallProduct->nameProduct() ?>" height="300" width="500" class="img-thumbnail" />
+                    <h4><?= $readBeautifullWallProduct->descriptionProduct() ?></h4>
                 </div>
             <?php
             }
