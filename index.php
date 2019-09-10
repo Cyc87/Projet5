@@ -11,6 +11,7 @@
     require "controller/FrontEndController.php";
     require "controller/backEndController.php";
 
+    
     $readSearchProduct="";
 
         if(isset($_GET['action'])){

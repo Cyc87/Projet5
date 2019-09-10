@@ -11,10 +11,8 @@
     <p style="text-align:center">Dimensions : 49x33x17 cm</p>
     <p style="text-align:center">Réalisation sur commande aux couleurs et inscriptions de votre choix.</p>
     <div class="container">
-        <div class="card" style="width: 15rem; text-align :center">
-            <div class="card-body">
-                <h5><a href="index.php?action=contact" style="color:#025a55" class="card-link">Commander une jolie caisse</a></h5>
-            </div>
+        <div class="card" style="width: 20rem; text-align :center; margin-top:50px;margin-bottom:50px">
+            <h5><a href="index.php?action=contact" style="color:#025a55;" class="card-link">Commander une jolie caisse</a></h5>
         </div>
     </div>
 

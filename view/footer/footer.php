@@ -1,8 +1,8 @@
 
 <section>
-    <h5 class="container-style">
+    <h4 class="container-style">
         <span>Mon Joli Cocon</span>
-    </h5>
+    </h4>
 </section>
 <footer class="page-footer font-small cyan darken-3" style=" margin-top: 50px;">
     <div class="card-body text-center">
