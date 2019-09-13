@@ -16,10 +16,8 @@
         </div>
     </div>
     <div class="container">
-        <div class="card" style="width: 15rem; text-align :center">
-            <div class="card-body">
-                <h5><a href="index.php?action=contact" style="color:#025a55" class="card-link">Besoin de conseils</a></h5>
-            </div>
+        <div class="card" style="width: 20rem; text-align :center; margin-top:50px;margin-bottom:50px">
+            <h5><a href="index.php?action=contact" style="color:#025a55;" class="card-link">Besoin de conseils</a></h5>
         </div>
     </div>
 </section>

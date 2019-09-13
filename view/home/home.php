@@ -6,28 +6,28 @@
 
 <section>
     <div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
-        <ol class="carousel-indicators" id="carousel-indicators">
+        <ul class="carousel-indicators" id="carousel-indicators">
             <li data-target="#carousel" data-slide-to="0" class="active"></li>
             <li data-target="#carousel" data-slide-to="1"></li>
             <li data-target="#carousel" data-slide-to="2"></li>
-        </ol>
+        </ul>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="public/images/slider/slider1.jpg" class="w-50" alt="">
+                <img src="public/images/slider/slider1.jpg" style="width:60%">
             </div>
             <div class="carousel-item">
-                <img src="public/images/slider/slider2.jpg" class="w-50" alt="">
+                <img src="public/images/slider/slider2.jpg" style="width:60%">
             </div>
             <div class="carousel-item">
-                <img src="public/images/slider/slider3.jpg" class="w-50" alt="">
+                <img src="public/images/slider/slider3.jpg" style="width:60%">
             </div>
         </div>
         <a class="carousel-control-prev" id="prevSlider" href="#carousel" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="carousel-control-prev-icon"></span>
             <span class="sr-only">Previous</span>
         </a>
         <a class="carousel-control-next" id="nextSlider" href="#carousel" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="carousel-control-next-icon"></span>
             <span class="sr-only">Next</span>
         </a>
     </div>
