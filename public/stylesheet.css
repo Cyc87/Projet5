@@ -144,22 +144,12 @@
     background-color: white;
     margin-top: -40px;
     margin-left:25px;
-    /* -webkit-transform:rotate(30deg);
-    -moz-transform:rotate(30deg);
-    -o-transform:rotate(30deg);
-    -ms-transform:rotate(30deg);
-    transform: rotate(30deg);
-    width: 50%;
-    border-radius: 70%;
-    opacity: 0.7; */
 }
 
 .image img:hover+h4 {
     visibility: visible;
     z-index: 5;
 } 
-
-
                                                     /*ADMIN*/
 
 .fa-question-circle:before {
@@ -207,4 +197,32 @@ footer {
 .cardInstagram{
     position: relative;
     text-align: center;
+}
+@media only screen and (max-width: 700px){
+
+    table, thead, tbody, tr, th, td {
+        display: block;
+    }
+    #data {
+       padding-left:150px;
+       position: relative;
+    }
+    td::before{
+        content:attr(data-label);
+        position: absolute;
+        top:0;
+        left:0;
+        width:130px;
+        bottom:0;
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+        padding:10px;
+    }
+    tr{
+        margin-bottom:1rem;
+    }
+    thead{
+        display: none;
+    }
 }

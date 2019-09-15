@@ -56,16 +56,20 @@
     </div>
 </section>
 <section>
-    <div class="container">
-        <table class="table table-bordered table-striped">
-            <tr>
-                <th width="6%">Numéro</th>
-                <th width="17%">Categorie</th>
-                <th width="17%">Description</th>
-                <th width="20%">Image</th>
-                <th width="20%">Modifier</th>
-                <th width="20%">Supprimer</th>
-            </tr>
+    <div class="table table-responsive">
+        <div class="container">
+            <table class="table table-bordered table-striped ">
+                <thead>
+                    <tr>
+                        <th>Numéro</th>
+                        <th>Categorie</th>
+                        <th>Description</th>
+                        <th>Image</th>
+                        <th>Modifier</th>
+                        <th>Supprimer</th>
+                    </tr>
+                </thead>
+        </div>
     </div>
 </section>
 <section>
@@ -75,26 +79,38 @@
             foreach ($readProduct as $readProduct) {
                 ?>
                 <tr>
-                    <td>
+
+                    <td id="data" data-label="Numéro">
                         <?= $readProduct->id() ?>
                     </td>
-                    <td>
+
+
+                    <td id="data" data-label="Categorie">
                         <?= $readProduct->category() ?>
                     </td>
-                    <td>
+
+
+                    <td id="data" data-label="Description">
                         <?= $readProduct->descriptionProduct() ?>
                     </td>
-                    <td>
+
+
+                    <td id="data" data-label="Image">
                         <img src="<?= $readProduct->nameProduct() ?>" height="10" width="50" class="img-thumbnail" />
                     </td>
 
-                    <td>
+
+
+                    <td id="data" data-label="Modifier">
                         <a name="editProduct" href="index.php?action=updateProduct&id=<?= $readProduct->id() ?>" class='btn btn-warning' style="color:white">Modifier</a>
                     </td>
 
-                    <td>
+
+
+                    <td id="data"  data-label="Supprimer">
                         <a name="deleteProduct" href="index.php?action=productManagement&id=<?= $readProduct->id() ?>" class='btn btn-danger'>Supprimer</a>
                     </td>
+
                 </tr>
             <?php
             }
