@@ -164,24 +164,29 @@
         
         include("view/pageError/pageError.php");
     }
-function search($readSearchProduct){
+    function search($readSearchProduct){
     
-    if(isset($_POST['submitSearch'])){
-    
-        $search = htmlspecialchars($_POST['search']);
+        if(isset($_POST['submitSearch'])){
+        
+            $search = htmlspecialchars($_POST['search']);
 
-        if(isset($search) && !empty($search)){
+            if(isset($search) && !empty($search)){
 
-            $readManager = new ProductManager();
-            $readSearchProduct = $readManager->readSearchProduct($search,$readSearchProduct);
-           
-        }else{
-            $_SESSION['message'] = "Tous les champs sont obligatoires ! ";
-            $_SESSION['msg_type'] = "danger";
+                $readManager = new ProductManager();
+                $readSearchProduct = $readManager->readSearchProduct($search,$readSearchProduct);
+            
+            }else{
+                $_SESSION['message'] = "Tous les champs sont obligatoires ! ";
+                $_SESSION['msg_type'] = "danger";
+            }
         }
-    }
     include("view/home/menu/menuHome/search.php");    
-}
+    }
+    function legalNotice()
+    {
+
+        include("view/home/menu/menuHome/beautifullStory/legalNotice.php");
+    }
     
 
 ?>

@@ -21,9 +21,9 @@
                 <button class="btn btn-secondary dropdown-toggle" style="margin-top:50px;margin-bottom:50px" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Ajouter une image
                 </button>
-                <div class="dropdown-menu" id="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <div class="dropdown-menu dropdown-menu-right" id="dropdown-menu" aria-labelledby="dropdownMenu2">
                     <div class="dropdown-item" type="text">
-                        <input style="margin-top:10px;margin-bottom:10px" type="file" name="userfile"><br />
+                        <input style="margin-top:10px;margin-bottom:10px;" type="file" name="userfile"><br />
                         <div class="container">
                             <input style="margin-top:10px;margin-bottom:30px" name="category" type="text" placeholder="Catégories"><i id="category" class="fa fa-question-circle" style="font-size:24px;margin-top: -23px;"></i><br />
                         </div>
@@ -79,38 +79,24 @@
             foreach ($readProduct as $readProduct) {
                 ?>
                 <tr>
-
                     <td id="data" data-label="Numéro">
                         <?= $readProduct->id() ?>
                     </td>
-
-
                     <td id="data" data-label="Categorie">
                         <?= $readProduct->category() ?>
                     </td>
-
-
                     <td id="data" data-label="Description">
                         <?= $readProduct->descriptionProduct() ?>
                     </td>
-
-
                     <td id="data" data-label="Image">
                         <img src="<?= $readProduct->nameProduct() ?>" height="10" width="50" class="img-thumbnail" />
                     </td>
-
-
-
                     <td id="data" data-label="Modifier">
                         <a name="editProduct" href="index.php?action=updateProduct&id=<?= $readProduct->id() ?>" class='btn btn-warning' style="color:white">Modifier</a>
                     </td>
-
-
-
-                    <td id="data"  data-label="Supprimer">
+                    <td id="data" data-label="Supprimer">
                         <a name="deleteProduct" href="index.php?action=productManagement&id=<?= $readProduct->id() ?>" class='btn btn-danger'>Supprimer</a>
                     </td>
-
                 </tr>
             <?php
             }

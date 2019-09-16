@@ -3,6 +3,7 @@
 <?php ob_start(); ?>
 
 <?php require("view/home/menu/menuHome/menu.php"); ?>
+
 <section>
     <h2 style="text-align:center; margin-top:50px; margin-bottom:50px">Les jolies roulettes</h2>
     <p style="text-align:center">Avec une caisse sur roulettes, ranger devient aussi pratique que ludique !</p>

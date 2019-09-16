@@ -33,9 +33,7 @@
     </div>
 </section>
 <section>
-    <div class="card-deck" style="width:75%; margin: auto; margin-top:200px; text-align: center;">
-
-
+    <div class="card-deck" id="cardDeck" style="width:75%; margin: auto; margin-top:200px; text-align: center;">
         <div class="card">
             <a href="index.php?action=beautifulCrates" style="text-decoration:none">
                 <div class="card-body">

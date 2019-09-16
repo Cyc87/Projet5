@@ -35,6 +35,8 @@
                 creationAccount();
             }else if($_GET['action'] == "contact"){
                 contact();  
+            } else if ($_GET['action'] == "legalNotice") {
+            legalNotice();
             }else if($_GET['action'] == "about"){
                 about();
             }else if($_GET['action'] == "univers"){

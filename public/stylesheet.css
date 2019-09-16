@@ -143,7 +143,7 @@
     color:black;
     background-color: white;
     margin-top: -40px;
-    margin-left:25px;
+    margin-left:15px;
 }
 
 .image img:hover+h4 {
@@ -198,31 +198,84 @@ footer {
     position: relative;
     text-align: center;
 }
-@media only screen and (max-width: 700px){
 
+@media (min-device-width: 180px) and (max-device-width:480px),(min-width: 180px) and (max-width:480px) {
+    #carousel {
+        display: none;
+    }
+    
     table, thead, tbody, tr, th, td {
         display: block;
     }
     #data {
-       padding-left:150px;
-       position: relative;
+        padding-left: 150px;
+        position: relative;
     }
-    td::before{
-        content:attr(data-label);
+
+    td::before {
+        content: attr(data-label);
         position: absolute;
-        top:0;
-        left:0;
-        width:130px;
-        bottom:0;
+        top: 0;
+        left: 0;
+        width: 130px;
+        bottom: 0;
         display: flex;
         align-items: center;
         font-weight: bold;
-        padding:10px;
+        padding: 10px;
     }
-    tr{
-        margin-bottom:1rem;
+
+    tr {
+        margin-bottom: 2rem;
     }
-    thead{
+
+    thead {
         display: none;
+    }
+    
+}
+
+@media (orientation: landscape) and (min-device-width : 481px) and (max-device-width : 767px),
+(min-width: 481px) and (max-width:767px) {
+    #prevSlider {
+        left: 100px;
+    }
+
+    #nextSlider {
+        right: 100px;
+    }
+}
+@media (min-device-width : 768px) and (max-device-width : 1023px),
+(min-width: 768px) and (max-width:1023px) {
+    .carousel {
+        margin-bottom: -100px;
+    }
+    #prevSlider {
+        left: 120px;
+    }
+    #nextSlider {
+        right: 120px;
+    }
+    .navbar-expand-lg .navbar-nav .dropdown-menu {
+        position: absolute;
+        font-size: 13px;
+    }
+}
+
+@media (orientation: landscape) and (min-device-width : 1024px) and (max-device-width : 1366px),
+(min-width: 1024px) and (max-width:1366px) {
+    #navbarSupportedContent {
+        font-size: 10px;
+    }
+    .navbar-expand-lg .navbar-nav .dropdown-menu {
+        position: absolute;
+        font-size: 13px;
+    }
+    #prevSlider {
+        left: 150px;
+    }
+
+    #nextSlider {
+        right: 150px;
     }
 }

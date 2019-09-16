@@ -8,16 +8,15 @@
     <?php
     if (isset($_SESSION['message'])) {
         ?>
-        <div class="alert alert-<?= $_SESSION['msg_type'] ?>" style="height:50px;width:90%; left:50px;">
+        <div class="alert alert-<?= $_SESSION['msg_type'] ?>" id="alertSearch">
         <?php
             echo $_SESSION['message'];
             unset($_SESSION['message']);
         }
-        ?>
-       
+        ?>   
 </section>
 <section>
-    <div class="container">
+    <div class="container" id="containerSearch">
         <form method="post" action="index.php?action=search">
             <input name="search" class="form-control" type="text" placeholder="Recherche" aria-label="Search" autocomplete="off"><br>
             <input name="submitSearch" type="submit" value="Rechercher"><br><br><br />
