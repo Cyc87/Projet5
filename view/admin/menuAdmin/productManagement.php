@@ -34,6 +34,8 @@
             </div>
         </form>
     </div>
+</section>
+<section>
     <div class="container">
         <div class="resumeCategory" id="resumeCategory">
             <div class="card text-white bg-info mb-3" style="max-width: 20rem;">
@@ -104,9 +106,11 @@
         </form>
     </div>
 </section>
+<section>
 
+</section>
 
+<script src="public/js/category.js"></script>
 
 <?php $content = ob_get_clean(); ?>
-
 <?php require('view/template/template.php') ?>

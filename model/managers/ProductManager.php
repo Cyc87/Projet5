@@ -1,9 +1,11 @@
 <?php
-    
+$perPage = "";
+$firstOfPage="";
     class ProductManager{
 
         private $_db;
         
+
 
         public function __construct(){
             try {

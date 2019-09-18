@@ -36,10 +36,10 @@
     
 }
 #prevSlider {
-    left: 305px;
+    left: 230px;
 }
 #nextSlider {
-    right: 305px;
+    right: 230px;
 }
 .container {
     position: relative;
@@ -145,11 +145,17 @@
     margin-top: -40px;
     margin-left:15px;
 }
-
 .image img:hover+h4 {
     visibility: visible;
     z-index: 5;
-} 
+}
+#cardDeck{
+    width:75%;
+    margin: auto;
+    margin-top:200px;
+    text-align: center;
+}
+
                                                     /*ADMIN*/
 
 .fa-question-circle:before {
@@ -203,6 +209,9 @@ footer {
     #carousel {
         display: none;
     }
+    #cardDeck {
+        margin-top: 20px;
+    }
     table, thead, tbody, tr, th, td {
         display: block;
     }
@@ -239,9 +248,11 @@ footer {
     #prevSlider {
         left: 100px;
     }
-
     #nextSlider {
         right: 100px;
+    }
+    #cardDeck { 
+        margin-top: 90px;
     }
 }
 @media (min-device-width : 768px) and (max-device-width : 1023px),

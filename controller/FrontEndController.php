@@ -140,7 +140,6 @@
         $readCountManager = new ProductManager();
         $readCount = $readCountManager->countProduct();
       
-    
         $readManager = new ProductManager();
         $readAllBeautifulCratesProduct = $readManager->readAllBeautifulCratesProduct();
 

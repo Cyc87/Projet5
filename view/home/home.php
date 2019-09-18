@@ -22,7 +22,7 @@
                 <img src="public/images/slider/slider3.jpg" style="width:60%">
             </div>
         </div>
-        <a class="carousel-control-prev" id="prevSlider" href="#carousel" role="button" data-slide="prev">
+        <a class="carousel-control-prev"  id="prevSlider" href="#carousel" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon"></span>
             <span class="sr-only">Previous</span>
         </a>
@@ -33,7 +33,7 @@
     </div>
 </section>
 <section>
-    <div class="card-deck" id="cardDeck" style="width:75%; margin: auto; margin-top:200px; text-align: center;">
+    <div class="card-deck" id="cardDeck">
         <div class="card">
             <a href="index.php?action=beautifulCrates" style="text-decoration:none">
                 <div class="card-body">
