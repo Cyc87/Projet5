@@ -16,21 +16,26 @@
 </section>
 <section>
     <div class="container">
+        <div id="crossAdd" style="margin-top: -178px; position: relative;right: -362px; z-index: 2">
+            <input id="crossAddbutton" type="image" alt="image" src="public/images/croix.png">
+        </div>
         <form method="post" action="index.php?action=productManagement" enctype="multipart/form-data" runat="server">
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" style="margin-top:50px;margin-bottom:50px" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Ajouter une image
-                </button>
-                <div class="dropdown-menu dropdown-menu-right" id="dropdown-menu" aria-labelledby="dropdownMenu2">
-                    <div class="dropdown-item" type="text">
-                        <input style="margin-top:10px;margin-bottom:10px;" type="file" name="userfile"><br />
+            <div style="text-align:center">
+                <div class="container" id="buttonAddImage">
+                    <input class="btn btn-dark" type="button" id="" value="Ajouter une image"><br /><br /><br />
+                </div>
+                <div class="container" id=addImage>
+                    <div class="card" style="width: 22rem;">
+                        <div class="card-body">
+                            <input style="margin-top:10px;margin-bottom:10px;" type="file" name="userfile"><br />
+                        </div>
                         <div class="container">
                             <input style="margin-top:10px;margin-bottom:30px" name="category" type="text" placeholder="Catégories"><i id="category" class="fa fa-question-circle" style="font-size:24px;margin-top: -23px;"></i><br />
                         </div>
                         <input style="margin-top:10px;margin-bottom:30px" name="descriptionProduct" type="text" placeholder="Description">
                         <input type="submit" name="submit" value="Ajouter Photo">
                     </div>
-                </div>
+                </div><br />
             </div>
         </form>
     </div>
@@ -94,10 +99,10 @@
                         <img src="<?= $readProduct->nameProduct() ?>" height="10" width="50" class="img-thumbnail" />
                     </td>
                     <td id="data" data-label="Modifier">
-                        <a name="editProduct" href="index.php?action=updateProduct&id=<?= $readProduct->id() ?>" class='btn btn-warning' style="color:white">Modifier</a>
+                        <a name="editProduct" href="index.php?action=updateProduct&id=<?= $readProduct->id() ?>" class='btn btn-dark' style="color:white">Modifier</a>
                     </td>
                     <td id="data" data-label="Supprimer">
-                        <a name="deleteProduct" href="index.php?action=productManagement&id=<?= $readProduct->id() ?>" class='btn btn-danger'>Supprimer</a>
+                        <a name="deleteProduct" href="index.php?action=productManagement&id=<?= $readProduct->id() ?>" class='btn btn-dark'>Supprimer</a>
                     </td>
                 </tr>
             <?php
@@ -111,6 +116,7 @@
 </section>
 
 <script src="public/js/category.js"></script>
+<script src="public/js/addImage.js"></script>
 
 <?php $content = ob_get_clean(); ?>
 <?php require('view/template/template.php') ?>

@@ -162,6 +162,9 @@
     content: "\f059";
     padding-left:15px;
 }
+.fa-question-circle:hover {
+    color: LightSlateGray;
+}
 .resumeCategory{
     display:none;
 }
@@ -169,6 +172,12 @@
     position: absolute;
     top: 5px;
     right: 5px;
+}
+#addImage {
+    display: none;
+}
+#crossAddbutton {
+    display: none;
 }
                                                      /*FOOTER*/
 footer {
