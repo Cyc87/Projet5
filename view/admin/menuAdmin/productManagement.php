@@ -30,7 +30,7 @@
                             <input style="margin-top:10px;margin-bottom:10px;" type="file" name="userfile"><br />
                         </div>
                         <div class="container">
-                            <input style="margin-top:10px;margin-bottom:30px" name="category" type="text" placeholder="Catégories"><i id="category" class="fa fa-question-circle" style="font-size:24px;margin-top: -23px;"></i><br />
+                            <input style="margin-top:10px;margin-bottom:30px" name="category" type="text" placeholder="Catégories" color="red"><i id="category" class="fa fa-question-circle" style="font-size:24px;margin-top: -23px;"></i><br />
                         </div>
                         <input style="margin-top:10px;margin-bottom:30px" name="descriptionProduct" type="text" placeholder="Description">
                         <input type="submit" name="submit" value="Ajouter Photo">

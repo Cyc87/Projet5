@@ -23,7 +23,8 @@ $firstOfPage="";
             $total = $result['total'];
             
             $numberPage = ceil($total/$perPage);
-       
+        var_dump($numberPage);
+        die();
             if(isset($_GET['page']) && !empty($_GET['page']) && ctype_digit($_GET['page']) == 1){
                 if($_GET['page'] > $numberPage){
                     $current = $numberPage;

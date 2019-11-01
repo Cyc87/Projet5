@@ -183,7 +183,6 @@
     }
     function legalNotice()
     {
-
         include("view/home/menu/menuHome/beautifullStory/legalNotice.php");
     }
     
