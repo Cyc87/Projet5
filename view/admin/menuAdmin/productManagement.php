@@ -41,7 +41,7 @@
     </div>
 </section>
 <section>
-    <div class="container">
+    <div class="container" style="left: 16px;">
         <div class="resumeCategory" id="resumeCategory">
             <div class="card text-white bg-info mb-3" style="max-width: 20rem;">
                 <div id="croix">
@@ -56,6 +56,7 @@
                     <p>- Table : table</p>
                     <p>- Commode : commode</p>
                     <p>- Buffet: buffet</p>
+                    <p>- Armoire: armoire</p>
                     <p>- Mur : mur</p>
                 </div>
             </div>

@@ -1,6 +1,5 @@
 <?php
-$perPage = "";
-$firstOfPage="";
+
     class ProductManager{
 
         private $_db;
@@ -23,8 +22,7 @@ $firstOfPage="";
             $total = $result['total'];
             
             $numberPage = ceil($total/$perPage);
-        var_dump($numberPage);
-        die();
+            
             if(isset($_GET['page']) && !empty($_GET['page']) && ctype_digit($_GET['page']) == 1){
                 if($_GET['page'] > $numberPage){
                     $current = $numberPage;
@@ -60,7 +58,7 @@ $firstOfPage="";
         }
         public function readAllBeautifulCratesProduct()
         {
-            $req = $this->_db->prepare('SELECT * FROM `products`  WHERE category  IN ("étagère","roulette","caisse") ORDER BY id DESC LIMIT 0,4');
+            $req = $this->_db->prepare('SELECT * FROM `products`  WHERE category  IN ("étagère","roulette","caisse") ORDER BY id DESC LIMIT 0,6');
             $req->execute();
             $readAllBeautifulCratesProduct = [];
             while ($data = $req->fetch(PDO::FETCH_ASSOC)) {

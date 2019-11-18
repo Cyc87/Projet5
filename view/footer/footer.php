@@ -1,4 +1,3 @@
-
 <section>
     <h4 class="container-style">
         <span>Mon Joli Cocon</span>

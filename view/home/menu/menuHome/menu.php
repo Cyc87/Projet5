@@ -65,7 +65,7 @@
                         </div>
                     </li>
                 </ul>
-                <div class="form-inline my-2 my-lg-0 mx-auto ">
+                <div class="form-inline my-2 my-lg-0 mx-auto">
                     <a href="index.php?action=search" style="padding: 0 10px;color:#025a55; text-decoration:none">
                         <i class=" fas fa-search"></i>
                     </a>
