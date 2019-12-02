@@ -5,8 +5,8 @@
 <?php require("view/home/menu/menuHome/menu.php"); ?>
 
 <div>
-    <div id="titleConcept" class="shadow-lg p-3 mb-5 bg-white rounded">
-        <h2>Qui suis-je</h2>
+    <div id="titleConcept"><br>
+        <h2>Qui suis-je</h2><br>
     </div>
 </div>
 <section>

@@ -4,9 +4,9 @@
 
 <?php require("view/home/menu/menuHome/menu.php"); ?>
 
-<div id="contact">
-    <div class="shadow-lg p-3 mb-5 bg-white rounded">
-        <h2>Me contacter</h2>
+<div id="contact"><br>
+    <div>
+        <h2>Me contacter</h2><br>
     </div>
 </div>
 

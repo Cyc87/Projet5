@@ -5,9 +5,9 @@
 <?php require("view/home/menu/menuHome/menu.php"); ?>
 
 <div>
-    <div id="titleConcept" class="shadow-lg p-3 mb-5 bg-white rounded">
+    <div id="titleConcept" style="background-color:#cccac0"><br>
         <h2>Mention légale</h2>
-        <h4>En vigueur au 18/09/2019</h4>
+        <h4>En vigueur au 18/09/2019</h4><br>
     </div>
 </div>
 <section>

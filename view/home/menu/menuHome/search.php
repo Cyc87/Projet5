@@ -3,6 +3,7 @@
 <?php ob_start(); ?>
 
 <?php require("view/home/menu/menuHome/menu.php"); ?>
+
 <br /><br />
 <section>
     <?php
@@ -18,11 +19,10 @@
 <section>
     <div class="container" id="containerSearch">
         <form method="post" action="index.php?action=search">
-            <input name="search" id="searchAutocompletion" class="form-control" type="text" placeholder="Recherche" aria-label="Search" autocomplete="off"><br>
-            <div id=" results">
-    </div>
-    <input name="submitSearch" type="submit" value="Rechercher"><br><br><br />
-    </form>
+            <input name="search" id="searchAutocompletion" value=" " class="awesomplete" type="text" placeholder="Rechercher" aria-label="Search"  data-list="caisse,caisse à roulette ,étagères , chaise , table"><br><br>
+            <input name=" submitSearch" type="submit" value="Rechercher"><br><br><br />
+            <div id="results"></div>
+        </form>
     </div>
 </section>
 
@@ -45,8 +45,7 @@
     </div>
 </section>
 
-<script src="public/js/autocompletion.js"></script>
-
+<script type="text/javascript" src="https://cdn.rawgit.com/LeaVerou/awesomplete/gh-pages/awesomplete.min.js"></script>
 <?php $content = ob_get_clean(); ?>
 
 <?php require('view/template/template.php') ?>

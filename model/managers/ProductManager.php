@@ -33,7 +33,7 @@
                 $current = 1;
         }
             $firstOfPage = ($current-1)*$perPage;
-      
+     
         }
         public function addProductCreation(ProductCreation $product){
             $req = $this->_db->prepare("INSERT INTO products(category,nameProduct,descriptionProduct,dateCreationProduct) VALUES (?,?,?,NOW())");
@@ -58,7 +58,7 @@
         }
         public function readAllBeautifulCratesProduct()
         {
-            $req = $this->_db->prepare('SELECT * FROM `products`  WHERE category  IN ("étagère","roulette","caisse") ORDER BY id DESC LIMIT 0,6');
+            $req = $this->_db->prepare('SELECT * FROM `products`  WHERE category  IN ("étagère","roulette","caisse") ORDER BY id DESC LIMIT 0,4');
             $req->execute();
             $readAllBeautifulCratesProduct = [];
             while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
