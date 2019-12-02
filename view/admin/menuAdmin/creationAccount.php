@@ -32,7 +32,7 @@
                                                                                                                                                             echo $mail;
                                                                                                                                                         } ?>">
             </div>
-            <button type="submit">Créer compte</button>
+            <button class="btn btn-dark" type="submit">Créer compte</button>
         </form>
         <?php
             if(isset($_SESSION['message'])){ ?>

@@ -1,5 +1,7 @@
 <?php
 
+    
+
     class ProductManager{
 
         private $_db;
@@ -14,7 +16,7 @@
             }
         }
         public function countProduct(){
-            $perPage = 4;
+            $perPage = 6;
 
             $req = $this->_db->query('SELECT COUNT(*) AS total FROM products WHERE category IN ("étagère","roulette","caisse")');
             $result = $req->fetch();

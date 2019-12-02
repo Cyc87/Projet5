@@ -19,7 +19,7 @@
 <section>
     <div class="container" id="containerSearch">
         <form method="post" action="index.php?action=search">
-            <input name="search" id="searchAutocompletion" class="awesomplete" type="text" placeholder="Rechercher" aria-label="Search"  data-list="caisse,caisse à roulette,boite,étagères,chaise,table,commode,buffet,armoire,mur"><br><br>
+            <input name="search" id="searchAutocompletion"styl="background-color:black" class="awesomplete" autocomplete="off" type="text" placeholder="Rechercher" aria-label="Search" data-list="caisse,caisse à roulette,boite,étagères,chaise,table,commode,buffet,armoire,mur"><br><br>
             <input name=" submitSearch" type="submit" class="btn btn-dark" value="Rechercher"><br><br><br />
         </form>
     </div>

@@ -1,5 +1,6 @@
 <?php
 
+    
     class AccountManager{
 
         private $_db;

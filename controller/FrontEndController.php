@@ -5,7 +5,7 @@
         include("view/home/home.php");
     }
 
-     function crates(){
+    function crates(){
 
         $readManager = new ProductManager();       
         $readCratesProduct = $readManager->readCratesProduct();
@@ -137,6 +137,7 @@
     }
     function beautifulCrates()
     {
+        
         $readCountManager = new ProductManager();
         $readCount = $readCountManager->countProduct();
         

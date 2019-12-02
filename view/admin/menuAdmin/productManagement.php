@@ -16,7 +16,7 @@
 </section>
 <section>
     <div class="container">
-        <div id="crossAdd" style="margin-top: -178px; position: relative;right: -362px; z-index: 2">
+        <div id="crossAdd" style="margin-top: -198px; position: relative;right: -366px; z-index: 2">
             <input id="crossAddbutton" type="image" alt="image" src="public/images/croix.png">
         </div>
         <form method="post" action="index.php?action=productManagement" enctype="multipart/form-data" runat="server">
@@ -25,12 +25,12 @@
                     <input class="btn btn-dark" type="button" id="" value="Ajouter une image"><br /><br /><br />
                 </div>
                 <div class="container" id=addImage>
-                    <div class="card" style="width: 22rem;">
+                    <div class="card text-white bg-dark mb-3" style="width: 22rem;">
                         <div class="card-body">
                             <input style="margin-top:10px;margin-bottom:10px;" type="file" name="userfile"><br />
                         </div>
                         <div class="container">
-                            <input style="margin-top:10px;margin-bottom:30px" name="category" type="text" placeholder="Catégories" color="red"><i id="category" class="fa fa-question-circle" style="font-size:24px;margin-top: -23px;"></i><br />
+                            <input style="margin-top:10px;margin-bottom:30px" name="category" type="text" placeholder="Catégories"><i id="category" class="fa fa-question-circle" style="font-size:24px;margin-top: -23px;"></i><br />
                         </div>
                         <input style="margin-top:10px;margin-bottom:30px" name="descriptionProduct" type="text" placeholder="Description">
                         <input type="submit" name="submit" value="Ajouter Photo">
@@ -43,7 +43,7 @@
 <section>
     <div class="container" style="left: 16px;">
         <div class="resumeCategory" id="resumeCategory">
-            <div class="card text-white bg-info mb-3" style="max-width: 20rem;">
+            <div class="card text-white bg-dark mb-3" style="max-width: 20rem;">
                 <div id="croix">
                     <input type="image" alt="image" src="public/images/croix.png">
                 </div>
@@ -96,13 +96,13 @@
                     <td id="data" data-label="Description">
                         <?= $readProduct->descriptionProduct() ?>
                     </td>
-                    <td id="data" data-label="Image">
+                    <td id="data" data-label="Image" style="text-align:center">
                         <img src="<?= $readProduct->nameProduct() ?>" height="10" width="50" class="img-thumbnail" />
                     </td>
-                    <td id="data" data-label="Modifier">
+                    <td id="data" data-label="Modifier" style="text-align:center">
                         <a name="editProduct" href="index.php?action=updateProduct&id=<?= $readProduct->id() ?>" class='btn btn-dark' style="color:white">Modifier</a>
                     </td>
-                    <td id="data" data-label="Supprimer">
+                    <td id="data" data-label="Supprimer" style="text-align:center">
                         <a name="deleteProduct" href="index.php?action=productManagement&id=<?= $readProduct->id() ?>" class='btn btn-dark'>Supprimer</a>
                     </td>
                 </tr>

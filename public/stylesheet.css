@@ -210,7 +210,13 @@ footer {
     position: relative;
     z-index: 1;
 }
-
+#searchAutocompletion {
+    padding:3px;
+    border:1px solid black;
+    border-radius:5px;
+    width:200px;
+    box-shadow:1px 1px 2px #C0C0C0 inset;
+}
 
                                                     /*INSTAGRAM*/
 

@@ -22,7 +22,7 @@
                 <img src="public/images/slider/slider3.jpg" style="width:60%">
             </div>
         </div>
-        <a class="carousel-control-prev"  id="prevSlider" href="#carousel" role="button" data-slide="prev">
+        <a class="carousel-control-prev" id="prevSlider" href="#carousel" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon"></span>
             <span class="sr-only">Previous</span>
         </a>
@@ -34,26 +34,26 @@
 </section>
 <section>
     <div class="card-deck" id="cardDeck">
-        <div class="card">
+        <div class="card text-white bg-dark mb-3">
             <a href="index.php?action=beautifulCrates" style="text-decoration:none">
                 <div class="card-body">
-                    <h5 class="card-title" style="color:black">Mes jolies caisses</h5>
+                    <h5 class="card-title" style="color:white">Mes jolies caisses</h5>
                     <img src="public/images/crates/crates1.jpg" class="card-img-top" alt="image caisse">
                 </div>
             </a>
         </div>
-        <div class="card">
+        <div class="card text-white bg-dark mb-3">
             <a href="index.php?action=fineFurnishing" style="text-decoration:none">
                 <div class="card-body">
-                    <h5 class="card-title" style="color:black">Mes jolies meubles</h5>
+                    <h5 class="card-title" style="color:white">Mes jolies meubles</h5>
                     <img src="public/images/meubles/meuble1.jpg" class="card-img-top" alt="image meuble">
                 </div>
             </a>
         </div>
-        <div class="card">
+        <div class="card text-white bg-dark mb-3">
             <a href="index.php?action=beautifullWall" style="text-decoration:none">
                 <div class="card-body">
-                    <h5 class="card-title" style="color:black">Mes jolis murs</h5>
+                    <h5 class="card-title" style="color:white">Mes jolis murs</h5>
                     <img src="public/images/deco/mur.jpg" class="card-img-top" alt="image déco"><br><br>
                 </div>
             </a>
