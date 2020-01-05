@@ -14,6 +14,8 @@
     
     
     $readSearchProduct="";
+    
+
 
         if(isset($_GET['action'])){
             if($_GET['action'] == "home"){

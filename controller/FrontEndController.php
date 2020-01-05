@@ -137,13 +137,13 @@
     }
     function beautifulCrates()
     {
-        
+    
         $readCountManager = new ProductManager();
         $readCount = $readCountManager->countProduct();
         
-        $readManager = new ProductManager();
-        $readAllBeautifulCratesProduct = $readManager->readAllBeautifulCratesProduct();
-
+        
+        $readAllBeautifulCratesProduct = $readCountManager->readAllBeautifulCratesProduct();
+        
         include("view/beautifullProject/beautifulCrates.php");
     }
     function beautifullWall()

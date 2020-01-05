@@ -4,10 +4,10 @@
 
     class ProductManager{
 
-        private $_db;
-        
-
-
+    private $_db;
+    private $perPage;
+    private $firstOfPage;
+    
         public function __construct(){
             try {
                 $this->_db = new PDO('mysql:host=localhost;dbname=projet5;charset=utf8', 'root', '');
@@ -15,27 +15,30 @@
                 die('Erreur : ' . $e->getMessage());
             }
         }
-        public function countProduct(){
-            $perPage = 6;
+    public function countProduct()
+    {
+        $this->perPage = 6;
 
-            $req = $this->_db->query('SELECT COUNT(*) AS total FROM products WHERE category IN ("étagère","roulette","caisse")');
-            $result = $req->fetch();
-            
-            $total = $result['total'];
-            
-            $numberPage = ceil($total/$perPage);
-            
-            if(isset($_GET['page']) && !empty($_GET['page']) && ctype_digit($_GET['page']) == 1){
-                if($_GET['page'] > $numberPage){
-                    $current = $numberPage;
-                }else{
-                    $current = $_GET['page'];
-                }
-            }else{
-                $current = 1;
+        $req = $this->_db->query('SELECT COUNT(*) AS total FROM products WHERE category IN ("étagère","roulette","caisse")');
+        $result = $req->fetch();
+
+        $total = $result['total'];
+        
+        $numberPage = ceil($total / $this->perPage);
+        
+        if (isset($_GET['page']) && !empty($_GET['page']) && ctype_digit($_GET['page']) == 1) {
+            if ($_GET['page'] > $numberPage) {
+                $current = $numberPage;
+               
+            } else {
+                $current = $_GET['page'];
+            }
+        } else {
+            $current = 1;
         }
-            $firstOfPage = ($current-1)*$perPage;
-     
+        
+        $this->firstOfPage = ($current - 1) * $this->perPage;
+
         }
         public function addProductCreation(ProductCreation $product){
             $req = $this->_db->prepare("INSERT INTO products(category,nameProduct,descriptionProduct,dateCreationProduct) VALUES (?,?,?,NOW())");
@@ -60,13 +63,16 @@
         }
         public function readAllBeautifulCratesProduct()
         {
-            $req = $this->_db->prepare('SELECT * FROM `products`  WHERE category  IN ("étagère","roulette","caisse") ORDER BY id DESC LIMIT 0,4');
+            $req = $this->_db->prepare('SELECT * FROM `products`  WHERE category  IN ("étagère","roulette","caisse") ORDER BY id DESC LIMIT ' . $this->firstOfPage . ',' . $this->perPage . '');
             $req->execute();
+            
             $readAllBeautifulCratesProduct = [];
+            
             while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
                 $readAllBeautifulCratesProduct[] = new ProductCreation($data);
             }
             return $readAllBeautifulCratesProduct;
+            
             $readAllBeautifulCratesProduct->closeCursor();
         }
         public function readAllFineFurnishingProduct()

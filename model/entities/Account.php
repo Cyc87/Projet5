@@ -26,7 +26,7 @@
             $this->setMail($data['mail']);
             }
             if(isset($data['dateCreation'])){
-            $this->setCreationDate($data['dateCreation']);
+            $this->setDateCreation($data['dateCreation']);
             }
         } 
         // GETTERS
