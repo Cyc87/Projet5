@@ -5,8 +5,7 @@
     class ProductManager{
 
     private $_db;
-    private $perPage;
-    private $firstOfPage;
+   
     
         public function __construct(){
             try {
@@ -15,31 +14,7 @@
                 die('Erreur : ' . $e->getMessage());
             }
         }
-    public function countProduct()
-    {
-        $this->perPage = 6;
-
-        $req = $this->_db->query('SELECT COUNT(*) AS total FROM products WHERE category IN ("étagère","roulette","caisse")');
-        $result = $req->fetch();
-
-        $total = $result['total'];
-        
-        $numberPage = ceil($total / $this->perPage);
-        
-        if (isset($_GET['page']) && !empty($_GET['page']) && ctype_digit($_GET['page']) == 1) {
-            if ($_GET['page'] > $numberPage) {
-                $current = $numberPage;
-               
-            } else {
-                $current = $_GET['page'];
-            }
-        } else {
-            $current = 1;
-        }
-        
-        $this->firstOfPage = ($current - 1) * $this->perPage;
-
-        }
+    
         public function addProductCreation(ProductCreation $product){
             $req = $this->_db->prepare("INSERT INTO products(category,nameProduct,descriptionProduct,dateCreationProduct) VALUES (?,?,?,NOW())");
             $req->execute(array(
@@ -60,40 +35,6 @@
             }
             return $readProduct;
             $readProduct->closeCursor();
-        }
-        public function readAllBeautifulCratesProduct()
-        {
-            $req = $this->_db->prepare('SELECT * FROM `products`  WHERE category  IN ("étagère","roulette","caisse") ORDER BY id DESC LIMIT ' . $this->firstOfPage . ',' . $this->perPage . '');
-            $req->execute();
-            
-            $readAllBeautifulCratesProduct = [];
-            
-            while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
-                $readAllBeautifulCratesProduct[] = new ProductCreation($data);
-            }
-            return $readAllBeautifulCratesProduct;
-            
-            $readAllBeautifulCratesProduct->closeCursor();
-        }
-        public function readAllFineFurnishingProduct()
-        {
-            $req = $this->_db->query('SELECT * FROM `products` WHERE category IN ("chaise","table","commode","buffet","armoire","mur") ORDER BY id DESC LIMIT 0,6');
-            $readAllFineFurnishingProduct = [];
-            while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
-                $readAllFineFurnishingProduct[] = new ProductCreation($data);
-            }
-            return $readAllFineFurnishingProduct;
-            $readAllFineFurnishingProduct->closeCursor();
-        }
-        public function readBeautifullWallProduct()
-        {
-            $req = $this->_db->query('SELECT * FROM products WHERE category = "mur" ORDER BY id DESC LIMIT 0,6');
-            $readBeautifullWallProduct = [];
-            while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
-            $readBeautifullWallProduct[] = new ProductCreation($data);
-            }
-            return $readBeautifullWallProduct;
-            $readBeautifullWallProduct->closeCursor();
         }
         public function readCastorProduct()
         {

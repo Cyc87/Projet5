@@ -135,27 +135,26 @@
         }
         include("view/home/menu/menuHome/beautifullStory/contact.php");
     }
-    function beautifulCrates()
+    function beautifullCrates()
     {
-    
-        $readCountManager = new ProductManager();
-        $readCount = $readCountManager->countProduct();
-        
-        
-        $readAllBeautifulCratesProduct = $readCountManager->readAllBeautifulCratesProduct();
-        
-        include("view/beautifullProject/beautifulCrates.php");
+        $readManager = new PaginationManager();
+        $readCount = $readManager->countProduct();
+        $readAllBeautifulCratesProduct = $readManager->readAllBeautifulCratesProduct();
+   
+        include("view/beautifullProject/beautifullCrates.php");
     }
     function beautifullWall()
     {
-        $readManager = new ProductManager();
-        $readBeautifullWallProduct = $readManager->readBeautifullWallProduct();
+        $readManager = new PaginationManager();
+        $readCount = $readManager->countProduct();
+        $readAllBeautifullWallProduct = $readManager->readAllBeautifullWallProduct();
 
         include("view/beautifullProject/beautifullWall.php");
     }
     function fineFurnishing()
     {
-        $readManager = new ProductManager();
+        $readManager = new PaginationManager();
+        $readCount = $readManager->countProduct();
         $readAllFineFurnishingProduct = $readManager->readAllFineFurnishingProduct();
 
         include("view/beautifullProject/fineFurnishing.php");

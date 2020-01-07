@@ -3,9 +3,11 @@
     session_start();
 
     require "model/entities/Account.php";
+    require "model/entities/Pagination.php";
     require "model/managers/AccountManager.php";
 
     require "model/entities/Product.php";
+    require "model/managers/PaginationManager.php";
     require "model/managers/ProductManager.php";
 
     require "controller/FrontEndController.php";
@@ -15,7 +17,6 @@
     
     $readSearchProduct="";
     
-
 
         if(isset($_GET['action'])){
             if($_GET['action'] == "home"){
@@ -28,8 +29,8 @@
                 productManagement();
             }else if($_GET['action'] == "updateProduct"){
                 updateProduct();
-            }else if($_GET['action'] == "beautifulCrates"){
-                beautifulCrates();
+            }else if($_GET['action'] == "beautifullCrates"){
+                beautifullCrates();
             } else if ($_GET['action'] == "fineFurnishing") {
                 fineFurnishing();
             }else if($_GET['action'] == "deconnexion"){

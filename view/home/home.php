@@ -35,7 +35,7 @@
 <section>
     <div class="card-deck" id="cardDeck">
         <div class="card text-white bg-dark mb-3">
-            <a href="index.php?action=beautifulCrates&page" style="text-decoration:none">
+            <a href="index.php?action=beautifullCrates&page" style="text-decoration:none">
                 <div class="card-body">
                     <h5 class="card-title" style="color:white">Mes jolies caisses</h5>
                     <img src="public/images/crates/crates1.jpg" class="card-img-top" alt="image caisse">
@@ -43,7 +43,7 @@
             </a>
         </div>
         <div class="card text-white bg-dark mb-3">
-            <a href="index.php?action=fineFurnishing" style="text-decoration:none">
+            <a href="index.php?action=fineFurnishing&page" style="text-decoration:none">
                 <div class="card-body">
                     <h5 class="card-title" style="color:white">Mes jolies meubles</h5>
                     <img src="public/images/meubles/meuble1.jpg" class="card-img-top" alt="image meuble">
@@ -51,7 +51,7 @@
             </a>
         </div>
         <div class="card text-white bg-dark mb-3">
-            <a href="index.php?action=beautifullWall" style="text-decoration:none">
+            <a href="index.php?action=beautifullWall&page" style="text-decoration:none">
                 <div class="card-body">
                     <h5 class="card-title" style="color:white">Mes jolis murs</h5>
                     <img src="public/images/deco/mur.jpg" class="card-img-top" alt="image déco"><br><br>
