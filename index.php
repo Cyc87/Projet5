@@ -3,11 +3,9 @@
     session_start();
 
     require "model/entities/Account.php";
-    require "model/entities/Pagination.php";
     require "model/managers/AccountManager.php";
 
     require "model/entities/Product.php";
-    require "model/managers/PaginationManager.php";
     require "model/managers/ProductManager.php";
 
     require "controller/FrontEndController.php";

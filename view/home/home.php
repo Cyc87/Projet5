@@ -70,7 +70,10 @@
 
 <?php require('view/template/template.php') ?>
 
-<!-- LightWidget WIDGET -->
-<script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="//lightwidget.com/widgets/68fcc57301515cb78f33cab37d885cb8.html" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
+
+
+
+<!-- SnapWidget -->
+<iframe src="https://snapwidget.com/embed/782527" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden;  width:2500px; height:250px"></iframe>
 
 <?php require("view/footer/footer.php"); ?>

@@ -4,7 +4,7 @@
         
         include("view/home/home.php");
     }
-
+    
     function crates(){
 
         $readManager = new ProductManager();       
@@ -129,31 +129,35 @@
             }else{
                 $_SESSION['message'] = "Tous les champs sont obligatoires ! ";
                 $_SESSION['msg_type'] = "danger";
-                header('Location:index.php?action=contact');
-                exit();
+                // header('Location:index.php?action=contact');
+                // exit();
             }
         }
         include("view/home/menu/menuHome/beautifullStory/contact.php");
     }
+    
     function beautifullCrates()
     {
-        $readManager = new PaginationManager();
+        $readManager = new ProductManager();
+        
         $readCount = $readManager->countProduct();
+  
         $readAllBeautifulCratesProduct = $readManager->readAllBeautifulCratesProduct();
-   
+        
         include("view/beautifullProject/beautifullCrates.php");
     }
     function beautifullWall()
     {
-        $readManager = new PaginationManager();
+        $readManager = new ProductManager();
         $readCount = $readManager->countProduct();
+      
         $readAllBeautifullWallProduct = $readManager->readAllBeautifullWallProduct();
 
         include("view/beautifullProject/beautifullWall.php");
     }
     function fineFurnishing()
     {
-        $readManager = new PaginationManager();
+        $readManager = new ProductManager();
         $readCount = $readManager->countProduct();
         $readAllFineFurnishingProduct = $readManager->readAllFineFurnishingProduct();
 

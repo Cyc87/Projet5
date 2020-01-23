@@ -14,7 +14,74 @@
                 die('Erreur : ' . $e->getMessage());
             }
         }
-    
+    function countProduct()
+    {
+
+        $this->perPage = 4;
+
+        $req = $this->_db->query('SELECT COUNT(*) AS total FROM products WHERE category IN ("étagère","roulette","caisse")');
+        $result = $req->fetch();
+
+        $total = $result['total'];
+
+        $this->numberPage = ceil($total / $this->perPage);
+
+        if (isset($_GET['page']) && !empty($_GET['page']) && ctype_digit($_GET['page']) == 1) {
+            if ($_GET['page'] > $this->numberPage) {
+                $current = $this->numberPage;
+            } else {
+                $this->current = $_GET['page'];
+            }
+        } else {
+            $this->current = 1;
+        }
+
+        $this->firstOfPage = ($this->current - 1) * $this->perPage;
+    }
+    public function readAllBeautifulCratesProduct()
+    {
+        $req = $this->_db->prepare('SELECT * FROM `products`  WHERE category  IN ("étagère","roulette","caisse") ORDER BY id DESC LIMIT ' . $this->firstOfPage . ',' . $this->perPage . '');
+        $req->execute();
+
+        $readAllBeautifulCratesProduct = [];
+
+        while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
+            $readAllBeautifulCratesProduct[] = new ProductCreation($data);
+        }
+        
+        return $readAllBeautifulCratesProduct;
+
+        $readAllBeautifulCratesProduct->closeCursor();
+    }
+    public function readAllFineFurnishingProduct()
+    {
+        $req = $this->_db->prepare('SELECT * FROM `products` WHERE category IN ("chaise","table","commode","buffet","armoire") ORDER BY id DESC LIMIT ' . $this->firstOfPage . ',' . $this->perPage . '');
+        $req->execute();
+
+        $readAllFineFurnishingProduct = [];
+
+        while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
+            $readAllFineFurnishingProduct[] = new ProductCreation($data);
+        }
+
+        return $readAllFineFurnishingProduct;
+        $readAllFineFurnishingProduct->closeCursor();
+        
+    }
+    public function readAllBeautifullWallProduct()
+    {
+        $req = $this->_db->prepare('SELECT * FROM products WHERE category = "mur" ORDER BY id DESC LIMIT ' . $this->firstOfPage . ',' . $this->perPage . '');
+        $req->execute();
+
+        $readAllBeautifullWallProduct = [];
+
+        while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
+            $readAllBeautifullWallProduct[] = new ProductCreation($data);
+        }
+
+        return $readAllBeautifullWallProduct;
+        $readAllBeautifullWallProduct->closeCursor();
+    }
         public function addProductCreation(ProductCreation $product){
             $req = $this->_db->prepare("INSERT INTO products(category,nameProduct,descriptionProduct,dateCreationProduct) VALUES (?,?,?,NOW())");
             $req->execute(array(
