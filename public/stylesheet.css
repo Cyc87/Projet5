@@ -225,6 +225,7 @@ footer {
     text-align: center;
 }
 
+
 @media (min-device-width: 180px) and (max-device-width:480px),(min-width: 180px) and (max-width:480px) {
     #carousel {
         display: none;

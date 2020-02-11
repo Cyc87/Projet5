@@ -29,6 +29,7 @@
     <div class="container" style="text-align:center">
         <form action="index.php?action=search" method="get">
             <?php
+            
             if ($readSearchProduct) {
                 foreach ($readSearchProduct as $readSearchProduct) {
                     ?>

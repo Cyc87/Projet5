@@ -1,5 +1,6 @@
 <?php
 
+
     function home(){
         
         include("view/home/home.php");
@@ -129,8 +130,7 @@
             }else{
                 $_SESSION['message'] = "Tous les champs sont obligatoires ! ";
                 $_SESSION['msg_type'] = "danger";
-                // header('Location:index.php?action=contact');
-                // exit();
+               
             }
         }
         include("view/home/menu/menuHome/beautifullStory/contact.php");
@@ -141,7 +141,6 @@
         $readManager = new ProductManager();
         
         $readCount = $readManager->countProduct();
-  
         $readAllBeautifulCratesProduct = $readManager->readAllBeautifulCratesProduct();
         
         include("view/beautifullProject/beautifullCrates.php");
@@ -149,7 +148,7 @@
     function beautifullWall()
     {
         $readManager = new ProductManager();
-        $readCount = $readManager->countProduct();
+        
       
         $readAllBeautifullWallProduct = $readManager->readAllBeautifullWallProduct();
 
@@ -158,7 +157,7 @@
     function fineFurnishing()
     {
         $readManager = new ProductManager();
-        $readCount = $readManager->countProduct();
+        
         $readAllFineFurnishingProduct = $readManager->readAllFineFurnishingProduct();
 
         include("view/beautifullProject/fineFurnishing.php");

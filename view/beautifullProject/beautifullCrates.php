@@ -8,7 +8,7 @@
     <h2 style="text-align:center; margin-top:50px; margin-bottom:50px">Les jolies caisses</h2>
     <div class="container" style="text-align:center">
 
-        <form action="index.php?action=beautifullCrates&page" method="get">
+        <form action="index.php?actionbeautifullCrates&" method="get">
             <?php
             foreach ($readAllBeautifulCratesProduct as $readAllBeautifulCratesProduct) {
 
@@ -21,38 +21,6 @@
             }
             ?>
         </form>
-    </div>
-</section>
-<section>
-    <div class="container">
-        <nav aria-label="Page navigation example">
-            <ul class="pagination">
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-                <?php
-                for ($i = 1; $i <= $this->numberPage; $i++) {
-
-                    if ($i == $this->current) {
-                ?>
-                        <li class="page-item"><a class="page-link" href="index.php?action=beautifullCrates&page=<?php echo $i ?>"><?php echo $i ?></a></li>
-                    <?php
-                    } else {
-                    ?>
-                        <li class="page-item"><a class="page-link" href="index.php?action=beautifullCrates&page=<?php echo $i ?>"><?php echo $i ?></a></li>
-                <?php
-                    }
-                }
-                ?>
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
     </div>
 </section>
 
