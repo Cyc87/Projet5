@@ -1,6 +1,6 @@
 <?php
 
-    
+namespace CYC\Projet5\model\managers\AccountManager;
 
     class AccountManager{
 
@@ -8,8 +8,8 @@
 
         public function __construct(){
             try {
-                $this->_db = new PDO('mysql:host=localhost;dbname=projet5;charset=utf8', 'root', '');
-            } catch (Exception $e) {
+                $this->_db = new \PDO('mysql:host=localhost;dbname=projet5;charset=utf8', 'root', '');
+            } catch (\Exception $e) {
                 die('Erreur : ' . $e->getMessage());
            }
         }
@@ -18,7 +18,7 @@
             $req->execute(array(
                 "mail" => $mail
             ));
-            $data = $req ->fetch(PDO::FETCH_ASSOC);
+            $data = $req ->fetch(\PDO::FETCH_ASSOC);
             return $data;
             $data->closeCursor();
         }
@@ -27,11 +27,11 @@
             $req->execute(array(
                 "username" => $_POST['usernameAdmin']
             ));
-            $data = $req ->fetch(PDO::FETCH_ASSOC);
+            $data = $req ->fetch(\PDO::FETCH_ASSOC);
             return $data;
             $data->closeCursor();
         }
-        public function addAccountCreation(AccountCreation $users){
+        public function addAccountCreation(\CYC\Projet5\model\entities\Account\AccountCreation $users){
             $req = $this->_db->prepare("INSERT INTO users(username, password1, mail, dateCreation) VALUES (?,?,?,NOW())");
             $req->execute(array(
                 $users->userName(),
@@ -39,7 +39,7 @@
                 $users->mail(),
         
             ));
-            $data = $req ->fetch(PDO::FETCH_ASSOC);
+            $data = $req ->fetch(\PDO::FETCH_ASSOC);
             return $data;
             $data->closeCursor();
             
@@ -49,7 +49,7 @@
             $req->execute(array(
                 "id" => $id
             ));
-            $data = $req ->fetch(PDO::FETCH_ASSOC);
+            $data = $req ->fetch(\PDO::FETCH_ASSOC);
             return $data;
             $data->closeCursor();
         }

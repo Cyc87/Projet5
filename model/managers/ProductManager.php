@@ -1,6 +1,6 @@
 <?php
 
-
+namespace CYC\Projet5\model\manager\ProductManager;
 
 class ProductManager
 {
@@ -15,8 +15,8 @@ class ProductManager
     public function __construct()
     {
         try {
-            $this->_db = new PDO('mysql:host=localhost;dbname=projet5;charset=utf8', 'root', '');
-        } catch (Exception $e) {
+            $this->_db = new \PDO('mysql:host=localhost;dbname=projet5;charset=utf8', 'root', '');
+        } catch (\Exception $e) {
             die('Erreur : ' . $e->getMessage());
         }
     }
@@ -51,56 +51,57 @@ class ProductManager
 
         $readAllBeautifulCratesProduct = [];
 
-        while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
-            $readAllBeautifulCratesProduct[] = new ProductCreation($data);
+        while ($data = $req->fetch(\PDO::FETCH_ASSOC)) {
+            $readAllBeautifulCratesProduct[] = new \CYC\Projet5\model\entities\Product\ProductCreation($data);
         }
-?>
+        
+        ?>
         <section>
-    <div class="container">
-        <nav aria-label="Page navigation">
-            <ul class="pagination">
+            <div class="container">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
 
-                <li class="<?php if ($this->current == '1') {
+                        <li class="<?php if ($this->current == '1') {
 
-                                echo " page-item disabled";
-                            } ?>">
-                    <a class="page-link" href="index.php?action=beautifullCrates&page=<?php if ($this->current != '1') {
-                                                                                            echo $this->current - 1;
-                                                                                        } else {
-                                                                                            echo $this->current;
-                                                                                        } ?>" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-                <?php
-                for ($i = 1; $i <= $this->numberPage; $i++) {
+                                        echo " page-item disabled";
+                                    } ?>">
+                            <a class="page-link" href="index.php?action=beautifullCrates&page=<?php if ($this->current != '1') {
+                                                                                                    echo $this->current - 1;
+                                                                                                } else {
+                                                                                                    echo $this->current;
+                                                                                                } ?>" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <?php
+                        for ($i = 1; $i <= $this->numberPage; $i++) {
 
-                    if ($i == $this->current) {
-                ?>
-                        <li class="page-item"><a class="page-link" href="index.php?action=beautifullCrates&page=<?php echo $i ?>"><?php echo $i ?></a></li>
-                    <?php
-                    } else {
-                    ?>
-                        <li class="page-item"><a class="page-link" href="index.php?action=beautifullCrates&page=<?php echo $i ?>"><?php echo $i ?></a></li>
-                <?php
-                    }
-                }
-                ?>
-                <li class="<?php if ($this->current == $this->numberPage) {
-                                echo " page-item disabled";
-                            } ?>">
-                    <a class="page-link" href="index.php?action=beautifullCrates&page=<?php if ($this->current != $this->numberPage) {
-                                                                                            echo $this->current + 1;
-                                                                                        } else {
-                                                                                            echo $this->current;
-                                                                                        } ?>" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-</section>
+                            if ($i == $this->current) {
+                        ?>
+                                <li class="page-item"><a class="page-link" href="index.php?action=beautifullCrates&page=<?php echo $i ?>"><?php echo $i ?></a></li>
+                            <?php
+                            } else {
+                            ?>
+                                <li class="page-item"><a class="page-link" href="index.php?action=beautifullCrates&page=<?php echo $i ?>"><?php echo $i ?></a></li>
+                        <?php
+                            }
+                        }
+                        ?>
+                        <li class="<?php if ($this->current == $this->numberPage) {
+                                        echo " page-item disabled";
+                                    } ?>">
+                            <a class="page-link" href="index.php?action=beautifullCrates&page=<?php if ($this->current != $this->numberPage) {
+                                                                                                    echo $this->current + 1;
+                                                                                                } else {
+                                                                                                    echo $this->current;
+                                                                                                } ?>" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </section>
 <?php
         return $readAllBeautifulCratesProduct;
 
@@ -113,8 +114,8 @@ class ProductManager
 
         $readAllFineFurnishingProduct = [];
 
-        while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
-            $readAllFineFurnishingProduct[] = new ProductCreation($data);
+        while ($data = $req->fetch(\PDO::FETCH_ASSOC)) {
+            $readAllFineFurnishingProduct[] = new \CYC\Projet5\model\entities\Product\ProductCreation($data);
         }
 
         return $readAllFineFurnishingProduct;
@@ -127,14 +128,14 @@ class ProductManager
 
         $readAllBeautifullWallProduct = [];
 
-        while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
-            $readAllBeautifullWallProduct[] = new ProductCreation($data);
+        while ($data = $req->fetch(\PDO::FETCH_ASSOC)) {
+            $readAllBeautifullWallProduct[] = new \CYC\Projet5\model\entities\Product\ProductCreation($data);
         }
 
         return $readAllBeautifullWallProduct;
         $readAllBeautifullWallProduct->closeCursor();
     }
-    public function addProductCreation(ProductCreation $product)
+    public function addProductCreation(\CYC\Projet5\model\entities\Product\ProductCreation $product)
     {
         $req = $this->_db->prepare("INSERT INTO products(category,nameProduct,descriptionProduct,dateCreationProduct) VALUES (?,?,?,NOW())");
         $req->execute(array(
@@ -142,7 +143,7 @@ class ProductManager
             $product->nameProduct(),
             $product->descriptionProduct(),
         ));
-        $data = $req->fetch(PDO::FETCH_ASSOC);
+        $data = $req->fetch(\PDO::FETCH_ASSOC);
         return $data;
         $data->closeCursor();
     }
@@ -150,8 +151,8 @@ class ProductManager
     {
         $req = $this->_db->query('SELECT * FROM products ORDER BY dateCreationProduct DESC ');
         $readProduct = [];
-        while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
-            $readProduct[] = new ProductCreation($data);
+        while ($data = $req->fetch(\PDO::FETCH_ASSOC)) {
+            $readProduct[] = new \CYC\Projet5\model\entities\Product\ProductCreation($data);
         }
         return $readProduct;
         $readProduct->closeCursor();
@@ -160,8 +161,8 @@ class ProductManager
     {
         $req = $this->_db->query('SELECT * FROM `products` WHERE category = "roulette" ORDER BY id DESC LIMIT 0,6');
         $readCastorProduct = [];
-        while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
-            $readCastorProduct[] = new ProductCreation($data);
+        while ($data = $req->fetch(\PDO::FETCH_ASSOC)) {
+            $readCastorProduct[] = new \CYC\Projet5\model\entities\Product\ProductCreation($data);
         }
         return $readCastorProduct;
         $readCastorProduct->closeCursor();
@@ -170,8 +171,8 @@ class ProductManager
     {
         $req = $this->_db->query('SELECT * FROM `products` WHERE category = "caisse" ORDER BY id DESC LIMIT 0,6');
         $readCratesProduct = [];
-        while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
-            $readCratesProduct[] = new ProductCreation($data);
+        while ($data = $req->fetch(\PDO::FETCH_ASSOC)) {
+            $readCratesProduct[] = new \CYC\Projet5\model\entities\Product\ProductCreation($data);
         }
         return $readCratesProduct;
         $readCratesProduct->closeCursor();
@@ -180,8 +181,8 @@ class ProductManager
     {
         $req = $this->_db->query('SELECT * FROM `products` WHERE category = "étagère" ORDER BY id DESC LIMIT 0,6');
         $readEtagereProduct = [];
-        while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
-            $readEtagereProduct[] = new ProductCreation($data);
+        while ($data = $req->fetch(\PDO::FETCH_ASSOC)) {
+            $readEtagereProduct[] = new \CYC\Projet5\model\entities\Product\ProductCreation($data);
         }
         return $readEtagereProduct;
         $readEtagereProduct->closeCursor();
@@ -190,8 +191,8 @@ class ProductManager
     {
         $req = $this->_db->query('SELECT * FROM `products` WHERE category = "chaise" ORDER BY id DESC LIMIT 0,6');
         $readChairProduct = [];
-        while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
-            $readChairProduct[] = new ProductCreation($data);
+        while ($data = $req->fetch(\PDO::FETCH_ASSOC)) {
+            $readChairProduct[] = new \CYC\Projet5\model\entities\Product\ProductCreation($data);
         }
         return $readChairProduct;
         $readChairProduct->closeCursor();
@@ -200,8 +201,8 @@ class ProductManager
     {
         $req = $this->_db->query('SELECT * FROM `products` WHERE category = "table" ORDER BY id DESC LIMIT 0,6');
         $readTableProduct = [];
-        while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
-            $readTableProduct[] = new ProductCreation($data);
+        while ($data = $req->fetch(\PDO::FETCH_ASSOC)) {
+            $readTableProduct[] = new \CYC\Projet5\model\entities\Product\ProductCreation($data);
         }
         return $readTableProduct;
         $readTableProduct->closeCursor();
@@ -210,8 +211,8 @@ class ProductManager
     {
         $req = $this->_db->query('SELECT * FROM `products` WHERE category = "commode" ORDER BY id DESC LIMIT 0,6');
         $readChestProduct = [];
-        while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
-            $readChestProduct[] = new ProductCreation($data);
+        while ($data = $req->fetch(\PDO::FETCH_ASSOC)) {
+            $readChestProduct[] = new \CYC\Projet5\model\entities\Product\ProductCreation($data);
         }
         return $readChestProduct;
         $readChestProduct->closeCursor();
@@ -220,8 +221,8 @@ class ProductManager
     {
         $req = $this->_db->query('SELECT * FROM `products` WHERE category = "buffet" ORDER BY id DESC LIMIT 0,6');
         $readBuffetProduct = [];
-        while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
-            $readBuffetProduct[] = new ProductCreation($data);
+        while ($data = $req->fetch(\PDO::FETCH_ASSOC)) {
+            $readBuffetProduct[] = new \CYC\Projet5\model\entities\Product\ProductCreation($data);
         }
         return $readBuffetProduct;
         $readBuffetProduct->closeCursor();
@@ -230,8 +231,8 @@ class ProductManager
     {
         $req = $this->_db->query('SELECT * FROM `products` WHERE category = "armoire" ORDER BY id DESC LIMIT 0,6');
         $readCabinetProduct = [];
-        while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
-            $readCabinetProduct[] = new ProductCreation($data);
+        while ($data = $req->fetch(\PDO::FETCH_ASSOC)) {
+            $readCabinetProduct[] = new \CYC\Projet5\model\entities\Product\ProductCreation($data);
         }
         return $readCabinetProduct;
         $readCabinetProduct->closeCursor();
@@ -240,8 +241,8 @@ class ProductManager
     {
         $req = $this->_db->query('SELECT * FROM `products` WHERE category = "mur" ORDER BY id DESC LIMIT 0,6');
         $readWallProduct = [];
-        while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
-            $readWallProduct[] = new ProductCreation($data);
+        while ($data = $req->fetch(\PDO::FETCH_ASSOC)) {
+            $readWallProduct[] = new \CYC\Projet5\model\entities\Product\ProductCreation($data);
         }
         return $readWallProduct;
         $readWallProduct->closeCursor();
@@ -260,13 +261,13 @@ class ProductManager
             $id
         ));
         $productEdit = [];
-        while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
-            $productEdit[] = new ProductCreation($data);
+        while ($data = $req->fetch(\PDO::FETCH_ASSOC)) {
+            $productEdit[] = new \CYC\Projet5\model\entities\Product\ProductCreation($data);
         }
         return $productEdit;
         $productEdit->closeCursor();
     }
-    public function updateProduct(ProductCreation $updateId)
+    public function updateProduct(\CYC\Projet5\model\entities\Product\ProductCreation $updateId)
     {
         $req = $this->_db->prepare("UPDATE products SET  descriptionProduct = :descriptionProduct, category = :category WHERE id = :id");
         $req->execute(array(
@@ -289,8 +290,8 @@ class ProductManager
             $_SESSION['msg_type'] = "success";
 
             $readSearchProduct = [];
-            while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
-                $readSearchProduct[] = new ProductCreation($data);
+            while ($data = $req->fetch(\PDO::FETCH_ASSOC)) {
+                $readSearchProduct[] = new \CYC\Projet5\model\entities\Product\ProductCreation($data);
             }
         } else {
             $_SESSION['message'] = "0 résultat trouvé pour $search";

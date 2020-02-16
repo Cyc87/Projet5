@@ -1,5 +1,7 @@
 <?php
 
+namespace CYC\Projet5\controller\FrontEndController;
+
 
     function home(){
         
@@ -8,7 +10,7 @@
     
     function crates(){
 
-        $readManager = new ProductManager();       
+        $readManager = new \CYC\Projet5\model\manager\ProductManager\ProductManager();       
         $readCratesProduct = $readManager->readCratesProduct();
 
     include("view/home/menu/menuHome/beautifullCrates/crates.php");
@@ -16,56 +18,56 @@
     function castor()
     {
         
-        $readManager = new ProductManager();
+        $readManager = new \CYC\Projet5\model\manager\ProductManager\ProductManager();
         $readCastorProduct = $readManager->readCastorProduct();
 
         include("view/home/menu/menuHome/beautifullCrates/castor.php");
     }
     function etageres()
     {
-        $readManager = new ProductManager();
+        $readManager = new \CYC\Projet5\model\manager\ProductManager\ProductManager();
         $readEtagereProduct = $readManager->readEtagereProduct();
 
         include("view/home/menu/menuHome/beautifullCrates/etageres.php");
     }
     function chair()
     {
-        $readManager = new ProductManager();
+        $readManager = new \CYC\Projet5\model\manager\ProductManager\ProductManager();
         $readChairProduct = $readManager->readChairProduct();
 
         include("view/home/menu/menuHome/beautifullFurnitures/chair.php");
     }
     function table()
     {
-        $readManager = new ProductManager();
+        $readManager = new \CYC\Projet5\model\manager\ProductManager\ProductManager();
         $readTableProduct = $readManager->readTableProduct();
 
         include("view/home/menu/menuHome/beautifullFurnitures/table.php");
     }
     function chest()
     {
-        $readManager = new ProductManager();
+        $readManager = new \CYC\Projet5\model\manager\ProductManager\ProductManager();
         $readChestProduct = $readManager->readChestProduct();
 
         include("view/home/menu/menuHome/beautifullFurnitures/chest.php");
     }
     function buffet()
     {
-        $readManager = new ProductManager();
+        $readManager = new \CYC\Projet5\model\manager\ProductManager\ProductManager();
         $readBuffetProduct = $readManager->readBuffetProduct();
 
         include("view/home/menu/menuHome/beautifullFurnitures/buffet.php");
     }
     function cabinet()
     {
-        $readManager = new ProductManager();
+        $readManager = new \CYC\Projet5\model\manager\ProductManager\ProductManager();
         $readCabinetProduct = $readManager->readCabinetProduct();
 
         include("view/home/menu/menuHome/beautifullFurnitures/cabinet.php");
     }
     function wall()
     {
-        $readManager = new ProductManager();
+        $readManager = new \CYC\Projet5\model\manager\ProductManager\ProductManager();
         $readWallProduct = $readManager->readWallProduct();
 
         include("view/home/menu/menuHome/beautifullFurnitures/wall.php");
@@ -138,8 +140,7 @@
     
     function beautifullCrates()
     {
-        $readManager = new ProductManager();
-        
+        $readManager = new \CYC\Projet5\model\manager\ProductManager\ProductManager();
         $readCount = $readManager->countProduct();
         $readAllBeautifulCratesProduct = $readManager->readAllBeautifulCratesProduct();
         
@@ -147,7 +148,7 @@
     }
     function beautifullWall()
     {
-        $readManager = new ProductManager();
+        $readManager = new \CYC\Projet5\model\manager\ProductManager\ProductManager();
         
       
         $readAllBeautifullWallProduct = $readManager->readAllBeautifullWallProduct();
@@ -156,7 +157,7 @@
     }
     function fineFurnishing()
     {
-        $readManager = new ProductManager();
+        $readManager = new \CYC\Projet5\model\manager\ProductManager\ProductManager();
         
         $readAllFineFurnishingProduct = $readManager->readAllFineFurnishingProduct();
 
@@ -174,7 +175,7 @@
 
             if(isset($search) && !empty($search)){
 
-                $readManager = new ProductManager();
+                $readManager = new \CYC\Projet5\model\manager\ProductManager\ProductManager();
                 $readSearchProduct = $readManager->readSearchProduct($search,$readSearchProduct);
             
             }else{

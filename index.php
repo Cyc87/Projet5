@@ -13,69 +13,70 @@
 
     
     
+    
     $readSearchProduct="";
     
 
         if(isset($_GET['action'])){
             if($_GET['action'] == "home"){
-                home();
+                CYC\Projet5\controller\FrontEndController\home();
             }else if($_GET['action'] == "login"){
-                login();
+                CYC\Projet5\controller\backEndController\login();
             }else if($_GET['action'] == "admin"){
-                admin();
+                CYC\Projet5\controller\backEndController\admin();
             }else if($_GET['action'] == "productManagement"){
-                productManagement();
+                CYC\Projet5\controller\backEndController\productManagement();
             }else if($_GET['action'] == "updateProduct"){
-                updateProduct();
+                CYC\Projet5\controller\backEndController\updateProduct();
             }else if($_GET['action'] == "beautifullCrates"){
-                beautifullCrates();
+                CYC\Projet5\controller\FrontEndController\beautifullCrates();
             } else if ($_GET['action'] == "fineFurnishing") {
-                fineFurnishing();
+                CYC\Projet5\controller\FrontEndController\fineFurnishing();
             }else if($_GET['action'] == "deconnexion"){
-                deconnexion();
+                CYC\Projet5\controller\backEndController\deconnexion();
             }else if($_GET['action'] == "creationAccount"){
-                creationAccount();
+                CYC\Projet5\controller\backEndController\creationAccount();
             }else if($_GET['action'] == "contact"){
-                contact();  
+                CYC\Projet5\controller\FrontEndController\contact();  
             } else if ($_GET['action'] == "legalNotice") {
-            legalNotice();
+                CYC\Projet5\controller\FrontEndController\legalNotice();
             }else if($_GET['action'] == "about"){
-                about();
+                CYC\Projet5\controller\FrontEndController\about();
             }else if($_GET['action'] == "univers"){
-                univers();
+                CYC\Projet5\controller\FrontEndController\univers();
             }else if($_GET['action'] == "crates"){
-                crates();
+                CYC\Projet5\controller\FrontEndController\crates();
             }else if($_GET['action'] == "castor"){
-                castor();
+                CYC\Projet5\controller\FrontEndController\castor();
             }else if($_GET['action'] == "chair"){
-                chair();
+                CYC\Projet5\controller\FrontEndController\chair();
             }else if($_GET['action'] == "table"){
-                table();
+                CYC\Projet5\controller\FrontEndController\table();
             }else if($_GET['action'] == "chest"){
-                chest();
+                CYC\Projet5\controller\FrontEndController\chest();
             }else if($_GET['action'] == "buffet"){
-                buffet();
+                CYC\Projet5\controller\FrontEndController\buffet();
             }else if($_GET['action'] == "cabinet"){
-                cabinet();
+                CYC\Projet5\controller\FrontEndController\cabinet();
             }else if($_GET['action'] == "etageres"){
-                etageres();
+                CYC\Projet5\controller\FrontEndController\etageres();
             }else if($_GET['action'] == "makeoverFurniture"){
-                makeoverFurniture();
+                CYC\Projet5\controller\FrontEndController\makeoverFurniture();
             }else if($_GET['action'] == "decorationBoard"){
-                decorationBoard();
+                CYC\Projet5\controller\FrontEndController\decorationBoard();
             }else if($_GET['action'] == "salePainting"){
-                salePainting();
+                CYC\Projet5\controller\FrontEndController\salePainting();
             }else if($_GET['action'] == "creativeAisles"){
-                creativeAisles();
+                CYC\Projet5\controller\FrontEndController\creativeAisles();
             } else if ($_GET['action'] == "beautifullWall") {
-                beautifullWall();
+                CYC\Projet5\controller\FrontEndController\beautifullWall();
             }else if ($_GET['action'] == "wall") {
-                wall();
+                CYC\Projet5\controller\FrontEndController\wall();
             }else if ($_GET['action'] == "search") {
-                search($readSearchProduct);
+                CYC\Projet5\controller\FrontEndController\search($readSearchProduct);
             }else{
-                pageError();
+                CYC\Projet5\controller\FrontEndController\pageError();
             }
         }else{
-            home();
+            CYC\Projet5\controller\FrontEndController\home();
         }

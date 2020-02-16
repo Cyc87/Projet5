@@ -1,5 +1,7 @@
 <?php
 
+namespace CYC\Projet5\model\entities\Product;
+
     class ProductCreation{
 
         private $_id;

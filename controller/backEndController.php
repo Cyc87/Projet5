@@ -1,5 +1,7 @@
 <?php
 
+namespace CYC\Projet5\controller\backEndController;
+
 function login(){
 
     if (isset($_SESSION['user'])) {
@@ -10,7 +12,7 @@ function login(){
 
             $name="";
 
-            $accountManager = new AccountManager();       
+            $accountManager = new \CYC\Projet5\model\managers\AccountManager\AccountManager();       
             $data = $accountManager->getByUserName($name);
          
             if ($data) {  
@@ -36,7 +38,7 @@ function admin(){
             exit();
     }
     
-    $accountManager = new AccountManager();       
+    $accountManager = new \CYC\Projet5\model\managers\AccountManager\AccountManager();       
     $data = $accountManager->sessionUser($_SESSION['user']);
     
     include("view/admin/admin.php");   
@@ -82,13 +84,13 @@ function productManagement(){
                             
                             move_uploaded_file($_FILES['userfile']['tmp_name'] ,$img_dir);
                             
-                            $product = new ProductCreation([
+                            $product = new \CYC\Projet5\model\entities\Product\ProductCreation([
                                 "nameProduct" => $img_dir,
                                 "category" =>  $title,
                                 "descriptionProduct" => $description
                             ]);
     
-                            $productManager = new ProductManager();
+                            $productManager = new \CYC\Projet5\model\manager\ProductManager\ProductManager();
                             $productManager->addProductCreation($product);
                         
                             $_SESSION['message'] = "Votre image est enregistrée !";
@@ -115,14 +117,14 @@ function productManagement(){
         } 
     }
     
-    $readManager = new ProductManager();       
+    $readManager = new \CYC\Projet5\model\manager\ProductManager\ProductManager();       
     $readProduct = $readManager->readAllProduct();
 
     if(isset($_GET['id'])){
 
         $deleteId = htmlspecialchars($_GET['id']);
         
-        $deleteProduct = new ProductManager();
+        $deleteProduct = new \CYC\Projet5\model\manager\ProductManager\ProductManager();
         $deleteProduct->deleteProduct($deleteId);
 
         $_SESSION['message'] = "Image supprimée !";
@@ -140,7 +142,7 @@ function updateProduct(){
     $updateId = htmlspecialchars($_GET['id']);
     
 
-    $updateManager = new ProductManager();       
+    $updateManager = new \CYC\Projet5\model\manager\ProductManager\ProductManager();       
     $updateProduct = $updateManager->editProduct($updateId);
     
         if (isset($_POST['update'])) {
@@ -149,9 +151,9 @@ function updateProduct(){
             $title = htmlspecialchars($_POST['category']);
             $modifId = htmlspecialchars($_GET['id']);
            
-            $productManager = new ProductManager();
+            $productManager = new \CYC\Projet5\model\manager\ProductManager\ProductManager();
             
-            $productUpdate = new ProductCreation([
+            $productUpdate = new \CYC\Projet5\model\entities\Product\ProductCreation([
                 'category'=> $title,
                 'descriptionProduct' => $descriptionProduct,
                 'id' => $modifId,  
@@ -200,7 +202,7 @@ function creationAccount(){
         }
         if(!empty($_POST['mail']))
         {
-            $accountManager = new AccountManager();       
+            $accountManager = new \CYC\Projet5\model\managers\AccountManager\AccountManager();       
             $data = $accountManager->getByMail($mail);
             
             if($data == true)
@@ -220,7 +222,7 @@ function creationAccount(){
         {
             $password1 = password_hash($password1, PASSWORD_DEFAULT);
             
-            $users = new AccountCreation([
+            $users = new \CYC\Projet5\model\entities\Account\AccountCreation([
                 "username" => $name,
                 "password1" => $password1,
                 "mail" => $mail

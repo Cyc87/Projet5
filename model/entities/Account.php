@@ -1,6 +1,9 @@
 <?php
 
-    class AccountCreation{
+namespace CYC\Projet5\model\entities\Account;
+
+
+class AccountCreation{
         
         private $_id;
         private $_userName;
